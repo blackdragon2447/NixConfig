@@ -1,7 +1,11 @@
-{ pkgs, lib, config, ...}: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
-    pipewire.enable = lib.mkEnableOption "enables pipewire";    
+    pipewire.enable = lib.mkEnableOption "enables pipewire";
   };
 
   config = lib.mkIf config.pipewire.enable {

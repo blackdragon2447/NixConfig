@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
-
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     kdeconnect.enable = lib.mkEnableOption "Enable KdeConnect";
   };
@@ -11,12 +14,12 @@
       "org.kde.kdeconnect.sms" = {
         exec = "";
         name = "KDE Connect SMS";
-	settings.NoDisplay = "true";
+        settings.NoDisplay = "true";
       };
       "org.kde.kdeconnect.nonplasma" = {
-	exec = "";
-	name = "KDE Connect Indicator";
-	settings.NoDisplay = "true";
+        exec = "";
+        name = "KDE Connect Indicator";
+        settings.NoDisplay = "true";
       };
     };
 
@@ -24,7 +27,5 @@
       enable = true;
       indicator = true;
     };
-
   };
-
 }

@@ -1,4 +1,9 @@
-{ inputs, lib, pkgs, ... }: let
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (inputs.nix-colors) colorSchemes;
 in {
   imports = [
@@ -17,7 +22,7 @@ in {
   discord.enable = true;
   kdeconnect.enable = true;
 
-  #neovim.enable = true;
+  neovim.enable = true;
 
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

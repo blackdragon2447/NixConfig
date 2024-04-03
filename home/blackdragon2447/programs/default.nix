@@ -1,6 +1,10 @@
-{ pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
-    ./cli    
+    ./cli
     ./desktop
     ./neovim
   ];

@@ -1,5 +1,9 @@
-{ pkgs, lib, config, ... }:
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     thunderbird.enable = lib.mkEnableOption "Enable Thunderbird";
   };
@@ -8,7 +12,6 @@
     programs.thunderbird = {
       enable = true;
       # Todo config ?
-    };    
+    };
   };
-
 }

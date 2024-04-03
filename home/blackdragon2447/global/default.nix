@@ -1,21 +1,28 @@
-{ inputs, lib, pkgs, config, outputs, ... }:
-let
-  inherit (inputs.nix-colors) colorSchemes;
-in
 {
-  imports = [
-    inputs.nix-colors.homeManagerModule
-  ] ++ (builtins.attrValues outputs.homeManagerModules);
+  inputs,
+  lib,
+  pkgs,
+  config,
+  outputs,
+  ...
+}: let
+  inherit (inputs.nix-colors) colorSchemes;
+in {
+  imports =
+    [
+      inputs.nix-colors.homeManagerModule
+    ]
+    ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs.config = {
     allowUnfree = true;
-    allowUnfreePredicate = (_: true);
+    allowUnfreePredicate = _: true;
   };
 
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
   };
 

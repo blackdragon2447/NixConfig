@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     git.enable = lib.mkEnableOption "Enable git options";
   };
@@ -9,9 +14,9 @@
       userName = "BlackDragon2447";
       userEmail = "blackdragon2447@e.email";
       extraConfig = {
-	commit.gpgsign = true;
-	gpg.program = "${config.programs.gpg.package}/bin/gpg2";
-	init.defaultBranch = "main";
+        commit.gpgsign = true;
+        gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+        init.defaultBranch = "main";
       };
     };
   };

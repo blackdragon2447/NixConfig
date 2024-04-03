@@ -1,6 +1,11 @@
-{ pkgs, inputs, lib, ...}: {
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
-    ./fish.nix    
+    ./fish.nix
     ./locale.nix
     ./nix.nix
 
@@ -8,7 +13,7 @@
   ];
 
   pipewire.enable = lib.mkDefault true;
-  
+
   programs.dconf.enable = true;
 
   nixpkgs = {
@@ -23,6 +28,4 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="1050", ATTR{idProduct}=="0407", ENV{ID_SECURITY_TOKEN}="1", GROUP="wheel"
   '';
-
-
 }

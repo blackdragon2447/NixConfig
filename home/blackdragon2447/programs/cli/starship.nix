@@ -1,25 +1,27 @@
-{ pkgs, lib, config, ... }: {
-
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   options = {
     starship.enable = lib.mkEnableOption "Enable starship options";
   };
 
   config = lib.mkIf config.starship.enable {
-
     programs.starship = {
-
       enable = true;
 
       settings = {
         git_branch.symbol = " ";
         java.symbol = " ";
-	gradle.symbol = " ";
+        gradle.symbol = " ";
         rust.symbol = " ";
         lua.symbol = "󰢱 ";
         php.symbol = "󰌟 ";
         package.symbol = "󰏗 ";
-	sudo = {
-	  symbol = "󰞄 ";
+        sudo = {
+          symbol = "󰞄 ";
           disabled = false;
         };
         python.symbol = " ";

@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{pkgs, ...}: {
   imports = [
     ./firefox.nix
     ./discord.nix
@@ -14,12 +14,12 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+    extraPortals = [pkgs.xdg-desktop-portal-wlr];
     config = {
       common = {
-	default = [
-	  "wlr"
-	];
+        default = [
+          "wlr"
+        ];
       };
     };
   };
