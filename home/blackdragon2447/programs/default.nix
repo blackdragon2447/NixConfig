@@ -7,5 +7,6 @@
     ./cli
     ./desktop
     ./neovim
+    ./wm
   ];
 }

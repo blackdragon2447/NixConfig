@@ -14,9 +14,15 @@ in {
     ]
     ++ (builtins.attrValues outputs.homeManagerModules);
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.additions
+    ];
+
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = _: true;
+    };
   };
 
   nix = {

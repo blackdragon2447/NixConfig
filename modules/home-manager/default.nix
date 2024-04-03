@@ -3,7 +3,8 @@
 {inputs}: {
   # List your module files here
   # my-module = import ./my-module.nix;
-  # shellcolor = import ./shellcolor.nix;
+  shellcolor = import ./shellcolor.nix;
   fonts = import ./fonts.nix;
   nixvim = inputs.nixvim.homeManagerModules.nixvim;
+  nix-colors = inputs.nix-colors.homeManagerModules.default;
 }

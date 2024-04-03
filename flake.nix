@@ -38,15 +38,15 @@
     inherit (self) outputs;
     lib = nixpkgs.lib // home-manager.lib;
     system = "x86_64-linux";
-    packages = import nixpkgs {
+    pkgs = import nixpkgs {
       inherit system;
-      config.allowUnfree = true;
     };
+    packages = import ./pkgs {inherit pkgs;};
   in {
     inherit packages;
-    formatter.${system} = packages.alejandra;
+    formatter.${system} = pkgs.alejandra;
 
-    overlays = import ./overlays {inherit inputs;};
+    overlays = import ./overlays {inherit inputs outputs;};
     nixosModules = import ./modules/nixos;
     homeManagerModules = import ./modules/home-manager {inherit inputs;};
 
@@ -61,7 +61,7 @@
 
     homeConfigurations = {
       "blackdragon2447@wyvern" = lib.homeManagerConfiguration {
-        pkgs = packages; # Home-manager requires 'pkgs' instance
+        pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
           pkgs-stable = import nixpkgs-stable {
