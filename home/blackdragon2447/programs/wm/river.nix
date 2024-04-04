@@ -96,7 +96,7 @@ in {
               {
                 modifiers = ["Super"];
                 key = "P";
-                action = "spawn 'rofi -modi dmenu -show dmenu'";
+                action = "spawn 'rofi -modi drun -show drun'";
                 # TODO Custom scripts
               }
               {
