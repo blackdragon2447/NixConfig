@@ -57,6 +57,12 @@
           ./hosts/wyvern
         ];
       };
+      dragon = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/dragon
+        ];
+      };
     };
 
     homeConfigurations = {
@@ -72,6 +78,20 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/blackdragon2447/wyvern.nix
+        ];
+      };
+      "blackdragon2447@dragon" = lib.homeManagerConfiguration {
+        pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+          inherit inputs outputs;
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        };
+        modules = [
+          # > Our main home-manager configuration file <
+          ./home/blackdragon2447/dragon.nix
         ];
       };
     };

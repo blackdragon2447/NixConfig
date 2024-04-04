@@ -25,7 +25,7 @@ in {
   };
 
   config = lib.mkIf config.riverwm.enable {
-    home.packages = with pkgs; ([river-bnf]
+    home.packages = with pkgs; ([river-bnf rofi]
       ++ (
         if config.riverwm.audioControls
         then [pamixer]
@@ -53,9 +53,11 @@ in {
       };
 
       settings = {
-        border-color-focused = colors.base02;
-        border-color-unfocused = colors.base08;
-        background-color = colors.base00;
+        border-color-focused = "0x" + colors.base08;
+        border-color-unfocused = "0x" + colors.base02;
+        background-color = "0x" + colors.base00;
+
+        focus-follows-cursor = "normal";
 
         set-repeat = "50 300";
 
@@ -79,7 +81,7 @@ in {
               {
                 modifiers = ["Super" "Shift"];
                 key = "Q";
-                action = "Exit";
+                action = "exit";
               }
               {
                 modifiers = ["Super"];
@@ -189,7 +191,7 @@ in {
               }
               {
                 modifiers = ["Super" "Shift"];
-                key = "Left";
+                key = "Right";
                 action = "send-layout-cmd rivertile \"main-ration +0.05\"";
               }
               {
@@ -299,6 +301,7 @@ in {
           "-app-id" = ["\"bar\" csd" "\"*\" ssd"];
         };
 
+        # FIXME: This is wyvern's not global
         input = {
           "pointer-2362-628-PIXA3854:00_093A:0274_Touchpad" = {
             tap = "enabled";
@@ -308,7 +311,7 @@ in {
       };
 
       extraConfig = ''
-        rivertile -view-padding 6 -outer-padding 6 &amp;
+        rivertile -view-padding 6 -outer-padding 6 &
       '';
     };
   };

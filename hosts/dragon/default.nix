@@ -1,11 +1,12 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-
+    
     ../common/users
     ../common
   ];
@@ -13,7 +14,18 @@
   networking = {
     networkmanager.enable = true;
 
-    hostName = "wyvern";
+    hostName = "dragon";
+  };
+
+  # tmp hack
+
+  users.users.blackdragon2447 = {
+    extraGroups = [ "wheel" "users" ];
+    group = "blackdragon2447";
+  };
+
+  users.groups.blackdragon2447 = {
+    gid = 984;
   };
 
   boot = {
@@ -24,9 +36,6 @@
     opengl.enable = true;
   };
 
-  services.openssh = {
-    enable = true;
-  };
+  system.stateVersion = "23.11";
 
-  system.stateVersion = "23.11"; # Did you read the comment?
 }
