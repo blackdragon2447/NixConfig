@@ -187,12 +187,12 @@ in {
               {
                 modifiers = ["Super" "Shift"];
                 key = "Left";
-                action = "send-layout-cmd rivertile \"main-ration -0.05\"";
+                action = "send-layout-cmd rivertile \"main-ratio -0.05\"";
               }
               {
                 modifiers = ["Super" "Shift"];
                 key = "Right";
-                action = "send-layout-cmd rivertile \"main-ration +0.05\"";
+                action = "send-layout-cmd rivertile \"main-ratio +0.05\"";
               }
               {
                 modifiers = ["Super" "Control"];
@@ -297,9 +297,11 @@ in {
           ];
         };
 
-        rule-add = {
+        /*
+           rule-add = {
           "-app-id" = ["\"bar\" csd" "\"*\" ssd"];
         };
+        */
 
         # FIXME: This is wyvern's not global
         input = {
@@ -312,6 +314,7 @@ in {
 
       extraConfig = ''
         rivertile -view-padding 6 -outer-padding 6 &
+        riverctl send-layout-cmd rivertile "main-ratio 0.5"
       '';
     };
   };

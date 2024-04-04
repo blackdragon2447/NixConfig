@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    
+
     ../common/users
     ../common
   ];
@@ -20,7 +20,7 @@
   # tmp hack
 
   users.users.blackdragon2447 = {
-    extraGroups = [ "wheel" "users" ];
+    extraGroups = ["wheel" "users"];
     group = "blackdragon2447";
   };
 
@@ -37,5 +37,4 @@
   };
 
   system.stateVersion = "23.11";
-
 }

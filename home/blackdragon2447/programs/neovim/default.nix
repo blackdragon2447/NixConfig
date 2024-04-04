@@ -23,7 +23,7 @@
         globals.mapleader = " ";
         globals.maplocalleader = " ";
 
-        luaLoader.enable =false;
+        luaLoader.enable = false;
 
         # Functions and such wich are needed elsewhere
         extraConfigLuaPre = ''
