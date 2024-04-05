@@ -9,5 +9,6 @@
     ./neovim
     ./wm
     ./shell
+    ./devenvs
   ];
 }

@@ -41,6 +41,11 @@ in {
     };
   };
 
+  devenvs = {
+    nix.enable = true;
+    tex.enable = true;
+  };
+
   # colorscheme = lib.mkDefault colorSchemes.spaceduck;
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }
