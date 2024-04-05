@@ -12,19 +12,25 @@ in {
     inputs.nix-colors.homeManagerModule
   ];
 
-  fish.enable = true;
-  git.enable = true;
-  gpg.enable = true;
-  starship.enable = true;
+  cli = {
+    fish.enable = true;
+    git.enable = true;
+    gpg.enable = true;
+    starship.enable = true;
+  };
 
-  firefox.enable = true;
-  firefox.browserpass = false;
-  discord.enable = true;
-  kdeconnect.enable = true;
+  desktop = {
+    firefox.enable = true;
+    firefox.browserpass = false;
+    discord.enable = true;
+    kdeconnect.enable = true;
+  };
 
   neovim.enable = true;
 
-  riverwm.enable = true;
+  wm = {
+    riverwm.enable = true;
+  };
 
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

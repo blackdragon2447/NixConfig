@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    nheko.enable = lib.mkEnableOption "Enable Nheko";
+    desktop.nheko.enable = lib.mkEnableOption "Enable Nheko";
   };
 
-  config = lib.mkIf config.nheko.enable {
+  config = lib.mkIf config.desktop.nheko.enable {
     programs.nheko = {
       enable = true;
       # TODO Config

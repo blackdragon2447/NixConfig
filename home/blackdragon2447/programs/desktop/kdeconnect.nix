@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    kdeconnect.enable = lib.mkEnableOption "Enable KdeConnect";
+    desktop.kdeconnect.enable = lib.mkEnableOption "Enable KdeConnect";
   };
 
-  config = lib.mkIf config.kdeconnect.enable {
+  config = lib.mkIf config.desktop.kdeconnect.enable {
     # Hide all .desktop, except for org.kde.kdeconnect.settings
     xdg.desktopEntries = {
       "org.kde.kdeconnect.sms" = {

@@ -18,22 +18,24 @@
     else 1;
 in {
   options = {
-    riverwm.enable = lib.mkEnableOption "Enable RiverWM";
-    riverwm.audioControls = lib.mkEnableOption "Enable audio control keybinds";
-    riverwm.playerControls = lib.mkEnableOption "Enable player control keybinds";
-    riverwm.brightnessControls = lib.mkEnableOption "Enable brightness control keybinds";
+    wm = {
+      riverwm.enable = lib.mkEnableOption "Enable RiverWM";
+      riverwm.audioControls = lib.mkEnableOption "Enable audio control keybinds";
+      riverwm.playerControls = lib.mkEnableOption "Enable player control keybinds";
+      riverwm.brightnessControls = lib.mkEnableOption "Enable brightness control keybinds";
+    };
   };
 
-  config = lib.mkIf config.riverwm.enable {
+  config = lib.mkIf config.wm.riverwm.enable {
     home.packages = with pkgs; (
       [river-bnf rofi]
       ++ (
-        if config.riverwm.audioControls
+        if config.wm.riverwm.audioControls
         then [pamixer]
         else []
       )
       ++ (
-        if config.riverwm.playerControls
+        if config.wm.riverwm.playerControls
         then [playerctl]
         else []
       )
@@ -197,7 +199,7 @@ in {
               }
             ]
             ++ keybinds (
-              if config.riverwm.audioControls
+              if config.wm.riverwm.audioControls
               then [
                 {
                   key = "XF86AudioRaiseVolume";
@@ -215,7 +217,7 @@ in {
               else []
             )
             ++ keybinds (
-              if config.riverwm.playerControls
+              if config.wm.riverwm.playerControls
               then [
                 {
                   key = "XF86AudioMedia";
@@ -237,7 +239,7 @@ in {
               else []
             )
             ++ keybinds (
-              if config.riverwm.brightnessControls
+              if config.wm.riverwm.brightnessControls
               then [
                 {
                   key = "XF86MonBrightnessUp";
@@ -299,13 +301,19 @@ in {
         };
       };
 
-      extraConfig = ''
-        rivertile -view-padding 6 -outer-padding 6 &
-        riverctl send-layout-cmd rivertile "main-ratio 0.5"
-      '' + (if config.waybar.enable then ''
-        waybar &
-      '' else ''
-      '');
+      extraConfig =
+        ''
+          rivertile -view-padding 6 -outer-padding 6 &
+          riverctl send-layout-cmd rivertile "main-ratio 0.5"
+        ''
+        + (
+          if config.shell.waybar.enable
+          then ''
+            waybar &
+          ''
+          else ''
+          ''
+        );
     };
   };
 }

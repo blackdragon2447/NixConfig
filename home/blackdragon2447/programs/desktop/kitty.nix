@@ -6,10 +6,10 @@
   inherit (config.colorscheme) colors;
 in {
   options = {
-    kitty.enable = lib.mkEnableOption "Enable the kitty terminal";
+    desktop.kitty.enable = lib.mkEnableOption "Enable the kitty terminal";
   };
 
-  config = lib.mkIf config.kitty.enable {
+  config = lib.mkIf config.desktop.kitty.enable {
     programs.kitty = {
       enable = true;
 

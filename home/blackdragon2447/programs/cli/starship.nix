@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    starship.enable = lib.mkEnableOption "Enable starship options";
+    cli.starship.enable = lib.mkEnableOption "Enable starship options";
   };
 
-  config = lib.mkIf config.starship.enable {
+  config = lib.mkIf config.cli.starship.enable {
     programs.starship = {
       enable = true;
 

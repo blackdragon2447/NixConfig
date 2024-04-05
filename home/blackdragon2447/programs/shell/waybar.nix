@@ -7,29 +7,30 @@
   inherit (config.colorscheme) colors;
 in {
   options = {
-    # shell.
-    waybar.enable = lib.mkEnableOption "enable waybar";
-    waybar.network-interface = lib.mkOption {
-      default = "wlan0";
-      defaultText = "wlan0";
-      description = "The network interface waybar should use for displaying network info";
+    shell = {
+      waybar.enable = lib.mkEnableOption "enable waybar";
+      waybar.network-interface = lib.mkOption {
+        default = "wlan0";
+        defaultText = "wlan0";
+        description = "The network interface waybar should use for displaying network info";
+      };
     };
   };
 
-  config = lib.mkIf config.waybar.enable {
+  config = lib.mkIf config.shell.waybar.enable {
     programs.waybar = {
       enable = true;
 
       settings = {
         mainbar = {
           modules-left = ["river/tags" "river/window"];
-          modules-center =  ["clock"  ];
+          modules-center = ["clock"];
           modules-right = ["memory" "cpu" "wireplumber" "battery" "network"];
 
           "river/window".max-length = 50;
 
           network = {
-            interface = config.waybar.network-interface;
+            interface = config.shell.waybar.network-interface;
             format-wifi = "  {ifname} {essid} {ipaddr}";
             format-disconnected = "  {ifname} Disconnected";
             max-length = 50;
@@ -49,7 +50,6 @@ in {
           cpu.format = "  {usage}%";
           memory.format = "󰆼 {percentage}%";
         };
-
       };
 
       style = ''

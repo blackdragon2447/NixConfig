@@ -6,12 +6,14 @@
   ...
 }: {
   options = {
-    firefox.enable = lib.mkEnableOption "Enable Firefox";
-    firefox.browserpass = lib.mkOption {description = "Enable browserpass for firefox";};
+    desktop = {
+      firefox.enable = lib.mkEnableOption "Enable Firefox";
+      firefox.browserpass = lib.mkEnableOption "Enable browserpass for firefox";
+    };
   };
 
-  config = lib.mkIf config.firefox.enable {
-    programs.browserpass.enable = config.firefox.browserpass;
+  config = lib.mkIf config.desktop.firefox.enable {
+    programs.browserpass.enable = config.desktop.firefox.browserpass;
     programs.firefox = {
       enable = true;
 
@@ -112,7 +114,7 @@
             terms-of-service-didnt-read
           ]
           ++ (
-            if config.firefox.browserpass
+            if config.desktop.firefox.browserpass
             then [inputs.packages.${pkgs.system}.browserpass]
             else []
           );

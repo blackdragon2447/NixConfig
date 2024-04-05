@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    gpg.enable = lib.mkEnableOption "Enable gpg options";
+    cli.gpg.enable = lib.mkEnableOption "Enable gpg options";
   };
 
-  config = lib.mkIf config.gpg.enable {
+  config = lib.mkIf config.cli.gpg.enable {
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;

@@ -9,10 +9,10 @@
   hasPackage = name: lib.any (x: x == name) packageNames;
 in {
   options = {
-    fish.enable = lib.mkEnableOption "Enable fish options";
+    cli.fish.enable = lib.mkEnableOption "Enable fish options";
   };
 
-  config = lib.mkIf config.fish.enable {
+  config = lib.mkIf config.cli.fish.enable {
     programs.fish = {
       enable = true;
       shellAbbrs = {

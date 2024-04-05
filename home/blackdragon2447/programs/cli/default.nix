@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ./fish.nix
     ./bat.nix
@@ -16,4 +20,10 @@
     bat
     pfetch-rs
   ];
+
+  cli = {
+    fish.enable = lib.mkDefault true;
+    git.enable = lib.mkDefault true;
+  };
+  neovim.enable = lib.mkDefault true;
 }
