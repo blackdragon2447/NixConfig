@@ -14,7 +14,69 @@
     programs.browserpass.enable = config.firefox.browserpass;
     programs.firefox = {
       enable = true;
-      profiles.default-release = {
+
+      policies = {
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+        DisablePocket = true;
+        DisplayBookmarksToolbar = "always";
+        FirefoxHome = {
+          Search = true;
+          TopSites = false;
+          SponsoredTopSites = false;
+          Highlights = false;
+          Pocket = false;
+          SponsoredPocket = false;
+          Snippets = false;
+          Locked = false;
+        };
+        OfferToSaveLogins = false;
+      };
+
+      profiles.blackdragon2447 = {
+        isDefault = true;
+
+        search = {
+          default = "DuckDuckGo";
+          engines = {
+            "Nix Packages" = {
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@np"];
+            };
+            "Nix Options" = {
+              definedAliases = ["@no"];
+              urls = [
+                {
+                  template = "https://search.nixos.org/options";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
+          };
+        };
+
         extensions = with inputs.firefox-addons.packages.${pkgs.system};
           [
             ublock-origin
@@ -40,6 +102,12 @@
             then [inputs.packages.${pkgs.system}.browserpass]
             else []
           );
+
+        settings = {
+          "browser.download.panel.shown" = true;
+          "browser.download.useDownloadDir" = false;
+          "browser.compactmode.show" = true;
+        };
       };
     };
 

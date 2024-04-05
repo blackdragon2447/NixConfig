@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -12,8 +11,12 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Prevent MotherBoard from waking up the pc immediately after hibernate
+  powerManagement.powerDownCommands = ''
+    if (grep "GPP0.*enabled" /proc/acpi/wakeup >/dev/null); then
+        echo GPP0 | sudo tee /proc/acpi/wakeup
+    fi
+  '';
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = ["dm-snapshot"];

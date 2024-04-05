@@ -11,6 +11,14 @@
     ../common
   ];
 
+  pipewire.enable = true;
+
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    resumeDevice = "/dev/disk/by-uuid/add4601c-1c3c-4bfc-88d6-8eb10a9c9d6e";
+  };
+
   networking = {
     networkmanager.enable = true;
 
