@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   imports = [
     ./firefox.nix
     ./discord.nix
@@ -6,11 +6,10 @@
     ./thunderbird.nix
     ./nheko.nix
     ./theme.nix
+    ./kitty.nix
   ];
 
-  home.packages = with pkgs; [
-    kitty
-  ];
+  home.packages = with pkgs; [];
 
   xdg.portal = {
     enable = true;
@@ -23,4 +22,9 @@
       };
     };
   };
+
+  fish.enable = lib.mkDefault true;
+  git.enable = lib.mkDefault true;
+
+  neovim.enable = lib.mkDefault true;
 }

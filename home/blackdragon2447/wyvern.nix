@@ -12,8 +12,6 @@ in {
     inputs.nix-colors.homeManagerModule
   ];
 
-  fish.enable = true;
-  git.enable = true;
   gpg.enable = true;
   starship.enable = true;
 
@@ -21,6 +19,7 @@ in {
   firefox.browserpass = false;
   discord.enable = true;
   kdeconnect.enable = true;
+  kitty.enable = true;
 
   neovim.enable = true;
 
