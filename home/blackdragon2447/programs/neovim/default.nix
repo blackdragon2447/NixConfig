@@ -15,6 +15,10 @@
     keysWithLeaderPrefix = p: ks: keysWithLeader (keysWithPrefix p ks);
   in
     lib.mkIf config.neovim.enable {
+
+      # Allow copying to the system clipboard
+      home.packages = with pkgs; [ wl-clipboard ];
+
       programs.nixvim = {
         enable = true;
         viAlias = true;
