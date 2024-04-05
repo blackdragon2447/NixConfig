@@ -12,7 +12,10 @@
     ../optional
   ];
 
-  bluetooth.enable = true;
+  hosts = {
+    hasBluetooth = true;
+    hasBrightness = true;
+  };
 
   networking = {
     networkmanager.enable = true;

@@ -6,7 +6,7 @@
 }: let
   inherit (config.colorscheme) colors;
   keybind = {
-    modifiers ? [],
+    modifiers ? [ "None" ],
     key,
     action,
   }:
@@ -35,11 +35,6 @@ in {
       ++ (
         if config.riverwm.playerControls
         then [playerctl]
-        else []
-      )
-      ++ (
-        if config.riverwm.brightnessControls
-        then [light]
         else []
       )
     );
@@ -201,63 +196,54 @@ in {
                 action = "spawn '/usr/bin/swaylock --image ~/.config/river/background.jpg -Fe --indicator-idle-visible --indicator-x-position 100 --indicator-y-position 1404 --indicator-radius 35'";
               }
             ]
-            ++ (
+            ++ keybinds (
               if config.riverwm.audioControls
               then [
                 {
-                  modifiers = [];
                   key = "XF86AudioRaiseVolume";
                   action = "spawn 'pamixer -i 5'";
                 }
                 {
-                  modifiers = [];
                   key = "XF86AudioLowerVolume";
                   action = "spawn 'pamixer -d 5'";
                 }
                 {
-                  modifiers = [];
                   key = "XF86AudioMute";
                   action = "spawn 'pamixer --toggle-mute'";
                 }
               ]
               else []
             )
-            ++ (
+            ++ keybinds (
               if config.riverwm.playerControls
               then [
                 {
-                  modifiers = [];
                   key = "XF86AudioMedia";
                   action = "spawn 'playerctl play-pause'";
                 }
                 {
-                  modifiers = [];
                   key = "XF86AudioPlay";
                   action = "spawn 'playerctl play-pause'";
                 }
                 {
-                  modifiers = [];
                   key = "XF86AudioNext";
                   action = "spawn 'playerctl next'";
                 }
                 {
-                  modifiers = [];
                   key = "XF86AudioPrev";
                   action = "spawn 'playerctl previous'";
                 }
               ]
               else []
             )
-            ++ (
+            ++ keybinds (
               if config.riverwm.brightnessControls
               then [
                 {
-                  modifiers = [];
                   key = "XF86MonBrightnessUp";
                   action = "spawn 'light -A 5'";
                 }
                 {
-                  modifiers = [];
                   key = "XF86MonBrightnessDown";
                   action = "spawn 'light -U 5'";
                 }

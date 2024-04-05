@@ -4,10 +4,10 @@
   ...
 }: {
   options = {
-    bluetooth.enable = lib.mkEnableOption "Enable bluetooth";
+    hosts.hasBluetooth = lib.mkEnableOption "Enable bluetooth";
   };
 
-  config = lib.mkIf config.bluetooth.enable {
+  config = lib.mkIf config.hosts.hasBluetooth {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;
