@@ -1,15 +1,16 @@
-{ lib, config, ... }:
-let 
-  inherit (config.colorscheme) colors;
-in
 {
+  lib,
+  config,
+  ...
+}: let
+  inherit (config.colorscheme) colors;
+in {
   options = {
     kitty.enable = lib.mkEnableOption "Enable the kitty terminal";
   };
 
   config = lib.mkIf config.kitty.enable {
     programs.kitty = {
-
       enable = true;
 
       font.name = config.fontProfiles.monospace.family;

@@ -24,6 +24,8 @@ in {
   neovim.enable = true;
 
   riverwm.enable = true;
+  riverwm.audioControls = true;
+  riverwm.brightnessControls = true;
 
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

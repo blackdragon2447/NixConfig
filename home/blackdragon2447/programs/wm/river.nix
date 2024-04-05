@@ -25,23 +25,24 @@ in {
   };
 
   config = lib.mkIf config.riverwm.enable {
-    home.packages = with pkgs; ([river-bnf rofi]
+    home.packages = with pkgs; (
+      [river-bnf rofi]
       ++ (
         if config.riverwm.audioControls
         then [pamixer]
-        else
-          []
-          ++ (
-            if config.riverwm.playerControls
-            then [playerctl]
-            else []
-          )
-          ++ (
-            if config.riverwm.brightnessControls
-            then [light]
-            else []
-          )
-      ));
+        else []
+      )
+      ++ (
+        if config.riverwm.playerControls
+        then [playerctl]
+        else []
+      )
+      ++ (
+        if config.riverwm.brightnessControls
+        then [light]
+        else []
+      )
+    );
 
     wayland.windowManager.river = {
       enable = true;

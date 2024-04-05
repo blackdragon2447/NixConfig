@@ -36,7 +36,6 @@
     gid = 1000;
   };
 
-
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   };
