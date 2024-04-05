@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
     ./hardware-configuration.nix
 
     ../common/users
