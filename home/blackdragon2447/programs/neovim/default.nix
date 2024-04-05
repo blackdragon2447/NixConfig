@@ -15,9 +15,8 @@
     keysWithLeaderPrefix = p: ks: keysWithLeader (keysWithPrefix p ks);
   in
     lib.mkIf config.neovim.enable {
-
       # Allow copying to the system clipboard
-      home.packages = with pkgs; [ wl-clipboard ];
+      home.packages = with pkgs; [wl-clipboard];
 
       programs.nixvim = {
         enable = true;
@@ -74,13 +73,13 @@
             then a // {mode = ["n"];}
             else a) [
             {
-              action = "<";
-              key = "<gv";
+              action = "<gv";
+              key = "<";
               mode = ["x" "v"];
             }
             {
-              action = ">";
-              key = ">gv";
+              action = ">gv";
+              key = ">";
               mode = ["x" "v"];
             }
             {
@@ -312,6 +311,7 @@
 
         colorschemes.base16 = {
           enable = true;
+          # colorscheme = "spaceduck";
           colorscheme = "equilibrium-dark";
         };
 

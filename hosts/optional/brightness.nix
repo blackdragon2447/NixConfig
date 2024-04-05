@@ -1,5 +1,8 @@
-{ lib, config, ... }:
 {
+  lib,
+  config,
+  ...
+}: {
   options = {
     hosts.hasBrightness = lib.mkEnableOption "Enable brightness controlls through the light tool";
   };

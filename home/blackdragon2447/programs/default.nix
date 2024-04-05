@@ -8,5 +8,6 @@
     ./desktop
     ./neovim
     ./wm
+    ./shell
   ];
 }

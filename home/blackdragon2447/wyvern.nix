@@ -28,5 +28,11 @@ in {
   riverwm.audioControls = true;
   riverwm.brightnessControls = true;
 
+  waybar = {
+    enable = true;
+    network-interface = "wlp170s0";
+  };
+
+  # colorscheme = lib.mkDefault colorSchemes.spaceduck;
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

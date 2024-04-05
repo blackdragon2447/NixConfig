@@ -10,4 +10,9 @@
       package = pkgs.fira;
     };
   };
+
+  home.packages = with pkgs; [
+    font-awesome
+    roboto
+  ];
 }

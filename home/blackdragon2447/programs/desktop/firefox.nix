@@ -57,7 +57,7 @@
                   ];
                 }
               ];
-              definedAliases = [ "@mno" ];
+              definedAliases = ["@mno"];
             };
             "Nix Packages" = {
               urls = [

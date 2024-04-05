@@ -6,7 +6,7 @@
 }: let
   inherit (config.colorscheme) colors;
   keybind = {
-    modifiers ? [ "None" ],
+    modifiers ? ["None"],
     key,
     action,
   }:
@@ -302,7 +302,10 @@ in {
       extraConfig = ''
         rivertile -view-padding 6 -outer-padding 6 &
         riverctl send-layout-cmd rivertile "main-ratio 0.5"
-      '';
+      '' + (if config.waybar.enable then ''
+        waybar &
+      '' else ''
+      '');
     };
   };
 }
