@@ -8,7 +8,11 @@
 
     ../common/users
     ../common
+
+    ../optional
   ];
+
+  bluetooth.enable = true;
 
   networking = {
     networkmanager.enable = true;
