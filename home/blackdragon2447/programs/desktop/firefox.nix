@@ -45,6 +45,20 @@
         search = {
           default = "DuckDuckGo";
           engines = {
+            "My Nixos" = {
+              urls = [
+                {
+                  template = "https://mynixos.com/search";
+                  params = [
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+              definedAliases = [ "@mno" ];
+            };
             "Nix Packages" = {
               urls = [
                 {
