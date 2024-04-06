@@ -44,6 +44,10 @@ in {
   devenvs = {
     nix.enable = true;
     tex.enable = true;
+    java = {
+      enable = true;
+      enableGradle = true;
+    };
   };
 
   # colorscheme = lib.mkDefault colorSchemes.spaceduck;
