@@ -24,6 +24,7 @@ in {
     nheko.enable = true;
     kdeconnect.enable = true;
     kitty.enable = true;
+    thunderbird.enable = true;
   };
 
   neovim.enable = true;

@@ -29,6 +29,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
+    resumeDevice = "/dev/disk/by-uuid/f37fb839-9c9c-4f26-9512-e35b83d0bbdb";
   };
 
   users.users.blackdragon2447 = {
