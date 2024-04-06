@@ -4,5 +4,6 @@
     ./menu.nix
     ./swaylock.nix
     ./wofi.nix
+    ./password-store.nix
   ];
 }

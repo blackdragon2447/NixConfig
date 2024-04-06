@@ -2,7 +2,7 @@ menus=(
 	Programs
 	Screenshot
 	# Calc
-	# Pass
+	Pass
 	# Bluetooth
 	Logout
 )
@@ -28,7 +28,7 @@ then
 			rofi -show calc -modi calc -no-show-match -no-sort
 			;;
 		'Pass')
-			passmenu 
+			$passmenu
 			;;
 		'Bluetooth')
 			rofi-bluetooth

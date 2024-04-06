@@ -44,8 +44,10 @@ in {
       dmenuCommand = "${pkgs.wofi}/bin/wofi -d";
       runMenuCommand = "${pkgs.wofi}/bin/wofi -S drun";
       lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f";
+      passmenuCommand = "${pkgs.wofi-pass}/bin/wofi-pass -s";
     };
     swaylock.enable = true;
+    password-store.enable = true;
   };
 
   devenvs = {

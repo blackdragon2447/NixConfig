@@ -12,7 +12,7 @@
   };
 
   home.packages = let
-    inherit (config.desktop-shell.password-store) package enable;
+    inherit (config.desktop-shell.password-store) enable;
   in
-    lib.optional enable (pkgs.pass-wofi.override {pass = package;});
+    lib.optional enable pkgs.wofi-pass;
 }

@@ -9,6 +9,7 @@
       dmenu="${config.desktop-shell.menu.dmenuCommand}"
       runmenu="${config.desktop-shell.menu.runMenuCommand}"
       lock="${config.desktop-shell.menu.lockCommand}"
+      passmenu="${config.desktop-shell.menu.passmenuCommand}"
       ${text}
     '';
   mainMenu = writeMenuScript "menu_menu" (builtins.readFile ./scripts/dmenu_menu.sh);
@@ -32,6 +33,11 @@ in {
         type = lib.types.str;
         description = "Command to use to lock the screen";
         default = "${pkgs.swaylock}/bin/swaylock -f";
+      };
+      passmenuCommand = lib.mkOption {
+        type = lib.types.str;
+        description = "Command to use to access passwords";
+        default = "${pkgs.pass}/bin/passmenu";
       };
     };
   };
