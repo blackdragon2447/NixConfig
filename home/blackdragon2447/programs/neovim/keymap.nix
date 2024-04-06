@@ -174,6 +174,7 @@ in {
         '';
         key = "q";
         options.desc = "BalanceWindows";
+        lua = true;
       }
     ]
     ++ keysWithLeaderPrefix "T" [

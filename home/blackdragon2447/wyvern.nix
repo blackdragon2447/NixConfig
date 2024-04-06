@@ -34,11 +34,18 @@ in {
     riverwm.brightnessControls = true;
   };
 
-  shell = {
+  desktop-shell = {
     waybar = {
       enable = true;
       network-interface = "wlp170s0";
     };
+    menu = {
+      enable = true;
+      dmenuCommand = "${pkgs.wofi}/bin/wofi -d";
+      runMenuCommand = "${pkgs.wofi}/bin/wofi -S drun";
+      lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f";
+    };
+    swaylock.enable = true;
   };
 
   devenvs = {

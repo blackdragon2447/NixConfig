@@ -7,7 +7,7 @@
   inherit (config.colorscheme) colors;
 in {
   options = {
-    shell = {
+    desktop-shell = {
       waybar.enable = lib.mkEnableOption "enable waybar";
       waybar.network-interface = lib.mkOption {
         default = "wlan0";
@@ -17,7 +17,7 @@ in {
     };
   };
 
-  config = lib.mkIf config.shell.waybar.enable {
+  config = lib.mkIf config.desktop-shell.waybar.enable {
     programs.waybar = {
       enable = true;
 
@@ -30,7 +30,7 @@ in {
           "river/window".max-length = 50;
 
           network = {
-            interface = config.shell.waybar.network-interface;
+            interface = config.desktop-shell.waybar.network-interface;
             format-wifi = "  {ifname} {essid} {ipaddr}";
             format-disconnected = "  {ifname} Disconnected";
             max-length = 50;

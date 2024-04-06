@@ -23,4 +23,6 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="1050", ATTR{idProduct}=="0407", ENV{ID_SECURITY_TOKEN}="1", GROUP="wheel"
   '';
+
+  security.pam.services.swaylock = {};
 }

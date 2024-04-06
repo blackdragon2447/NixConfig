@@ -28,7 +28,7 @@ in {
 
   config = lib.mkIf config.wm.riverwm.enable {
     home.packages = with pkgs; (
-      [river-bnf rofi]
+      [river-bnf]
       ++ (
         if config.wm.riverwm.audioControls
         then [pamixer]
@@ -90,12 +90,6 @@ in {
                 modifiers = ["Super"];
                 key = "E";
                 action = "toggle-fullscreen";
-              }
-              {
-                modifiers = ["Super"];
-                key = "P";
-                action = "spawn 'rofi -modi drun -show drun'";
-                # TODO Custom scripts
               }
               {
                 modifiers = ["Super" "Alt"];
@@ -192,11 +186,6 @@ in {
                 key = "Right";
                 action = "send-layout-cmd rivertile \"main-ratio +0.05\"";
               }
-              {
-                modifiers = ["Super" "Control"];
-                key = "L";
-                action = "spawn '/usr/bin/swaylock --image ~/.config/river/background.jpg -Fe --indicator-idle-visible --indicator-x-position 100 --indicator-y-position 1404 --indicator-radius 35'";
-              }
             ]
             ++ keybinds (
               if config.wm.riverwm.audioControls
@@ -248,6 +237,28 @@ in {
                 {
                   key = "XF86MonBrightnessDown";
                   action = "spawn 'light -U 5'";
+                }
+              ]
+              else []
+            )
+            ++ keybinds (
+              if config.desktop-shell.menu.enable
+              then [
+                {
+                  modifiers = ["Super"];
+                  key = "P";
+                  action = "spawn 'menu_menu'";
+                }
+              ]
+              else []
+            )
+            ++ keybinds (
+              if config.desktop-shell.swaylock.enable
+              then [
+                {
+                  modifiers = ["Super" "Control"];
+                  key = "L";
+                  action = "spawn 'swaylock'";
                 }
               ]
               else []
@@ -307,7 +318,7 @@ in {
           riverctl send-layout-cmd rivertile "main-ratio 0.5"
         ''
         + (
-          if config.shell.waybar.enable
+          if config.desktop-shell.waybar.enable
           then ''
             waybar &
           ''

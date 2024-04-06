@@ -8,7 +8,7 @@
     ./desktop
     ./neovim
     ./wm
-    ./shell
+    ./desktop-shell
     ./devenvs
   ];
 }
