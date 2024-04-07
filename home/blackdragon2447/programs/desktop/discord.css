@@ -1,0 +1,246 @@
+/*
+MIT License
+
+Copyright (c) 2023 MrTipson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+:root{
+	--color-main:#7289da /* main color theme */;
+	/* App background */
+	--background-image: none /* background image, eg. url("link") */;
+	--background-color:none /* background color (for svg backgrounds and such)*/;
+	--background-filter:none /* filter property applied to the background */;
+	/* Background overrides */
+	--background-markup:var(--background-secondary) /* background for code markup (``` blocks)*/;
+	--background-embed:var(--background-secondary) /* background for embeds (video links, ...) */;
+	--background-modal:var(--background-floating) /* main color of a modal dialog */;
+	--background-dropdown:var(--background-floating) /* background of options in a dropdown */;
+	/* Ignore this */
+	--modal-background: var(--background-modal);
+	--home-background: var(--background-primary);
+	/* Gradients for user profiles */
+	--profile-gradient-primary: var(--background-floating);
+	--profile-gradient-secondary: var(--background-floating);
+	--profile-body-background: var(--background-floating);
+	/* Progress bar (i.e. spotify) */
+	--progress-thumb: var(--header-primary) /* volume bar thumb */;
+    --progress-track-full: var(--text-normal) /* volume bar track - filled */;
+    --progress-track-empty: var(--text-muted) /* volume bar track - empty */;
+}
+
+/*-----
+Background
+-----*/
+.bg__12180 /* Full background */ {
+	background: var(--background);
+	background-image: var(--background-image);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: left top;
+	background-size: cover;
+	background-color: var(--background-color);
+	filter: var(--background-filter);
+}
+
+/*-----
+Main color
+-----*/
+.circleIconButton__05cf2.selected_aded59 /* find new communities selected, add server hover */{
+	background-color: var(--color-main) !important;
+}
+[data-list-item-id="guildsnav___home"].selected_ae80f7 .childWrapper_a6ce15 /* discord icon selected */,
+[data-list-item-id="guildsnav___home"]:hover .childWrapper_a6ce15 /* discord icon hovered */{
+	color: #fff;
+	background-color: var(--color-main);
+}
+.circleIconButton__05cf2 /* add server/explore servers */{
+	color: var(--color-main);
+}
+
+/*-----
+Message scrollbar
+-----*/
+.auto__020ac.scrollerBase__65223 /* online friends, nitro, chat messages */{
+	overflow: auto !important /* hide scroll track when no scroll needed */;
+}
+
+/*-----
+Exclude the download button and seperator from the discord web client
+-----*/
+.tutorialContainer__6835f~* /* everything following the add servers button */{
+	display: none;
+}
+.tutorialContainer__6835f+* /* exclude explore servers button */{
+	display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+}
+
+/*
+background-floating overrides
+*/
+.profileColors_ac6ab4 /* small user profiles (popup) */{
+	--profile-gradient-primary-color: var(--profile-gradient-primary);
+	--profile-gradient-secondary-color: var(--profile-gradient-secondary);
+	--profile-body-background-color: var(--profile-body-background);
+}
+.contentWrapper_e0bb2c /* gif/sticker/emoji picker*/,
+.reactors__0f305 /* message reactions - reactors */,
+.messagesPopoutWrap__10dd1 /* pinned messages */,
+.container_eb737e /* unreads */,
+.container_c96c91 /* inbox (for you) */,
+.container_f93da8 /* threads (next to pins) */,
+.autocomplete__743a5.autocomplete__743a5 /* autocomplete commands */{
+	background-color: var(--background-floating);
+}
+/*
+Background-modal overrides
+*/
+.wrapper__45980 /* emoji picker servers */,
+.scroller__9a4f3 /* message reactions - emotes */,
+.quickswitcher_b5bb0a /* quickswitcher */{
+	background-color: var(--background-modal);
+}
+/*
+Background-primary overrides
+*/
+.pageWrapper_c182d3.pageWrapper_c182d3 /* explore servers */{
+	background-color: var(--background-primary);
+}
+/*
+Background-secondary overrides
+*/
+.header__71942.header__71942 /* browse channels header */,
+.container__03ec9.container__03ec9 /* browse channels body */{
+	background-color: var(--background-secondary);
+}
+/*
+Background-tertiary overrides
+*/
+.codeRedemptionRedirect_b3eca7 /* user settings > billing > key redemption redirect notice */,
+.itemFilled__5a849 /* user settings > chat > show spoiler content (radio buttons) */{
+	background-color: var(--background-tertiary);
+}
+
+/*
+Dropdown overrides
+*/
+.popout_a6e77f /* audio device select */{
+	background-color: var(--background-dropdown);
+}
+
+/*-----
+Markup, embed background
+-----*/
+.markup_a7e664 code /* Code markup */{
+	background-color: var(--background-markup);
+}
+.embedFull__14919 /* Embed */{
+	background-color: var(--background-embed);
+}
+
+/*
+Text input background
+*/
+.input_f27786 /* user settings > profiles > display name */,
+.input__2a648 /* quickswitcher */{
+	background-color: var(--input-background);
+}
+
+/* friends tab - active now */
+.outer_a41cf3.outer_a41cf3.interactive__46c44:hover /* friends tab - active now */ {
+	background-color: var(--background-modifier-hover);
+}
+.outer_a41cf3.outer_a41cf3.active__76f42  /* friends tab - active now */ {
+	background-color: var(--background-modifier-active);
+}
+
+/*
+Progress bars / draggables
+*/
+.barFill__1f56b /* user volume */,
+.barInner__0f713 /* spotify track progress */{
+	background-color: var(--progress-track-full);
+}
+.grabber_e3daf3 /* user volume */{
+	background-color: var(--progress-thumb);
+	border: none;
+}
+.bar_e63719 /* spotify track progress */,
+.bar_e58961 /* user volume */ {
+	background-color: var(--progress-track-empty);
+}
+
+/*
+Background removals
+*/
+.header_ee0bd9 /* server role edit header*/,
+.titleContainer_d09261 /* server role list header */,
+.channelTextArea_c2094b /* message text input - is changed in inner element */,
+.container__6b2e5.container__6b2e5 /* browse channels body (inner) */{
+	background-color: unset;
+}
+.panel_bd8c76.panel_bd8c76 /* current/suggested streamed window/app */,
+.container__3673d /* friends tab - active now */,
+.callContainer__1477d /* call black background */,
+.container_debb33.container_debb33 /* user island duplicate styling */ {
+	background: unset;
+}
+/*
+Setting scroller fixes
+(the full page scroller doesnt play well with transparency)
+*/
+.contentContainer__50662 .scrollerBase__65223 /* covers all scrollers in role editing*/ {
+	height: calc(100% - 200px);
+	top: 200px;
+}
+.contentContainer__50662 .scrollerBase__65223 div:empty /* some empty div spacers */ {
+	display: none;
+}
+.contentContainer__50662 > .scroller_bcb155 /* role edit - display tab*/,
+.contentContainer__50662 > .scroller_d747ea /* role edit - links tab */ {
+	height: calc(100% - 150px);
+	top: 150px;
+}
+.stickyHeader_a471c2 /* Roles sticky header*/{
+	position: fixed;
+	top: 0;
+}
+.stickyHeaderElevated_a05798 /* roles sticky header */ {
+	box-shadow: none;
+}
+.contentRegionScroller__9ae20 /* full page scroller used in settings tabs */{
+	overflow: auto;
+}
+/* New date divider between messages */
+.divider__01aed.hasContent__1fe13 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	height: unset;
+}
+.content__7191e /* divider content */ {
+	background: unset;
+}
+/* Gradient for overflowing channel description */
+.children_cde9af:after {
+	display: none;
+}
+

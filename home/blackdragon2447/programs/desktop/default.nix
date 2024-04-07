@@ -7,6 +7,7 @@
     ./nheko.nix
     ./theme.nix
     ./kitty.nix
+    ./cinny.nix
   ];
 
   home.packages = with pkgs; [];
