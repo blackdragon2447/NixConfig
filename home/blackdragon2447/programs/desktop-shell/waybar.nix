@@ -93,11 +93,11 @@ in {
         }
 
         #tags button.occupied {
-          background-color: #${colors.base04};
+          background-color: #${colors.base03};
         }
 
         #tags button.focused {
-          background-color: #${colors.base03};
+          background-color: #${colors.base04};
         }
 
         #clock,
