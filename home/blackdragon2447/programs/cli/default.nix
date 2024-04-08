@@ -11,6 +11,7 @@
     ./shellcolor.nix
     ./starship.nix
     ./font.nix
+    ./ssh.nix
   ];
 
   home.packages = with pkgs; [

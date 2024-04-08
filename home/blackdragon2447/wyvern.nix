@@ -15,6 +15,7 @@ in {
   cli = {
     gpg.enable = true;
     starship.enable = true;
+    ssh.enable = true;
   };
 
   desktop = {
