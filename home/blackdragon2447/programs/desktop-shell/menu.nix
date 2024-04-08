@@ -12,9 +12,16 @@
       passmenu="${config.desktop-shell.menu.passmenuCommand}"
       ${text}
     '';
-  mainMenu = writeMenuScript "menu_menu" (builtins.readFile ./scripts/dmenu_menu.sh);
+  mainMenu = writeMenuScript "menu_menu" ''
+    menus=(
+    ${builtins.concatStringsSep " " config.desktop-shell.menu.enabledMenus}
+    )
+
+    ${builtins.readFile ./scripts/dmenu_menu.sh}
+  '';
   screenshotMenu = writeMenuScript "menu_screenshot" (builtins.readFile ./scripts/dmenu_screenshot.sh);
   logoutMenu = writeMenuScript "menu_logout" (builtins.readFile ./scripts/dmenu_logout.sh);
+  minecraftMenu = writeMenuScript "menu_minecraft" (builtins.readFile ./scripts/dmenu_minecraft.sh);
 in {
   options = {
     desktop-shell.menu = {
@@ -39,6 +46,11 @@ in {
         description = "Command to use to access passwords";
         default = "${pkgs.pass}/bin/passmenu";
       };
+      enabledMenus = lib.mkOption {
+        type = with lib.types; listOf (enum ["Programs" "Minecraft" "Screenshot" "Pass" "Logout"]);
+        description = "Menus to be enabled. (Minecraft needs prismlauncher installed)";
+        default = ["Programs" "Screenshot" "Pass" "Logout"];
+      };
     };
   };
 
@@ -47,6 +59,7 @@ in {
       mainMenu
       screenshotMenu
       logoutMenu
+      minecraftMenu
       grim
       libnotify
       slurp

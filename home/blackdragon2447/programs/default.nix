@@ -10,5 +10,6 @@
     ./wm
     ./desktop-shell
     ./devenvs
+    ./games
   ];
 }

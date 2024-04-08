@@ -55,6 +55,7 @@ in {
       runMenuCommand = "${pkgs.wofi}/bin/wofi -S drun";
       lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f";
       passmenuCommand = "${pkgs.wofi-pass}/bin/wofi-pass -s";
+      enabledMenus = ["Programs" "Minecraft" "Screenshot" "Pass" "Logout"];
     };
     swaylock.enable = true;
     password-store.enable = true;
@@ -67,6 +68,10 @@ in {
       enable = true;
       enableGradle = true;
     };
+  };
+
+  games = {
+    prismlauncher.enable = true;
   };
 
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;

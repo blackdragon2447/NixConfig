@@ -1,12 +1,3 @@
-menus=(
-	Programs
-	Screenshot
-	# Calc
-	Pass
-	# Bluetooth
-	Logout
-)
-
 menus+=("Exit")
 
 choice=$(printf '%s\n' "${menus[@]}" | $dmenu -i)
@@ -26,6 +17,9 @@ then
 			;;
 		'Calc')
 			rofi -show calc -modi calc -no-show-match -no-sort
+			;;
+		'Minecraft')
+			menu_minecraft
 			;;
 		'Pass')
 			$passmenu
