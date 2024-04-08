@@ -42,7 +42,12 @@ in {
   desktop-shell = {
     waybar = {
       enable = true;
-      network-interface = "wlp170s0";
+      network-interface = "wlp5s0";
+      modules = {
+        left = ["river/tags" "river/window"];
+        center = ["clock"];
+        right = ["memory" "cpu" "wireplumber" "network"];
+      };
     };
     menu = {
       enable = true;

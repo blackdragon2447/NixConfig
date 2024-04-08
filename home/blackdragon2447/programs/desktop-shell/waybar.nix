@@ -14,6 +14,20 @@ in {
         defaultText = "wlan0";
         description = "The network interface waybar should use for displaying network info";
       };
+      waybar.modules = {
+        left = lib.mkOption {
+          type = with lib.types; listOf str;
+          description = "Left modules for waybar";
+        };
+        center = lib.mkOption {
+          type = with lib.types; listOf str;
+          description = "Center modules for waybar";
+        };
+        right = lib.mkOption {
+          type = with lib.types; listOf str;
+          description = "Right modules for waybar";
+        };
+      };
     };
   };
 
@@ -23,9 +37,9 @@ in {
 
       settings = {
         mainbar = {
-          modules-left = ["river/tags" "river/window"];
-          modules-center = ["clock"];
-          modules-right = ["memory" "cpu" "wireplumber" "battery" "network"];
+          modules-left = config.desktop-shell.waybar.modules.left;
+          modules-center = config.desktop-shell.waybar.modules.center;
+          modules-right = config.desktop-shell.waybar.modules.right;
 
           "river/window".max-length = 50;
 

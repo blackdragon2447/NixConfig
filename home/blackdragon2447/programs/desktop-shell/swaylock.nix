@@ -30,7 +30,7 @@ in {
         indicator-caps-lock = true;
         indicator-radius = 80;
         indicator-idle-visible = true;
-        indicator-y-position = 1000;
+        indicator-y-position = 800;
 
         ring-color = "#${colors.base02}";
         inside-wrong-color = "#${colors.base08}";

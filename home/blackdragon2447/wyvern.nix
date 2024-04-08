@@ -41,6 +41,11 @@ in {
     waybar = {
       enable = true;
       network-interface = "wlp170s0";
+      modules = {
+        left = ["river/tags" "river/window"];
+        center = ["clock"];
+        right = ["memory" "cpu" "wireplumber" "battery" "network"];
+      };
     };
     menu = {
       enable = true;

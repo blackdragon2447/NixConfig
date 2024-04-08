@@ -37,7 +37,7 @@ in {
           --text-link: #${colors.base0D} /* hyperlink color */;
           --interactive-active: #${colors.base07} /* selected tab*/;
           --text-muted: #${colors.base05} /* non important text */;
-          --channels-default: #${colors.base07} /* channel not selected not hovered*/;
+          --channels-default: #${colors.base05} /* channel not selected not hovered*/;
           --background-accent: #${colors.base01}; /* new messages */;
           --background-message-hover: #${colors.base01} /* message background on hover */;
           --background-modifier-accent: #${colors.base03} /* simmilar to border, but native to discord */;
@@ -66,11 +66,6 @@ in {
     '';
 
     systemd.user.services.discord-css = {
-      /*
-         script = ''
-        ${pkgs.python3}/bin/python3 -m http.server 55826 -d $XDG_CONFIG_HOME/discord/css/
-      '';
-      */
       Install = {
         WantedBy = ["graphical-session.target"];
         PartOf = ["graphical-session.target"];
