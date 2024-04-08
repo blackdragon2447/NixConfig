@@ -6,6 +6,7 @@
   imports = [
     ./tex.nix
     ./java.nix
+    ./rust.nix
   ];
 
   options = {
@@ -16,6 +17,7 @@
         enable = lib.mkEnableOption "Enable java dev tools and lsp";
         enableGradle = lib.mkEnableOption "Enable gradle build too for java";
       };
+      rust.enable = lib.mkEnableOption "Enable rust dev tools and lsp";
     };
   };
 

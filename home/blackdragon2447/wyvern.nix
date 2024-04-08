@@ -59,6 +59,7 @@ in {
       enable = true;
       enableGradle = true;
     };
+    rust.enable = true;
   };
 
   # colorscheme = lib.mkDefault colorSchemes.spaceduck;
