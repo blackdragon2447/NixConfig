@@ -55,7 +55,7 @@
           focus_behaviour: Sloppy,
           focus_new_windows: true,
           keybind: [
-              (command: Execute, value: "/home/blackdragon2447/scripts/dmenu_menu.sh", modifier: ["modkey"], key: "p"),
+              (command: Execute, value: "menu_menu", modifier: ["modkey"], key: "p"),
               (command: Execute, value: "kitty", modifier: ["modkey", "Shift"], key: "Return"),
               (command: CloseWindow, value: "", modifier: ["modkey"], key: "x"),
               (command: SoftReload, value: "", modifier: ["modkey"], key: "q"),

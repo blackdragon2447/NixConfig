@@ -56,10 +56,10 @@ in {
     };
     menu = {
       enable = true;
-      dmenuCommand = "${pkgs.wofi}/bin/wofi -d";
-      runMenuCommand = "${pkgs.wofi}/bin/wofi -S drun";
-      lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f";
-      passmenuCommand = "${pkgs.wofi-pass}/bin/wofi-pass -s";
+      dmenuCommand = "${pkgs.rofi}/bin/rofi -dmenu";
+      runMenuCommand = "${pkgs.rofi}/bin/rofi -show drun";
+      lockCommand = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid";
+      passmenuCommand = "${pkgs.pass}/bin/passmenu";
       enabledMenus = ["Programs" "Minecraft" "Screenshot" "Pass" "Logout"];
     };
     swaylock.enable = true;
