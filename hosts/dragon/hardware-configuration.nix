@@ -11,6 +11,23 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    forceFullCompositionPipeline = true;
+  };
+
   # Prevent MotherBoard from waking up the pc immediately after hibernate
   powerManagement.powerDownCommands = ''
     if (grep "GPP0.*enabled" /proc/acpi/wakeup >/dev/null); then

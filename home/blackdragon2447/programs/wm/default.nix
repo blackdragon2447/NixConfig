@@ -1,5 +1,6 @@
 {...}: {
   imports = [
     ./river.nix
+    ./leftwm
   ];
 }

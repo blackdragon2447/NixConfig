@@ -9,6 +9,8 @@
 
     ../common/users
     ../common
+
+    ../optional
   ];
 
   pipewire.enable = true;
@@ -25,6 +27,8 @@
     hostName = "dragon";
   };
 
+  hosts.xorgSupport = true;
+
   # tmp hack
 
   users.users.blackdragon2447 = {
@@ -36,12 +40,12 @@
     gid = 984;
   };
 
-  boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = 1;
   };
 
-  hardware = {
-    opengl.enable = true;
+  boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   };
 
   system.stateVersion = "23.11";

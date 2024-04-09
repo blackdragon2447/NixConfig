@@ -35,8 +35,13 @@ in {
 
   wm = {
     riverwm.enable = true;
-    riverwm.audioControls = true;
-    riverwm.brightnessControls = true;
+    leftwm = {
+      enable = true;
+      themes = {
+        ringed-earth.enable = true;
+        system.enable = true;
+      };
+    };
   };
 
   desktop-shell = {
