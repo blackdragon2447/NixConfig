@@ -53,13 +53,21 @@
 
     nixosConfigurations = {
       wyvern = lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          # not actually super secret, just dont want it in a public repo
+          secrets = import ./secrets.nix;
+        };
         modules = [
           ./hosts/wyvern
         ];
       };
       dragon = lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs outputs;
+          # not actually super secret, just dont want it in a public repo
+          secrets = import ./secrets.nix;
+        };
         modules = [
           ./hosts/dragon
         ];
@@ -75,6 +83,8 @@
             inherit system;
             config.allowUnfree = true;
           };
+          # not actually super secret, just dont want it in a public repo
+          secrets = import ./secrets.nix;
         };
         modules = [
           # > Our main home-manager configuration file <
@@ -89,7 +99,9 @@
             inherit system;
             config.allowUnfree = true;
           };
+          secrets = import ./secrets.nix;
         };
+        # not actually super secret, just dont want it in a public repo
         modules = [
           # > Our main home-manager configuration file <
           ./home/blackdragon2447/dragon.nix

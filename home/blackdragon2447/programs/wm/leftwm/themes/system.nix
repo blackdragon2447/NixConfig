@@ -39,6 +39,7 @@ in {
       #set background
       if [ -x "$(command -v feh)" ]; then
         ${pkgs.imagemagick}/bin/convert -size 1x1 xc:#${colors.base00} "$SCRIPTPATH"/background.png
+        sleep 1
         feh --bg-scale "$SCRIPTPATH"/background.png
       fi
 

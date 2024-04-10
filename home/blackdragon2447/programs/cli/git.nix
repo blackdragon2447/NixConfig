@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  secrets,
   ...
 }: {
   options = {
@@ -9,6 +10,7 @@
   };
 
   config = lib.mkIf config.cli.git.enable {
+    home.packages = with pkgs; [git-crypt];
     programs.git = {
       enable = true;
       extraConfig = {
@@ -49,9 +51,15 @@
           signingkey = 4E53F4CB69B2CC8D
     '';
 
-    xdg.configFile."git/gh-http-cred".text = "--CENSORED--";
+    xdg.configFile."git/gh-http-cred".text = secrets.git.githubKey;
 
-    xdg.configFile."git/gh-ssh".text = "--CENSORED--";
-    xdg.configFile."git/gl-cs-ru-ssh".text = "--CENSORED--";
+    xdg.configFile."git/gh-ssh".text = ''
+      [user]
+          email = "blackdragon2447@e.email"
+          name = "BlackDragon2447"
+          signingkey = 4E53F4CB69B2CC8D
+    '';
+
+    xdg.configFile."git/gl-cs-ru-ssh".text = secrets.git.uniGitConfig;
   };
 }
