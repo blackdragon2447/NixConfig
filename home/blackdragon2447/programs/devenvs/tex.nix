@@ -5,7 +5,25 @@
   ...
 }: let
   tex = pkgs.texlive.combine {
-    inherit (pkgs.texlive) scheme-medium paper setspace latexindent;
+    inherit
+      (pkgs.texlive)
+      scheme-medium
+      paper
+      setspace
+      a4wide
+      verbatimbox
+      readarray
+      forloop
+      xypic
+      tikz-qtree
+      titlecaps
+      xifthen
+      dashbox
+      ifnextok
+      ifmtarg
+      clipboard
+      latexindent
+      ;
   };
 in {
   config = lib.mkIf config.devenvs.tex.enable {
