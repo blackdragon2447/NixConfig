@@ -25,7 +25,10 @@ in {
     nheko.enable = false;
     cinny.enable = true;
     kdeconnect.enable = true;
-    kitty.enable = true;
+    kitty = {
+      enable = true;
+      font-size = 11;
+    };
     thunderbird.enable = true;
   };
 
