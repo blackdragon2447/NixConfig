@@ -61,7 +61,7 @@
               (command: SoftReload, value: "", modifier: ["modkey"], key: "q"),
               (command: HardReload, value: "", modifier: ["modkey", "Control"], key: "q"),
               (command: Execute, value: "pkill leftwm", modifier: ["modkey", "Shift"], key: "q"),
-              (command: Execute, value: "betterlockscreen -l", modifier: ["modkey", "Control"], key: "l"),
+              (command: Execute, value: "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 20 3", modifier: ["modkey", "Control"], key: "l"),
               (command: MoveToLastWorkspace, value: "", modifier: ["modkey", "Shift"], key: "w"),
               (command: SwapTags, value: "", modifier: ["modkey"], key: "w"),
               (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "k"),

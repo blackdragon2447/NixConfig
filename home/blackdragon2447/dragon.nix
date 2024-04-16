@@ -58,7 +58,7 @@ in {
       enable = true;
       dmenuCommand = "${pkgs.rofi}/bin/rofi -dmenu";
       runMenuCommand = "${pkgs.rofi}/bin/rofi -show drun";
-      lockCommand = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid";
+      lockCommand = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 20 3";
       passmenuCommand = "${pkgs.pass}/bin/passmenu";
       enabledMenus = ["Programs" "Minecraft" "Screenshot" "Pass" "Logout"];
     };
