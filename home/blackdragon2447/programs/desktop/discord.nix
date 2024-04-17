@@ -6,7 +6,7 @@
 }: let
   inherit (config.colorscheme) colors;
   discord = pkgs.discord.override {
-    withOpenASAR = true;
+    withOpenASAR = false;
   };
 in {
   options = {
