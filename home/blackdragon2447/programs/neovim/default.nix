@@ -227,34 +227,38 @@
 
           toggleterm = {
             enable = true;
-            openMapping = "<c-\\>";
-            size = 20;
-            shadeTerminals = true;
-            direction = "float";
-            floatOpts = {
-              border = "curved";
-              winblend = 0;
+            settings = {
+              open_mapping = ''"<C-\\>"'';
+              size = 20;
+              shadeTerminals = true;
+              direction = "float";
+              floatOpts = {
+                border = "curved";
+                winblend = 0;
+              };
             };
           };
 
           telescope = {
             enable = true;
 
-            defaults = {
-              __raw = ''
-                   {
-                mappings = {
-                	i = {
-                		["<ESC>"] = require('telescope.actions').close,
-                	},
-                     },
-                   }
-              '';
-            };
+            settings = {
+              defaults = {
+                __raw = ''
+                  {
+                    mappings = {
+                      i = {
+                        ["<ESC>"] = require('telescope.actions').close,
+                      },
+                    },
+                  }
+                '';
+              };
 
-            extensions = {
-              file_browser = {
-                enable = true;
+              extensions = {
+                file-browser = {
+                  enable = true;
+                };
               };
             };
           };
@@ -312,8 +316,10 @@
 
           nvim-autopairs = {
             enable = true;
-            checkTs = true;
-            disabledFiletypes = ["TelescopePrompt" "NeoTree"];
+            settings = {
+              check_ts = true;
+              disabled_filetype = ["TelescopePrompt" "NeoTree"];
+            };
           };
 
           comment.enable = true;
