@@ -22,6 +22,7 @@
       ifnextok
       ifmtarg
       clipboard
+      enumitem
       latexindent
       ;
   };
