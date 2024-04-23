@@ -18,7 +18,7 @@
   in
     lib.mkIf config.neovim.enable {
       # Allow copying to the system clipboard
-      home.packages = with pkgs; [wl-clipboard];
+      home.packages = with pkgs; [wl-clipboard xclip];
 
       programs.nixvim = {
         enable = true;
