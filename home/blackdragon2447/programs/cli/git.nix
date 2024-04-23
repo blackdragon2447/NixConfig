@@ -35,7 +35,7 @@
         */
         {
           path = "~/.config/git/gl-cs-ru-ssh";
-          condition = "hasconfig:remote.*.url:git@gitlab.science.ru.nl:**";
+          condition = "hasconfig:remote.*.url:git@gitlab.science.ru.nl:*/**";
         }
       ];
     };

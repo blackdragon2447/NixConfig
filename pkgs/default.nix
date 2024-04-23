@@ -3,4 +3,5 @@
 {pkgs ? import <nixpkgs> {}}: rec {
   # example = pkgs.callPackage ./example { };
   shellcolord = pkgs.callPackage ./shellcolord {};
+  macro-script = pkgs.callPackage ./macro-script {};
 }

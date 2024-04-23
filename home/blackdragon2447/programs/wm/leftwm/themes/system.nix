@@ -116,5 +116,20 @@ in {
       end
     '';
     xdg.configFile."leftwm/themes/system/polybar-mic.fish".executable = true;
+
+    xdg.configFile."leftwm/themes/system/polybar-vol.fish".text = ''
+      #!${pkgs.fish}/bin/fish
+
+      set muted (wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED)
+
+      if [ -z $muted ]
+          set volume (math 100 \* (wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/.*\([0-9]\.[0-9][0-9]\).*/\1/'))
+          set message (echo '%{F#${colors.base08}}VOL%{F-}' $volume%)
+          echo $message
+      else
+          echo '%{F#${colors.base06}}VOL muted%{F-}'
+      end
+    '';
+    xdg.configFile."leftwm/themes/system/polybar-vol.fish".executable = true;
   };
 }

@@ -15,6 +15,7 @@ in {
   cli = {
     gpg.enable = true;
     starship.enable = true;
+    ssh.enable = true;
   };
 
   desktop = {
@@ -64,15 +65,17 @@ in {
     };
     swaylock.enable = true;
     password-store.enable = true;
+    macro-pad.enable = true;
   };
 
   devenvs = {
     nix.enable = true;
-    tex.enable = false;
+    tex.enable = true;
     java = {
       enable = true;
       enableGradle = true;
     };
+    rust.enable = true;
   };
 
   games = {
