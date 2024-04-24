@@ -1,20 +1,23 @@
 {
   lib,
   stdenv,
-  fetchFromSourcehut,
+  pkgs,
 }: let
   pname = "macro-scipt";
 in
   stdenv.mkDerivation {
     inherit pname;
     version = "0.1";
-    src = [./macros.py];
+    src = [];
+    buildInputs = with pkgs; [
+      (pkgs.python3.withPackages (python-pkgs: [python-pkgs.evdev]))
+    ];
+    nativeBuildInputs = with pkgs; [
+      alsa-utils
+    ];
+    dontUnpack = true;
 
-    unpackPhase = ''
-      for srcFile in $src; do
-        # Copy file into build dir
-        local tgt=$(echo $srcFile | cut --delimiter=- --fields=2-)
-        cp $srcFile $tgt
-      done
+    buildPhase = ''
+      install -Dm755 ${./macros.py} $out/bin/macros.py
     '';
   }

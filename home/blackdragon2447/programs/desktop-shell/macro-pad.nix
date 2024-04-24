@@ -9,16 +9,16 @@
   };
 
   config = lib.mkIf config.desktop-shell.macro-pad.enable {
-    home.packages = [pkgs.python311Packages.evdev];
-
     systemd.user.services.macros = {
       Install = {
         WantedBy = ["graphical-session.target"];
         PartOf = ["graphical-session.target"];
       };
       Service = {
+        # Group = "input";
         ExecStart = "${pkgs.writeShellScript "macros" ''
-          ${pkgs.python3}/bin/python3 ~/scripts/macros.py
+          export PATH="$PATH:${pkgs.lib.makeBinPath [pkgs.wireplumber]}"
+          ${pkgs.python3.withPackages (python-pkgs: [python-pkgs.evdev])}/bin/python3 ${pkgs.macro-script}/bin/macros.py
         ''}";
       };
     };
