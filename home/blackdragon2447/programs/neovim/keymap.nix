@@ -259,8 +259,13 @@ in {
         lua = true;
       }
       {
+        action = "<C-t>";
+        key = "b";
+        options.desc = "Go back";
+      }
+      {
         action = "vim.lsp.buf.implementation";
-        key = "d";
+        key = "i";
         options.desc = "Goto implementation";
         lua = true;
       }
