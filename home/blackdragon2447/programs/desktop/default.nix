@@ -8,6 +8,8 @@
     ./theme.nix
     ./kitty.nix
     ./cinny.nix
+    ./eduvpn.nix
+    ./libreoffice.nix
   ];
 
   home.packages = with pkgs; [];

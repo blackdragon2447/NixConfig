@@ -30,6 +30,8 @@ in {
       font-size = 11;
     };
     thunderbird.enable = true;
+    eduvpn.enable = true;
+    libreoffice.enable = true;
   };
 
   neovim.enable = true;
