@@ -13,6 +13,10 @@
     ../optional
   ];
 
+  hosts = {
+    enableSteam = true;
+  };
+
   pipewire.enable = true;
 
   boot = {
