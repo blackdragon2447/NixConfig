@@ -12,6 +12,7 @@
     ./starship.nix
     ./font.nix
     ./ssh.nix
+    ./zip.nix
   ];
 
   home.packages = with pkgs; [
