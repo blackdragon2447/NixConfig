@@ -11,6 +11,8 @@
     ../common
 
     ../optional
+
+    ./audio.nix
   ];
 
   hosts = {

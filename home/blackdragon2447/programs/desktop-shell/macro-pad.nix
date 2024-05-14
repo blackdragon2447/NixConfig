@@ -17,7 +17,7 @@
       Service = {
         # Group = "input";
         ExecStart = "${pkgs.writeShellScript "macros" ''
-          export PATH="$PATH:${pkgs.lib.makeBinPath [pkgs.wireplumber]}"
+          export PATH="$PATH:${pkgs.lib.makeBinPath [pkgs.wireplumber pkgs.playerctl]}"
           ${pkgs.python3.withPackages (python-pkgs: [python-pkgs.evdev])}/bin/python3 ${pkgs.macro-script}/bin/macros.py
         ''}";
       };
