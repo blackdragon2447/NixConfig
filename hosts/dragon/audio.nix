@@ -44,12 +44,12 @@
               "capture.props" = {
                 "node.name" = "capture.rnnoise_source";
                 "node.passive" = true;
-                "audio.rate" = 36000;
+                "audio.rate" = 24000;
               };
               "playback.props" = {
                 "node.name" = "rnnoise_source";
                 "media.class" = "Audio/Source";
-                "audio.rate" = 36000;
+                "audio.rate" = 24000;
               };
             };
           }

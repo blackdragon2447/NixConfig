@@ -186,6 +186,11 @@ in {
                 key = "Right";
                 action = "send-layout-cmd rivertile \"main-ratio +0.05\"";
               }
+              {
+                modifiers = ["Super" "Shift"];
+                key = "o";
+                action = "send-to-output next";
+              }
             ]
             ++ keybinds (
               if config.wm.riverwm.audioControls
