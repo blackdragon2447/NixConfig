@@ -289,4 +289,23 @@ in {
       }
     ]
   );
+
+  coq = ensureMode (keysWithLeaderPrefix "c" [
+    {
+      action = "<Plug>CoqNext";
+      key = "<Down>";
+    }
+    {
+      action = "<Plug>CoqUndo";
+      key = "<Up>";
+    }
+    {
+      action = "<Plug>CoqToLine";
+      key = "<Right>";
+    }
+    {
+      action = "<Plug>CoqToTop";
+      key = "<Left>";
+    }
+  ]);
 }
