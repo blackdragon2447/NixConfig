@@ -25,6 +25,7 @@ in {
     nheko.enable = false;
     cinny.enable = true;
     kdeconnect.enable = true;
+    eduvpn.enable = true;
     kitty = {
       enable = true;
       font-size = 9;
@@ -76,6 +77,7 @@ in {
       enableGradle = true;
     };
     rust.enable = true;
+    coq.enable = true;
   };
 
   games = {

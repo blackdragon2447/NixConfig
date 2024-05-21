@@ -7,6 +7,7 @@
     ./tex.nix
     ./java.nix
     ./rust.nix
+    ./coq.nix
   ];
 
   options = {
@@ -18,6 +19,7 @@
         enableGradle = lib.mkEnableOption "Enable gradle build too for java";
       };
       rust.enable = lib.mkEnableOption "Enable rust dev tools and lsp";
+      coq.enable = lib.mkEnableOption "Enable coq dev tools";
     };
   };
 

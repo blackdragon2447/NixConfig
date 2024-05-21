@@ -4,5 +4,6 @@
     ./tex.nix
     ./java.nix
     ./rust.nix
+    ./coq.nix
   ];
 }
