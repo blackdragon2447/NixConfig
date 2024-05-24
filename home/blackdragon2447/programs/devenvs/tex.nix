@@ -23,6 +23,7 @@
       ifmtarg
       clipboard
       enumitem
+      pgfplots
       latexindent
       ;
   };
