@@ -16,6 +16,7 @@
   hosts = {
     hasBluetooth = true;
     hasBrightness = true;
+    enableSteam = true;
   };
 
   networking = {
