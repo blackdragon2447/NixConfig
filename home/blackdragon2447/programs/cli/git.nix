@@ -25,7 +25,7 @@
         }
         {
           path = "~/.config/git/gh-ssh";
-          condition = "hasconfig:remote.*.url:git@github.com:**";
+          condition = "hasconfig:remote.*.url:git@github.com:*/**";
         }
         /*
         {
