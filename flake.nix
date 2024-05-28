@@ -27,6 +27,11 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -60,6 +65,7 @@
         };
         modules = [
           ./hosts/wyvern
+          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
         ];
       };
       dragon = lib.nixosSystem {
@@ -70,6 +76,7 @@
         };
         modules = [
           ./hosts/dragon
+          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
         ];
       };
     };

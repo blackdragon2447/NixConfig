@@ -112,6 +112,27 @@
         "type": "github"
       }
     },
+    "flake-programs-sqlite": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1716876219,
+        "narHash": "sha256-FkvolZ7dzL09oN73AIC2t0ItW1rPGk6rjdTmp1UJatc=",
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "rev": "efd6dde424d3a5d2080bfff25d47edad371bf830",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wamserma",
+        "repo": "flake-programs-sqlite",
+        "type": "github"
+      }
+    },
     "flake-root": {
       "locked": {
         "lastModified": 1713493429,
@@ -403,6 +424,7 @@
     "root": {
       "inputs": {
         "firefox-addons": "firefox-addons",
+        "flake-programs-sqlite": "flake-programs-sqlite",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixos-hardware": "nixos-hardware",
@@ -459,6 +481,21 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "locked": {
+        "lastModified": 1678901627,
+        "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "93a2b84fc4b70d9e089d029deacc3583435c2ed6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     }
