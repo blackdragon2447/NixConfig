@@ -13,6 +13,7 @@
     ./font.nix
     ./ssh.nix
     ./zip.nix
+    ./aspell.nix
   ];
 
   home.packages = with pkgs; [

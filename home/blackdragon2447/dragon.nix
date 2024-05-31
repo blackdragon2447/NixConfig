@@ -17,6 +17,7 @@ in {
     starship.enable = true;
     ssh.enable = true;
     zip.enable = true;
+    aspell.enable = true;
   };
 
   desktop = {

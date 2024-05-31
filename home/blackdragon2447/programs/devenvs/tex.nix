@@ -24,11 +24,12 @@
       clipboard
       enumitem
       pgfplots
+      biblatex
       latexindent
       ;
   };
 in {
   config = lib.mkIf config.devenvs.tex.enable {
-    home.packages = with pkgs; [tex mupdf rubber];
+    home.packages = with pkgs; [tex mupdf rubber biber];
   };
 }
