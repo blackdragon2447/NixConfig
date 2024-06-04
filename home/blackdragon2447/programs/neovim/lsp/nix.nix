@@ -5,7 +5,7 @@
 }: {
   config = lib.mkIf config.devenvs.nix.enable {
     programs.nixvim.plugins = {
-      lsp.servers.nil_ls = {
+      lsp.servers.nil-ls = {
         enable = true;
 
         extraOptions = {

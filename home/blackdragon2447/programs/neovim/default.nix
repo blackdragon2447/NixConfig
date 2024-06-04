@@ -14,7 +14,8 @@
   };
 
   config = let
-    keymap = import ./keymap.nix;
+    helpers = config.nixvim.helpers;
+    keymap = import ./keymap.nix helpers;
   in
     lib.mkIf config.neovim.enable {
       # Allow copying to the system clipboard
@@ -268,18 +269,15 @@
             enable = true;
 
             settings = {
-              defaults = {
-                __raw = ''
-                  {
-                    mappings = {
-                      i = {
-                        ["<ESC>"] = require('telescope.actions').close,
-                      },
+              defaults = helpers.mkRaw ''
+                {
+                  mappings = {
+                    i = {
+                      ["<ESC>"] = require('telescope.actions').close,
                     },
-                  }
-                '';
-              };
-
+                  },
+                }
+              '';
               extensions = {
                 file-browser = {
                   enable = true;
@@ -458,15 +456,13 @@
             # keymaps.extra = [];
 
             servers = {
-              nil_ls = {
+              nil-ls = {
                 enable = true;
 
                 extraOptions = {
                   flake.autoEvalInputs = true;
                 };
               };
-
-              # TODO More Servers
             };
           };
 

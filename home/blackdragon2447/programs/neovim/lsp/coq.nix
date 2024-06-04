@@ -5,7 +5,8 @@
   ...
 }: {
   config = let
-    keymap = import ../keymap.nix;
+    helpers = config.nixvim.helpers;
+    keymap = import ../keymap.nix helpers;
   in
     lib.mkIf config.devenvs.coq.enable {
       programs.nixvim = {
