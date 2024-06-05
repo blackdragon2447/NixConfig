@@ -6,7 +6,7 @@
 }: let
   inherit (config.colorscheme) colors;
   discord = pkgs.discord.override {
-    withOpenASAR = true;
+    withOpenASAR = false;
   };
   css = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/deathbeam/base16-discord/main/themes/base16-equilibrium-dark.theme.css";

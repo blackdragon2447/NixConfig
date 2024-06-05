@@ -5,6 +5,6 @@
   ...
 }: {
   config = lib.mkIf config.devenvs.rust.enable {
-    home.packages = with pkgs; [rustup clang mold];
+    home.packages = with pkgs; [rustup clang mold cargo-expand];
   };
 }
