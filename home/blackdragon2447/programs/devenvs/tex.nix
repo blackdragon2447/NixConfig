@@ -25,8 +25,12 @@
       enumitem
       pgfplots
       biblatex
+      listings
       latexindent
       ;
+    listings-rust = {
+      pkgs = [pkgs.listings-rust];
+    };
   };
 in {
   config = lib.mkIf config.devenvs.tex.enable {
