@@ -238,6 +238,10 @@ in
           key = "<C-k>";
           options.desc = "Show signature help";
         }
+        {
+          action = helpers.mkRaw "vim.diagnostic.open_float";
+          key = "D";
+        }
       ]
       ++ keysWithPrefix "g" [
         {
