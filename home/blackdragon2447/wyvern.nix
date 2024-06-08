@@ -36,6 +36,10 @@ in {
     libreoffice.enable = true;
   };
 
+  games = {
+    prismlauncher.enable = true;
+  };
+
   neovim.enable = true;
 
   wm = {
