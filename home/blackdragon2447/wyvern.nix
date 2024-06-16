@@ -45,6 +45,7 @@ in {
   wm = {
     riverwm.enable = true;
     riverwm.audioControls = true;
+    riverwm.playerControls = true;
     riverwm.brightnessControls = true;
   };
 
