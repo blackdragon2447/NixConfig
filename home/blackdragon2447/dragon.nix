@@ -63,8 +63,8 @@ in {
       dmenuCommand = "${pkgs.rofi}/bin/rofi -dmenu";
       runMenuCommand = "${pkgs.rofi}/bin/rofi -show drun";
       lockCommand = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 20 3";
-      passmenuCommand = "${pkgs.pass}/bin/passmenu";
-      enabledMenus = ["Programs" "Minecraft" "Screenshot" "Pass" "Logout"];
+      passmenuCommand = "${pkgs.rofi-pass}/bin/rofi-pass";
+      enabledMenus = ["Programs" "Minecraft" "Calc" "Screenshot" "Pass" "Logout"];
     };
     swaylock.enable = true;
     password-store.enable = true;

@@ -43,6 +43,18 @@ in {
 
           "river/window".max-length = 50;
 
+          "custom/niri_workspaces" = let
+            niri-workspaces = pkgs.writeShellScriptBin "niri-workspaces" (builtins.readFile ./scripts/niri-workspaces.sh);
+          in {
+            format = "{}";
+            interval = 1;
+            return-type = "json";
+            exec = "${niri-workspaces}/bin/niri-workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${colors.base09}\"";
+            signal = 8;
+          };
+
+          layer = "top";
+
           network = {
             interface = config.desktop-shell.waybar.network-interface;
             format-wifi = "  {ifname} {essid} {ipaddr}";

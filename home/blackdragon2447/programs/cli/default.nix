@@ -22,6 +22,7 @@
     eza
     bat
     pfetch-rs
+    jq
   ];
 
   cli = {

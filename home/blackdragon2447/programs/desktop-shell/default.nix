@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ./waybar.nix
     ./menu.nix
@@ -8,4 +8,6 @@
     # ./keyring.nix
     ./macro-pad.nix
   ];
+
+  services.gnome-keyring.enable = lib.mkForce false;
 }

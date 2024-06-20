@@ -20,4 +20,6 @@
       config.allowUnfree = true;
     };
   };
+
+  niri = inputs.niri.overlays.niri;
 }

@@ -24,7 +24,7 @@ in {
     firefox.enable = true;
     firefox.browserpass = false;
     discord.enable = true;
-    nheko.enable = false;
+    nheko.enable = true;
     cinny.enable = true;
     kdeconnect.enable = true;
     kitty = {
@@ -43,10 +43,18 @@ in {
   neovim.enable = true;
 
   wm = {
-    riverwm.enable = true;
-    riverwm.audioControls = true;
-    riverwm.playerControls = true;
-    riverwm.brightnessControls = true;
+    riverwm = {
+      enable = true;
+      audioControls = true;
+      playerControls = true;
+      brightnessControls = true;
+    };
+    niri = {
+      enable = true;
+      audioControls = true;
+      playerControls = true;
+      brightnessControls = true;
+    };
   };
 
   desktop-shell = {
@@ -54,17 +62,18 @@ in {
       enable = true;
       network-interface = "wlp170s0";
       modules = {
-        left = ["river/tags" "river/window"];
+        # left = ["river/tags" "river/window"];
+        left = ["custom/niri_workspaces" "river/window"];
         center = ["clock"];
         right = ["memory" "cpu" "wireplumber" "battery" "network"];
       };
     };
     menu = {
       enable = true;
-      dmenuCommand = "${pkgs.wofi}/bin/wofi -d";
-      runMenuCommand = "${pkgs.wofi}/bin/wofi -S drun";
+      # dmenuCommand = "${pkgs.rofi-wayland}/bin/rofi -d";
+      # runMenuCommand = "${pkgs.rofi-wayland}/bin/rofi -show drun -modi drun";
       lockCommand = "${pkgs.swaylock-effects}/bin/swaylock -f";
-      passmenuCommand = "${pkgs.wofi-pass}/bin/wofi-pass -s";
+      # passmenuCommand = "${pkgs.rofi-pass-wayland}/bin/rofi-pass";
     };
     swaylock.enable = true;
     password-store.enable = true;

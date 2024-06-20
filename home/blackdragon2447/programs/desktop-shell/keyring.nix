@@ -1,4 +1,4 @@
 {pkgs, ...}: {
-  services.gnome-keyring.enable = true;
+  services.gnome-keyring.enable = false;
   home.packages = with pkgs.gnome; [gnome-keyring];
 }

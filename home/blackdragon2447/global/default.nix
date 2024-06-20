@@ -2,12 +2,9 @@
   inputs,
   lib,
   pkgs,
-  config,
   outputs,
   ...
-}: let
-  inherit (inputs.nix-colors) colorSchemes;
-in {
+}: {
   imports =
     [
       inputs.nix-colors.homeManagerModule
@@ -15,8 +12,9 @@ in {
     ++ (builtins.attrValues outputs.homeManagerModules);
 
   nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
+    overlays = with outputs.overlays; [
+      additions
+      niri
     ];
 
     config = {

@@ -7,4 +7,5 @@
   fonts = import ./fonts.nix;
   nixvim = inputs.nixvim.homeManagerModules.nixvim;
   nix-colors = inputs.nix-colors.homeManagerModules.default;
+  niri = inputs.niri.homeModules.niri;
 }
