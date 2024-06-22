@@ -77,6 +77,10 @@ in {
     };
     swaylock.enable = true;
     password-store.enable = true;
+    notify = {
+      enable = true;
+      variant = "Wayland";
+    };
   };
 
   devenvs = {

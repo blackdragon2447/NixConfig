@@ -98,6 +98,22 @@
               }
             )
             // (
+              lib.optionalAttrs config.wm.niri.audioControls {
+                "XF86AudioRaiseVolume" = {
+                  action = spawn "pamixer" "-i" "5";
+                  allow-when-locked = true;
+                };
+                "XF86AudioLowerVolume" = {
+                  action = spawn "pamixer" "-d" "5";
+                  allow-when-locked = true;
+                };
+                "XF86AudioMute" = {
+                  action = spawn "pamixer" "--toggle-mute";
+                  allow-when-locked = true;
+                };
+              }
+            )
+            // (
               lib.optionalAttrs config.wm.niri.brightnessControls
               {
                 "XF86MonBrightnessUp" = {
