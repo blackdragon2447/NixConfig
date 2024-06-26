@@ -92,6 +92,7 @@ in {
     };
     rust.enable = true;
     coq.enable = true;
+    lua.enable = true;
   };
 
   # colorscheme = lib.mkDefault colorSchemes.spaceduck;

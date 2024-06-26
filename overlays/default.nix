@@ -10,6 +10,7 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+    rofi-calc = prev.rofi-calc.override {rofi-unwrapped = prev.rofi-wayland-unwrapped;};
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

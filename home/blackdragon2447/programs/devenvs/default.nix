@@ -7,6 +7,7 @@
     ./tex.nix
     ./java.nix
     ./rust.nix
+    ./lua.nix
     ./coq.nix
   ];
 
@@ -20,6 +21,7 @@
       };
       rust.enable = lib.mkEnableOption "Enable rust dev tools and lsp";
       coq.enable = lib.mkEnableOption "Enable coq dev tools";
+      lua.enable = lib.mkEnableOption "Enable lua dev tools";
     };
   };
 

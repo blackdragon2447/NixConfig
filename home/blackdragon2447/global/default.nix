@@ -14,6 +14,7 @@
   nixpkgs = {
     overlays = with outputs.overlays; [
       additions
+      modifications
       niri
     ];
 

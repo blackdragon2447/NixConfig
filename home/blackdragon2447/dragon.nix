@@ -20,6 +20,8 @@ in {
     aspell.enable = true;
   };
 
+  services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
+
   desktop = {
     firefox.enable = true;
     firefox.browserpass = false;
@@ -80,6 +82,7 @@ in {
     };
     rust.enable = true;
     coq.enable = true;
+    lua.enable = true;
   };
 
   games = {

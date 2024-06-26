@@ -18,7 +18,7 @@
       ];
       # pinentyFlavour = "curses";
       pinentryPackage = pkgs.pinentry-rofi;
-      # pinentryPackage = pkgs.pinentry-gtk;
+      # pinentryPackage = pkgs.pinentry-gtk2;
     };
 
     programs = let
