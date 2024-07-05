@@ -171,7 +171,7 @@
             keyboard.xkb.options = "caps:menu";
             touchpad = {
               click-method = "clickfinger";
-              dwt = true;
+              dwt = false;
               tap-button-map = "left-right-middle";
             };
           };

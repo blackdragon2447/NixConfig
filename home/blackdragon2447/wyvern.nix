@@ -63,7 +63,7 @@ in {
       network-interface = "wlp170s0";
       modules = {
         # left = ["river/tags" "river/window"];
-        left = ["custom/niri_workspaces" "river/window"];
+        left = ["custom/niri_workspaces" "custom/niri_window"];
         center = ["clock"];
         right = ["memory" "cpu" "wireplumber" "battery" "network"];
       };

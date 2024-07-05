@@ -44,12 +44,22 @@ in {
           "river/window".max-length = 50;
 
           "custom/niri_workspaces" = let
-            niri-workspaces = pkgs.writeShellScriptBin "niri-workspaces" (builtins.readFile ./scripts/niri-workspaces.sh);
+            niri_workspaces = pkgs.writeShellScriptBin "niri_workspaces" (builtins.readFile ./scripts/niri_workspaces.sh);
           in {
             format = "{}";
             interval = 1;
             return-type = "json";
-            exec = "${niri-workspaces}/bin/niri-workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${colors.base09}\"";
+            exec = "${niri_workspaces}/bin/niri_workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${colors.base09}\"";
+            signal = 8;
+          };
+
+          "custom/niri_window" = let
+            niri_window = pkgs.writeShellScriptBin "niri_window" (builtins.readFile ./scripts/niri_window.sh);
+          in {
+            format = "{}";
+            interval = 1;
+            return-type = "json";
+            exec = "${niri_window}/bin/niri_window \"$WAYBAR_OUTPUT_NAME\" \"#${colors.base09}\"";
             signal = 8;
           };
 
@@ -138,7 +148,8 @@ in {
         #disk,
         #tags,
         #window,
-        #idle_inhibitor {
+        #idle_inhibitor
+        #custom-niri_window {
           padding: 0px 5px;
           margin: 0px 5px;
           background-color: #${colors.base02};
