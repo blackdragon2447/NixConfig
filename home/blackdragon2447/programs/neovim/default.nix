@@ -214,10 +214,10 @@
             enable = true;
 
             keyLabels = {
-              "<Down>" = "";
-              "<Up>" = "";
-              "<Left>" = "";
-              "<Right>" = "";
+              "<Down>" = "<U+F063>";
+              "<Up>" = "<U+F062>";
+              "<Left>" = "<U+F060>";
+              "<Right>" = "<U+F061>";
             };
 
             window = {
@@ -302,7 +302,7 @@
             enable = true;
             settings = {
               numhl = true;
-              currentLineBlameOpts.virtTextPos = "right_align";
+              current_line_blame_opts.virt_text_pos = "right_align";
             };
           };
 
@@ -312,25 +312,27 @@
 
           treesitter = {
             enable = true;
-            ensureInstalled = [
-              "html"
-              "java"
-              "jsom"
-              "latex"
-              "lua"
-              "make"
-              "markdown"
-              "markdown_inline"
-              "nix"
-              "python"
-              "querry"
-              "regex"
-              "rust"
-              "timl"
-              "vim"
-              "vimdoc"
-            ];
-            indent = true;
+            settings = {
+              ensure_installed = [
+                "html"
+                "java"
+                "json"
+                "latex"
+                "lua"
+                "make"
+                "markdown"
+                "markdown_inline"
+                "nix"
+                "python"
+                "query"
+                "regex"
+                "rust"
+                "toml"
+                "vim"
+                "vimdoc"
+              ];
+              indent.enable = true;
+            };
           };
           rainbow-delimiters.enable = true;
           ts-context-commentstring.enable = true;
@@ -472,7 +474,9 @@
             enable = true;
             enableLspFormat = true;
 
-            diagnosticsFormat = "[#{c}] #{m} (#{s})";
+            settings = {
+              diagnostics_format = "[#{c}] #{m} (#{s})";
+            };
 
             # TODO Sources
           };
@@ -481,10 +485,12 @@
             enable = true;
             # TODO Config
           };
+        };
 
-          lsp-lines = {
+        diagnostics = {
+          virtual_lines = {
             enable = true;
-            currentLine = true;
+            only_current_line = true;
           };
         };
 

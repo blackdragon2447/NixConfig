@@ -44,6 +44,7 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
+    nixvim,
     ...
   } @ inputs: let
     inherit (self) outputs;

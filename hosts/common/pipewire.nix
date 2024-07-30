@@ -9,7 +9,7 @@
   };
 
   config = lib.mkIf config.pipewire.enable {
-    sound.enable = false;
+    # sound.enable = false;
 
     security.rtkit.enable = true;
 

@@ -167,12 +167,18 @@
           };
 
           input = {
-            focus-follows-mouse = true;
+            focus-follows-mouse.enable = true;
             keyboard.xkb.options = "caps:menu";
             touchpad = {
               click-method = "clickfinger";
               dwt = false;
               tap-button-map = "left-right-middle";
+            };
+          };
+
+          outputs = {
+            eDP-1 = {
+              scale = 1;
             };
           };
 
