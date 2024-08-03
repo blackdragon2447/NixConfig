@@ -32,6 +32,9 @@
       );
 
       # Xwayland?
+
+      desktop-shell.xwayland.enable = lib.mkDefault true;
+
       xdg.desktopEntries.discord-wayland = {
         categories = ["Network" "InstantMessaging"];
         exec = "${pkgs.cage}/bin/cage Discord";
