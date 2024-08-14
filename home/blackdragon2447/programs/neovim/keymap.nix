@@ -271,8 +271,13 @@ in
           key = "rn";
           options.desc = "Rename symbol";
         }
+        # {
+        #   action = "<cmd>CodeActionMenu<CR>";
+        #   key = "a";
+        #   options.desc = "Show availavle code actions";
+        # }
         {
-          action = "<cmd>CodeActionMenu<CR>";
+          action = helpers.mkRaw "require('actions-preview').code_actions";
           key = "a";
           options.desc = "Show availavle code actions";
         }

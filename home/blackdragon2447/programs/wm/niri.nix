@@ -50,6 +50,11 @@
         "org.freedesktop.impl.portal.Secret" = ["pass-secret-service"];
       };
 
+      xdg.portal.config.niri-session = {
+        default = ["gnome" "gtk"];
+        "org.freedesktop.impl.portal.Secret" = ["pass-secret-service"];
+      };
+
       programs.niri = {
         enable = true;
         settings = with config.lib.niri.actions; {

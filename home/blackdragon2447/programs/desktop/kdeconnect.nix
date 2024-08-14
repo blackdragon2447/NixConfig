@@ -25,7 +25,7 @@
 
     services.kdeconnect = {
       enable = true;
-      package = pkgs.libsForQt5.kdeconnect-kde;
+      # package = pkgs.kdePackages.kdeconnect-kde;
       indicator = true;
     };
   };

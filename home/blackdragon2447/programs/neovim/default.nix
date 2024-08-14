@@ -29,6 +29,7 @@
 
         globals.mapleader = " ";
         globals.maplocalleader = " ";
+        globals.foldmethod = "syntax";
 
         luaLoader.enable = false;
 
@@ -93,6 +94,15 @@
                 'LSP'
             },
             mouse_delay = 1000
+          }
+
+          require("actions-preview").setup {
+            telescope = require("telescope.themes").get_cursor({
+              layout_config = {
+                width = 160,
+                height = 18,
+              },
+            })
           }
         '';
 
@@ -496,7 +506,8 @@
 
         extraPlugins = with pkgs.vimPlugins; [
           hover-nvim
-          nvim-code-action-menu
+          # nvim-code-action-menu
+          actions-preview-nvim
           {
             plugin = knap;
             config = ''
