@@ -95,6 +95,6 @@ in {
     lua.enable = true;
   };
 
-  # colorscheme = lib.mkDefault colorSchemes.spaceduck;
+  # colorscheme = lib.mkDefault colorSchemes.darkviolet;
   colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

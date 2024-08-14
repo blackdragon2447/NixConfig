@@ -142,7 +142,7 @@
 
         colorschemes.base16 = {
           enable = true;
-          # colorscheme = "spaceduck";
+          # colorscheme = "darkviolet";
           colorscheme = "equilibrium-dark";
         };
 

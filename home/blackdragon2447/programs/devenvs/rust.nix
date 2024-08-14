@@ -10,7 +10,7 @@
     home.file.".cargo/config.toml".text = ''
       [build]
       # linker = "clang"
-      rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+      rustflags = ["-C", "link-arg=-fuse-ld=mold"]
     '';
   };
 }
