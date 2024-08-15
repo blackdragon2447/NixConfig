@@ -90,6 +90,20 @@
                 }
               ];
             };
+            "Rust Docs" = {
+              definedAliases = ["@rs"];
+              urls = [
+                {
+                  template = "https://doc.rust-lang.org/stable/std/";
+                  params = [
+                    {
+                      name = "search";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
+            };
           };
         };
 
