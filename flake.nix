@@ -45,6 +45,7 @@
     nixpkgs-stable,
     home-manager,
     nixvim,
+    nixos-hardware,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -102,6 +103,7 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/blackdragon2447/wyvern.nix
+          nixos-hardware.nixosModules.framework-11th-gen-intel
         ];
       };
       "blackdragon2447@dragon" = lib.homeManagerConfiguration {
