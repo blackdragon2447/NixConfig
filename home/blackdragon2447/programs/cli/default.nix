@@ -14,6 +14,7 @@
     ./ssh.nix
     ./zip.nix
     ./aspell.nix
+    ./tealdeer.nix
   ];
 
   home.packages = with pkgs; [

@@ -26,6 +26,9 @@
       pgfplots
       biblatex
       listings
+      background
+      everypage
+      textpos
       latexindent
       ;
     listings-rust = {
