@@ -41,7 +41,10 @@ in {
     prismlauncher.enable = true;
   };
 
-  neovim.enable = true;
+  neovim = {
+    pdfview.wayland = true;
+    enable = true;
+  };
 
   wm = {
     riverwm = {

@@ -17,6 +17,7 @@
     hasBluetooth = true;
     hasBrightness = true;
     enableSteam = true;
+    enableDocker = true;
   };
 
   networking = {

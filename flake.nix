@@ -73,6 +73,7 @@
         modules = [
           ./hosts/wyvern
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+          nixos-hardware.nixosModules.framework-11th-gen-intel
         ];
       };
       dragon = lib.nixosSystem {
@@ -103,7 +104,6 @@
         modules = [
           # > Our main home-manager configuration file <
           ./home/blackdragon2447/wyvern.nix
-          nixos-hardware.nixosModules.framework-11th-gen-intel
         ];
       };
       "blackdragon2447@dragon" = lib.homeManagerConfiguration {

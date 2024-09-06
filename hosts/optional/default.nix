@@ -4,5 +4,6 @@
     ./brightness.nix
     ./xorg.nix
     ./steam.nix
+    ./docker.nix
   ];
 }

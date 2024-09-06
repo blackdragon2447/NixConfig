@@ -11,6 +11,7 @@
 
   options = {
     neovim.enable = lib.mkEnableOption "Enable Neovim";
+    neovim.pdfview.wayland = lib.mkEnableOption "Enable wayland for nvim pdf viewer";
   };
 
   config = let
@@ -19,7 +20,7 @@
   in
     lib.mkIf config.neovim.enable {
       # Allow copying to the system clipboard
-      home.packages = with pkgs; [wl-clipboard xclip];
+      home.packages = with pkgs; [wl-clipboard xclip mupdf zathura];
 
       programs.nixvim = {
         enable = true;
@@ -510,14 +511,23 @@
           actions-preview-nvim
           {
             plugin = knap;
-            config = ''
-               let g:knap_settings = {
-                  \ "texoutputext": "pdf",
-                  \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
-                  \ "textopdfviewerlaunch": "mupdf %outputfile%",
-                  \ "textopdfviewerrefresh": "pkill -HUP mupdf"
-              \ }
-            '';
+            config =
+              if config.neovim.pdfview.wayland
+              then ''
+                 let g:knap_settings = {
+                    \ "texoutputext": "pdf",
+                    \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+                    \ "textopdfviewerlaunch": "zathura %outputfile%",
+                \ }
+              ''
+              else ''
+                 let g:knap_settings = {
+                    \ "texoutputext": "pdf",
+                    \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+                    \ "textopdfviewerlaunch": "mupdf %outputfile%",
+                    \ "textopdfviewerrefresh": "pkill -HUP mupdf"
+                \ }
+              '';
           }
         ];
       };
