@@ -17,6 +17,7 @@
 
   hosts = {
     enableSteam = true;
+    xorgSupport = true;
   };
 
   pipewire.enable = true;
@@ -32,8 +33,6 @@
 
     hostName = "dragon";
   };
-
-  hosts.xorgSupport = true;
 
   # tmp hack
 

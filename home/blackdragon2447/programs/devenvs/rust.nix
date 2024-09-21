@@ -8,8 +8,7 @@
     home.packages = with pkgs; [rustup clang mold cargo-expand];
 
     home.file.".cargo/config.toml".text = ''
-      [build]
-      # linker = "clang"
+      [target.x86_64-unknown-linux-gnu]
       rustflags = ["-C", "link-arg=-fuse-ld=mold"]
     '';
   };

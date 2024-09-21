@@ -59,6 +59,7 @@ in {
       playerControls = true;
       brightnessControls = true;
     };
+    leftwm.enable = true;
   };
 
   desktop-shell = {

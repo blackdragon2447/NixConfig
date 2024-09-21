@@ -24,6 +24,8 @@
     bat
     pfetch-rs
     jq
+    man-pages
+    man-pages-posix
   ];
 
   cli = {

@@ -18,6 +18,7 @@
     hasBrightness = true;
     enableSteam = true;
     enableDocker = true;
+    xorgSupport = true;
   };
 
   networking = {
