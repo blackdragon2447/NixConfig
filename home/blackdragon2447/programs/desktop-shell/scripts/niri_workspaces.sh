@@ -1,4 +1,5 @@
-mapfile -t list < <(niri msg -j workspaces | jq -r ".[] | select(.output == \"$1\") | \"\(.name) \(.is_active)\"")
+mapfile -t list < <(niri msg -j workspaces | jq -r "sort_by(.idx) | .[] | select(.output == \"$1\") | \"\(.name) \(.is_active)\"")
+
 workspace_str=" " 
 # for ws in $(niri msg -j workspaces | jq ".[] | select(.output == \"$1\") | \"\(.name) \(.is_active)\""); do
 for ((i = 0; i < ${#list[@]}; i++)); do
@@ -13,5 +14,5 @@ for ((i = 0; i < ${#list[@]}; i++)); do
 			else { print \"<small><span>\"\$1\"  </span></small>\" } }
 		}")"
 done
-name=$(niri msg -j workspaces | jq -r ".[] | select(.output == \"$1\" and .is_active == true) | .name")
+name=$(niri msg -j workspaces | jq -r "sort_by(.idx) | .[] | select(.output == \"$1\" and .is_active == true) | .name")
 echo -e "{\"text\":\"${workspace_str}\", \"tooltip\":\"Active workspace name: ${name}\"}"
