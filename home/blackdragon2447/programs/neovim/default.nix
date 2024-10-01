@@ -149,53 +149,55 @@
 
         plugins = {
           lualine = {
-            enable = true;
-            iconsEnabled = true;
+            settings = {
+              component_separators = {
+                left = "";
+                right = "";
+              };
 
-            componentSeparators = {
-              left = "";
-              right = "";
-            };
+              section_separators = {
+                left = "";
+                right = "";
+              };
 
-            sectionSeparators = {
-              left = "";
-              right = "";
-            };
+              disabled_filetypes = {
+                statusline = [
+                  "NeoTree"
+                  "TelescopePrompt"
+                  "toggleterm"
+                ];
+              };
 
-            disabledFiletypes = {
-              statusline = [
+              ignore_focus = [
                 "NeoTree"
-                "TelescopePrompt"
-                "toggleterm"
               ];
+
+              always_divideMiddle = true;
+              globalstatus = false;
+
+              sections = {
+                lualine_a = ["mode"];
+                lualine_b = ["branch" "diff"];
+                lualine_c = ["diagnostics" "filename"];
+
+                lualine_x = ["encoding" "fileformat"];
+                lualine_y = ["filetype"];
+                lualine_z = ["location"];
+              };
+
+              inactive_sections = {
+                lualine_a = [];
+                lualine_b = ["branch" "diff"];
+                lualine_c = ["diagnostics" "filename"];
+
+                lualine_x = ["encoding" "fileformat"];
+                lualine_y = ["filetype"];
+                lualine_z = [];
+              };
+
+              icons_enabled = true;
             };
-
-            ignoreFocus = [
-              "NeoTree"
-            ];
-
-            alwaysDivideMiddle = true;
-            globalstatus = false;
-
-            sections = {
-              lualine_a = ["mode"];
-              lualine_b = ["branch" "diff"];
-              lualine_c = ["diagnostics" "filename"];
-
-              lualine_x = ["encoding" "fileformat"];
-              lualine_y = ["filetype"];
-              lualine_z = ["location"];
-            };
-
-            inactiveSections = {
-              lualine_a = [];
-              lualine_b = ["branch" "diff"];
-              lualine_c = ["diagnostics" "filename"];
-
-              lualine_x = ["encoding" "fileformat"];
-              lualine_y = ["filetype"];
-              lualine_z = [];
-            };
+            enable = true;
           };
 
           noice = {
@@ -224,33 +226,22 @@
           which-key = {
             enable = true;
 
-            keyLabels = {
-              "<Down>" = "<U+F063>";
-              "<Up>" = "<U+F062>";
-              "<Left>" = "<U+F060>";
-              "<Right>" = "<U+F061>";
-            };
-
-            window = {
-              border = "single";
-              position = "bottom";
-              margin = {
-                top = 1;
-                right = 1;
-                left = 1;
-                bottom = 1;
+            settings = {
+              key_labels = {
+                "<Down>" = "<U+F063>";
+                "<Up>" = "<U+F062>";
+                "<Left>" = "<U+F060>";
+                "<Right>" = "<U+F061>";
               };
-              padding = {
-                top = 2;
-                right = 2;
-                left = 2;
-                bottom = 2;
+
+              win = {
+                border = "single";
+                padding = [2 2];
               };
+              layout.align = "center";
+
+              disable.ft = ["TelescopePrompt"];
             };
-
-            layout.align = "center";
-
-            disable.filetypes = ["TelescopePrompt"];
           };
 
           /*
@@ -316,6 +307,8 @@
               current_line_blame_opts.virt_text_pos = "right_align";
             };
           };
+
+          web-devicons.enable = true;
 
           nvim-lightbulb.enable = true;
 

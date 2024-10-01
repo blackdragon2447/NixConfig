@@ -25,8 +25,8 @@ in {
     firefox.enable = true;
     firefox.browserpass = false;
     discord.enable = true;
-    nheko.enable = true;
-    cinny.enable = true;
+    nheko.enable = false;
+    cinny.enable = false;
     kdeconnect.enable = true;
     kitty = {
       enable = true;
