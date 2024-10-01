@@ -98,6 +98,7 @@ in {
     rust.enable = true;
     coq.enable = true;
     lua.enable = true;
+    c.enable = true;
   };
 
   # colorscheme = lib.mkDefault colorSchemes.darkviolet;

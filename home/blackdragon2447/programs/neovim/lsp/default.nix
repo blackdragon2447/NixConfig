@@ -6,5 +6,6 @@
     ./rust.nix
     ./lua.nix
     ./coq.nix
+    ./c.nix
   ];
 }

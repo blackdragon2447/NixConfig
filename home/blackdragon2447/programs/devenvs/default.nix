@@ -9,6 +9,7 @@
     ./rust.nix
     ./lua.nix
     ./coq.nix
+    ./c.nix
   ];
 
   options = {
@@ -22,6 +23,7 @@
       rust.enable = lib.mkEnableOption "Enable rust dev tools and lsp";
       coq.enable = lib.mkEnableOption "Enable coq dev tools";
       lua.enable = lib.mkEnableOption "Enable lua dev tools";
+      c.enable = lib.mkEnableOption "Enable c dev tools";
     };
   };
 
