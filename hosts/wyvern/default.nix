@@ -55,12 +55,15 @@
   };
 
   users.users.blackdragon2447 = {
-    extraGroups = ["wheel" "users"];
+    extraGroups = ["wheel" "users" "dailout"];
     group = "blackdragon2447";
   };
 
-  users.groups.blackdragon2447 = {
-    gid = 1000;
+  users.groups = {
+    dailout = {};
+    blackdragon2447 = {
+      gid = 1000;
+    };
   };
 
   boot = {

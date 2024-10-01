@@ -60,7 +60,8 @@
         settings = with config.lib.niri.actions; {
           binds =
             {
-              "Mod+Shift+Return".action = spawn "kitty";
+              "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
+              # "Mod+Shift+Return".action = spawn "${pkgs.foot}/bin/foot";
               "Mod+X".action = close-window;
               "Mod+Shift+Q".action = quit {skip-confirmation = true;};
               "Mod+E".action = fullscreen-window;
