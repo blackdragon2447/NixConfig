@@ -27,7 +27,7 @@ in {
     firefox.browserpass = false;
     discord.enable = true;
     nheko.enable = false;
-    cinny.enable = true;
+    cinny.enable = false;
     kdeconnect.enable = true;
     eduvpn.enable = true;
     kitty = {
