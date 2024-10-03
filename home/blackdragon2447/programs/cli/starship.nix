@@ -20,6 +20,7 @@
         lua.symbol = "󰢱 ";
         php.symbol = "󰌟 ";
         package.symbol = "󰏗 ";
+        nix_shell.symbol = "󱄅 ";
         sudo = {
           symbol = "󰞄 ";
           disabled = false;

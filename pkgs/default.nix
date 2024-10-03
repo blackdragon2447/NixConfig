@@ -5,4 +5,5 @@
   listings-rust = pkgs.callPackage ./listings-rust {};
   shellcolord = pkgs.callPackage ./shellcolord {};
   macro-script = pkgs.callPackage ./macro-script {};
+  leftwm-patched = pkgs.callPackage ./leftwm {};
 }

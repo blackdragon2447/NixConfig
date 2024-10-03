@@ -14,7 +14,9 @@
   };
 
   config = lib.mkIf config.wm.leftwm.enable {
-    home.packages = with pkgs; [leftwm];
+    home.packages = with pkgs; [
+      leftwm-patched
+    ];
 
     xdg.configFile."leftwm/config.ron".text = ''
       #![enable(implicit_some)]

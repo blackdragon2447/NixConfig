@@ -18,6 +18,7 @@ in {
     ssh.enable = true;
     zip.enable = true;
     aspell.enable = true;
+    tealdeer.enable = true;
   };
 
   services.gpg-agent.pinentryPackage = lib.mkForce pkgs.pinentry-gtk2;
