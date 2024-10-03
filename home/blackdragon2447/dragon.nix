@@ -44,7 +44,7 @@ in {
     leftwm = {
       enable = true;
       themes = {
-        ringed-earth.enable = true;
+        ringed-earth.enable = false;
         system.enable = true;
       };
     };
