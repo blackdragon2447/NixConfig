@@ -1,9 +1,4 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -47,8 +42,8 @@
 
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
-    _JAVA_AWT_WM_NONREPARENTING = 1;
-    MOZ_ENABLE_WAYLAND = 1;
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    MOZ_ENABLE_WAYLAND = "1";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 

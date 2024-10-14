@@ -9,6 +9,11 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +48,7 @@
     self,
     nixpkgs,
     nixpkgs-stable,
+    lix-module,
     home-manager,
     nixvim,
     nixos-hardware,
@@ -71,6 +77,7 @@
           secrets = import ./secrets.nix;
         };
         modules = [
+          lix-module.nixosModules.default
           ./hosts/wyvern
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           nixos-hardware.nixosModules.framework-11th-gen-intel
@@ -83,6 +90,7 @@
           secrets = import ./secrets.nix;
         };
         modules = [
+          lix-module.nixosModules.default
           ./hosts/dragon
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
         ];
@@ -102,6 +110,7 @@
           secrets = import ./secrets.nix;
         };
         modules = [
+          lix-module.nixosModules.default
           # > Our main home-manager configuration file <
           ./home/blackdragon2447/wyvern.nix
         ];
@@ -118,6 +127,7 @@
         };
         # not actually super secret, just dont want it in a public repo
         modules = [
+          lix-module.nixosModules.default
           # > Our main home-manager configuration file <
           ./home/blackdragon2447/dragon.nix
         ];

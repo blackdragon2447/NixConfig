@@ -58,7 +58,6 @@
   boot.extraModulePackages = [];
   # No fbdev=1, we cannot boot like that
   boot.kernelParams = lib.mkForce ["loglevel=4" "nvidia-drm.modeset=1"];
-  # boot.kernelParams = lib.mkForce (builtins.filter (e: e != "nvidia-drm.fbdev=0") config.boot.kernelParams);
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e40205bc-b3e0-4235-92b6-2cd5472b7d80";
