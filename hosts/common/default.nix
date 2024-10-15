@@ -15,6 +15,8 @@
     # overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
+
+      nvidia.acceptLicense = true;
     };
   };
 

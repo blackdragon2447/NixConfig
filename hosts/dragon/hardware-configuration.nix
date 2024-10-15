@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }: {
@@ -15,7 +16,6 @@
 
   hardware.graphics = {
     enable = true;
-    # driSupport = true;
     enable32Bit = true;
   };
 
@@ -26,6 +26,7 @@
     open = false;
     nvidiaSettings = true;
     forceFullCompositionPipeline = true;
+    package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
   };
 
   # Prevent MotherBoard from waking up the pc immediately after hibernate
@@ -56,8 +57,7 @@
     "kvm-amd"
   ];
   boot.extraModulePackages = [];
-  # No fbdev=1, we cannot boot like that
-  boot.kernelParams = lib.mkForce ["loglevel=4" "nvidia-drm.modeset=1"];
+  boot.kernelParams = ["resume=/dev/disk/by-uuid/add4601c-1c3c-4bfc-88d6-8eb10a9c9d6e"];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/e40205bc-b3e0-4235-92b6-2cd5472b7d80";
