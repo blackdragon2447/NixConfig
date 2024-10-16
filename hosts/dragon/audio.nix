@@ -55,36 +55,36 @@
           }
         ];
       };
-      "99-microphone-loopback" = {
-        "context.modules" = [
-          {
-            name = "libpipewire-module-loopback";
-            args = {
-              "audio.position" = ["FL" "FR"];
-              "capture.props" = {
-                "media.class" = "Audio/Sink";
-                "node.name" = "mic_loopback_sink";
-                "node.description" = "mic loopback sink";
-                "node.latency" = "48/36000";
-                #audio.rate = 44100
-                #audio.channels = 2
-                #audio.position = [ FL FR ]
-                #target.object = "USB Advanced Audio Device Analog Stereo"
-              };
-              "playback.props" = {
-                #"media.class" = Audio/Source
-                "node.name" = "mic_loopback_source";
-                "node.description" = "mic loopback source";
-                "node.latency" = "48/36000";
-                #audio.rate = 44100
-                #audio.channels = 2
-                #audio.position = [ FL FR ]
-                #target.object = "Starship/Matisse HD Audio Controller Analog Stereo"
-              };
-            };
-          }
-        ];
-      };
+      # "99-microphone-loopback" = {
+      #   "context.modules" = [
+      #     {
+      #       name = "libpipewire-module-loopback";
+      #       args = {
+      #         "audio.position" = ["FL" "FR"];
+      #         "capture.props" = {
+      #           "media.class" = "Audio/Sink";
+      #           "node.name" = "mic_loopback_sink";
+      #           "node.description" = "mic loopback sink";
+      #           "node.latency" = "48/36000";
+      #           #audio.rate = 44100
+      #           #audio.channels = 2
+      #           #audio.position = [ FL FR ]
+      #           #target.object = "USB Advanced Audio Device Analog Stereo"
+      #         };
+      #         "playback.props" = {
+      #           #"media.class" = Audio/Source
+      #           "node.name" = "mic_loopback_source";
+      #           "node.description" = "mic loopback source";
+      #           "node.latency" = "48/36000";
+      #           #audio.rate = 44100
+      #           #audio.channels = 2
+      #           #audio.position = [ FL FR ]
+      #           #target.object = "Starship/Matisse HD Audio Controller Analog Stereo"
+      #         };
+      #       };
+      #     }
+      #   ];
+      # };
     };
   };
 }
