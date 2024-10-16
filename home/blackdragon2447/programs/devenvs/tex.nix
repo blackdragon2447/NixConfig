@@ -26,6 +26,7 @@
       pgfplots
       biblatex
       listings
+      backnaur
       background
       everypage
       textpos
