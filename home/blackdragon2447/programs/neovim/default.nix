@@ -462,7 +462,7 @@
             # keymaps.extra = [];
 
             servers = {
-              nil-ls = {
+              nil_ls = {
                 enable = true;
 
                 extraOptions = {

@@ -5,7 +5,7 @@
 }: {
   config = lib.mkIf config.devenvs.lua.enable {
     programs.nixvim.plugins = {
-      lsp.servers.lua-ls = {
+      lsp.servers.lua_ls = {
         enable = true;
       };
 
