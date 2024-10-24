@@ -35,6 +35,7 @@ in {
     thunderbird.enable = true;
     eduvpn.enable = true;
     libreoffice.enable = true;
+    freecad.enable = true;
   };
 
   games = {

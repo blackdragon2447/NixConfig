@@ -10,9 +10,8 @@
     ./cinny.nix
     ./eduvpn.nix
     ./libreoffice.nix
+    ./freecad.nix
   ];
-
-  home.packages = with pkgs; [];
 
   xdg.portal = {
     enable = true;
