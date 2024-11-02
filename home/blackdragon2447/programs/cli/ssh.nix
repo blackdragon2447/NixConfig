@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  secrets,
   ...
 }: {
   options = {
@@ -12,6 +13,11 @@
     programs.ssh = {
       enable = true;
       matchBlocks = {
+        science-ru-lilo = {
+          host = "lilo.science.ru.nl";
+          identityFile = "~/.ssh/science-ru-lilo";
+          user = secrets.ssh.lilo-username;
+        };
         aur = {
           host = "aur.archlinux.org";
           identityFile = "~/.ssh/aur";
@@ -26,6 +32,11 @@
           identityFile = "~/.ssh/gitlab-cs-ru";
         };
       };
+      # extraConfig = ''
+      #   CanonicalDomains science.ru.nl
+      #   CanonicalizeFallbackLocal no
+      #   CanonicalizeHostname yes
+      # '';
     };
   };
 }
