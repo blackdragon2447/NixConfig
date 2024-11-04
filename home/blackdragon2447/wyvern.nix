@@ -27,6 +27,7 @@ in {
     discord.enable = true;
     nheko.enable = false;
     cinny.enable = false;
+    iamb.enable = true;
     kdeconnect.enable = true;
     kitty = {
       enable = true;

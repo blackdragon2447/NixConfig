@@ -11,6 +11,7 @@
     ./eduvpn.nix
     ./libreoffice.nix
     ./freecad.nix
+    ./iamb.nix
   ];
 
   xdg.portal = {
