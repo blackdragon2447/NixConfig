@@ -10,6 +10,7 @@
     ./lua.nix
     ./coq.nix
     ./c.nix
+    ./haskell.nix
   ];
 
   options = {
@@ -24,6 +25,7 @@
       coq.enable = lib.mkEnableOption "Enable coq dev tools";
       lua.enable = lib.mkEnableOption "Enable lua dev tools";
       c.enable = lib.mkEnableOption "Enable c dev tools";
+      haskell.enable = lib.mkEnableOption "Enable haskell dev tools";
     };
   };
 

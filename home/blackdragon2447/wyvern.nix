@@ -94,13 +94,14 @@ in {
     nix.enable = true;
     tex.enable = true;
     java = {
-      enable = true;
+      enable = false;
       enableGradle = true;
     };
     rust.enable = true;
     coq.enable = true;
     lua.enable = true;
     c.enable = true;
+    haskell.enable = true;
   };
 
   # colorscheme = lib.mkDefault colorSchemes.darkviolet;

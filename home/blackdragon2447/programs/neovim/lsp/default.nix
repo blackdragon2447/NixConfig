@@ -7,5 +7,6 @@
     ./lua.nix
     ./coq.nix
     ./c.nix
+    ./haskell.nix
   ];
 }

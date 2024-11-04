@@ -316,8 +316,30 @@
 
           treesitter = {
             enable = true;
+
+            grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+              haskell
+              html
+              java
+              json
+              latex
+              lua
+              make
+              markdown
+              markdown_inline
+              nix
+              python
+              query
+              regex
+              rust
+              toml
+              vim
+              vimdoc
+            ];
+
             settings = {
               ensure_installed = [
+                "haskell"
                 "html"
                 "java"
                 "json"
@@ -336,6 +358,7 @@
                 "vimdoc"
               ];
               indent.enable = true;
+              highlight.enable = true;
             };
           };
           rainbow-delimiters.enable = true;
@@ -459,17 +482,6 @@
             enable = true;
 
             keymaps.extra = keymap.lsp;
-            # keymaps.extra = [];
-
-            servers = {
-              nil_ls = {
-                enable = true;
-
-                extraOptions = {
-                  flake.autoEvalInputs = true;
-                };
-              };
-            };
           };
 
           lsp-format.enable = true;

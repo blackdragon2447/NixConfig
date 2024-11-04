@@ -3,7 +3,7 @@
   config,
   ...
 }: {
-  config = lib.mkIf config.devenvs.rust.enable {
+  config = lib.mkIf config.devenvs.c.enable {
     programs.nixvim.plugins = {
       clangd-extensions = {
         enable = true;
