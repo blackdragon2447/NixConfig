@@ -8,6 +8,7 @@
     ../optional
 
     ./audio.nix
+    ./exports.nix
   ];
 
   hosts = {

@@ -7,6 +7,8 @@
     inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
     ./hardware-configuration.nix
 
+    ./exports.nix
+
     ../common/users
     ../common
 
