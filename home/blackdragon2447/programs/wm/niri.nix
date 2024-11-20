@@ -72,6 +72,11 @@
               "Mod+Shift+Up".action = move-column-to-workspace-up;
               "Mod+Shift+Down".action = move-column-to-workspace-down;
 
+              "Mod+Ctrl+Left".action = move-column-to-monitor-left;
+              "Mod+Ctrl+Right".action = move-column-to-monitor-right;
+              "Mod+Ctrl+Up".action = move-column-to-monitor-up;
+              "Mod+Ctrl+Down".action = move-column-to-monitor-down;
+
               "Mod+Left".action = focus-column-left;
               "Mod+Right".action = focus-column-right;
               "Mod+Up".action = focus-workspace-up;
@@ -160,6 +165,10 @@
               else []
             );
 
+          environment = {
+            DISPLAY = ":37";
+          };
+
           workspaces = {
             "00-home" = {
               name = " ";
@@ -184,6 +193,8 @@
               tap-button-map = "left-right-middle";
             };
           };
+
+          cursor.size = 12;
 
           outputs = {
             eDP-1 = {
