@@ -20,6 +20,10 @@
     };
   };
 
+  nix.settings = {
+    use-xdg-base-directories = true;
+  };
+
   hardware.gpgSmartcards.enable = true;
 
   services.udev.extraRules = ''
@@ -41,6 +45,27 @@
         from = 1714;
         to = 1764;
       } # KDE Connect
+    ];
+  };
+
+  environment.sessionVariables = rec {
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_CONFIG_HOME = "$HOME/.config";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+
+    CARGO_HOME = "$XDG_DATA_HOME/cargo";
+    RUSTUP_HOME = "$XDG_DATA_HOME/rustup";
+    DOCKER_CONFIG = "$XDG_CONFIG_HOME/docker";
+    GNUPGHOME = "$XDG_DATA_HOME/gnupg";
+    GOPATH = "$XDG_DATA_HOME/go";
+    GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
+    GTK2_RC_FILES = "$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
+
+    # Not officially in the specification
+    XDG_BIN_HOME = "$HOME/.local/bin";
+    PATH = [
+      "${XDG_BIN_HOME}"
     ];
   };
 

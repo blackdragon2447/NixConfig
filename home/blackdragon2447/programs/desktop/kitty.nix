@@ -20,6 +20,7 @@ in {
 
       font = {
         name = config.fontProfiles.monospace.family;
+        package = config.fontProfiles.monospace.package;
         size = config.desktop.kitty.font-size;
       };
 

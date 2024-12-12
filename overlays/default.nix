@@ -10,6 +10,22 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
+    # python312Packages.dbus-next = prev.python312Packages.dbus-next.overrideAttrs (prev: {
+    #   doCheck = false;
+    # });
+    python312Packages =
+      prev.python312Packages
+      // {
+        dbus-next = prev.python312Packages.dbus-next.overrideAttrs (prev: {
+          doCheck = false;
+          doInstallCheck = false;
+          dontCheck = true;
+          disabledTests = ["test_sending_file_descriptor_low_level"] ++ prev.disabledTests;
+        });
+      };
+    pass-secret-service = prev.pass-secret-service.overrideAttrs (prev: {
+      doCheck = false;
+    });
     xwayland-satellite = prev.xwayland-satellite.overrideAttrs (prev: {
       buildFeatures = prev.buildFeatures ++ ["systemd"];
     });

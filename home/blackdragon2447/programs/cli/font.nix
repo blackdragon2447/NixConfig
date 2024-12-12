@@ -2,8 +2,8 @@
   fontProfiles = {
     enable = true;
     monospace = {
-      family = "Hack Nerd Font";
-      package = pkgs.nerdfonts;
+      family = "Hack Nerd Font Mono";
+      package = pkgs.nerd-fonts.hack;
     };
     regular = {
       family = "Fira Sans";
