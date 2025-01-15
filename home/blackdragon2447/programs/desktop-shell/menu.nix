@@ -46,6 +46,11 @@ in {
         description = "Command to use to access passwords";
         default = "${pkgs.rofi-pass-wayland}/bin/rofi-pass";
       };
+      screenShotCommand = lib.mkOption {
+        type = lib.types.str;
+        description = "Command to use for screenshots";
+        default = "${screenshotMenu}/bin/menu_screenshot";
+      };
       enabledMenus = lib.mkOption {
         type = with lib.types; listOf (enum ["Programs" "Calc" "Minecraft" "Screenshot" "Pass" "Logout"]);
         description = "Menus to be enabled. (Minecraft needs prismlauncher installed)";
@@ -56,7 +61,7 @@ in {
 
   config = lib.mkIf config.desktop-shell.menu.enable {
     programs.rofi = let
-      inherit (config.colorscheme) colors;
+      inherit (config.colorscheme) palette;
       inherit (config.lib.formats.rasi) mkLiteral;
       themeFromBase16 = {
         base00,
@@ -222,7 +227,7 @@ in {
     in {
       enable = true;
       package = pkgs.rofi-wayland;
-      theme = themeFromBase16 colors;
+      theme = themeFromBase16 palette;
       plugins = [pkgs.rofi-calc];
     };
 

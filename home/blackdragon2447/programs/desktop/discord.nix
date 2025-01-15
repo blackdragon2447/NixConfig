@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
   discord = pkgs.discord.override {
     withOpenASAR = false;
   };
@@ -30,22 +30,22 @@ in {
       **/
 
       :root {
-          --base00: #${colors.base00}; /* Black */
-          --base01: #${colors.base01}; /* Bright Black */
-          --base02: #${colors.base02}; /* Grey */
-          --base03: #${colors.base03}; /* Brighter Grey */
-          --base04: #${colors.base04}; /* Bright Grey */
-          --base05: #${colors.base05}; /* White */
-          --base06: #${colors.base06}; /* Brighter White */
-          --base07: #${colors.base07}; /* Bright White */
-          --base08: #${colors.base08}; /* Red */
-          --base09: #${colors.base09}; /* Orange */
-          --base0A: #${colors.base0A}; /* Yellow */
-          --base0B: #${colors.base0B}; /* Green */
-          --base0C: #${colors.base0C}; /* Cyan */
-          --base0D: #${colors.base0D}; /* Blue */
-          --base0E: #${colors.base0E}; /* Purple */
-          --base0F: #${colors.base0F}; /* Magenta */
+          --base00: #${palette.base00}; /* Black */
+          --base01: #${palette.base01}; /* Bright Black */
+          --base02: #${palette.base02}; /* Grey */
+          --base03: #${palette.base03}; /* Brighter Grey */
+          --base04: #${palette.base04}; /* Bright Grey */
+          --base05: #${palette.base05}; /* White */
+          --base06: #${palette.base06}; /* Brighter White */
+          --base07: #${palette.base07}; /* Bright White */
+          --base08: #${palette.base08}; /* Red */
+          --base09: #${palette.base09}; /* Orange */
+          --base0A: #${palette.base0A}; /* Yellow */
+          --base0B: #${palette.base0B}; /* Green */
+          --base0C: #${palette.base0C}; /* Cyan */
+          --base0D: #${palette.base0D}; /* Blue */
+          --base0E: #${palette.base0E}; /* Purple */
+          --base0F: #${palette.base0F}; /* Magenta */
 
           --primary-630: var(--base00); /* Autocomplete background */
           --primary-660: var(--base00); /* Search input background */

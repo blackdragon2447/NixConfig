@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
 in {
   options = {
     wm.leftwm.themes.system.enable = lib.mkEnableOption "";
@@ -23,9 +23,9 @@ in {
           default_height: None,
           always_float: None,
           gutter: None,
-          default_border_color: "#${colors.base02}",
-          floating_border_color: "#${colors.base02}",
-          focused_border_color: "#${colors.base08}",
+          default_border_color: "#${palette.base02}",
+          floating_border_color: "#${palette.base02}",
+          focused_border_color: "#${palette.base08}",
           on_new_window: None,
       )
     '';
@@ -38,7 +38,7 @@ in {
 
       #set background
       if [ -x "$(command -v feh)" ]; then
-        ${pkgs.imagemagick}/bin/convert -size 1x1 xc:#${colors.base00} "$SCRIPTPATH"/background.png
+        ${pkgs.imagemagick}/bin/convert -size 1x1 xc:#${palette.base00} "$SCRIPTPATH"/background.png
         sleep 1
         feh --bg-scale "$SCRIPTPATH"/background.png
       fi
@@ -74,14 +74,14 @@ in {
     xdg.configFile."leftwm/themes/system/reset.jpg".source = ./reset.jpg;
 
     xdg.configFile."leftwm/themes/system/polybar.config".text = ''
-      [colors]
-      background = #${colors.base01}
-      background-alt = #${colors.base02}
-      foreground = #${colors.base07}
-      primary = #${colors.base09}
-      secondary = #${colors.base08}
+      [palette]
+      background = #${palette.base01}
+      background-alt = #${palette.base02}
+      foreground = #${palette.base07}
+      primary = #${palette.base09}
+      secondary = #${palette.base08}
       alert = #A54242
-      disabled = #${colors.base06}
+      disabled = #${palette.base06}
 
       ${builtins.readFile ./system-files/polybar.config}
     '';
@@ -89,11 +89,11 @@ in {
     xdg.configFile."leftwm/themes/system/template.liquid".text = ''
       {% for tag in workspace.tags %}
       {% if tag.mine %}
-      %{o#${colors.base08}}%{+o}%{B#${colors.base04}} {{tag.name}} %{B-}%{o-}%{-o}
+      %{o#${palette.base08}}%{+o}%{B#${palette.base04}} {{tag.name}} %{B-}%{o-}%{-o}
       {% elsif tag.visible  %}
-      %{B#${colors.base03}} {{tag.name}} %{B-}
+      %{B#${palette.base03}} {{tag.name}} %{B-}
       {% elsif tag.busy %}
-      %{B#${colors.base03}} {{tag.name}} %{B-}
+      %{B#${palette.base03}} {{tag.name}} %{B-}
       {% else tag.visible  %}
       %{F#FFFFFF} {{tag.name}} %{F-}
       {% endif %}
@@ -109,10 +109,10 @@ in {
 
       if [ -z $muted ]
           set volume (math 100 \* (wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | sed 's/.*\([0-9]\.[0-9][0-9]\).*/\1/'))
-          set message (echo '%{F#${colors.base08}}MIC%{F-}' $volume%)
+          set message (echo '%{F#${palette.base08}}MIC%{F-}' $volume%)
           echo $message
       else
-          echo '%{F#${colors.base06}}MIC muted%{F-}'
+          echo '%{F#${palette.base06}}MIC muted%{F-}'
       end
     '';
     xdg.configFile."leftwm/themes/system/polybar-mic.fish".executable = true;
@@ -124,10 +124,10 @@ in {
 
       if [ -z $muted ]
           set volume (math 100 \* (wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed 's/.*\([0-9]\.[0-9][0-9]\).*/\1/'))
-          set message (echo '%{F#${colors.base08}}VOL%{F-}' $volume%)
+          set message (echo '%{F#${palette.base08}}VOL%{F-}' $volume%)
           echo $message
       else
-          echo '%{F#${colors.base06}}VOL muted%{F-}'
+          echo '%{F#${palette.base06}}VOL muted%{F-}'
       end
     '';
     xdg.configFile."leftwm/themes/system/polybar-vol.fish".executable = true;

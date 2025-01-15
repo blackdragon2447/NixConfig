@@ -91,6 +91,36 @@ in
           key = "S";
           options.desc = "Show symbols in workspace";
         }
+        {
+          action = helpers.mkRaw ''
+            function()
+              if vim.g.notes == nil then
+                local buf = vim.api.nvim_create_buf(true, true)
+                if buf == 0 then
+                  return
+                end
+                -- local ui = vim.api.nvim_list_uis()[0]
+                local opts = {
+                  relative = "editor",
+                  anchor = "SE",
+                  row = 1000,
+                  col = 1000,
+                  width = 40,
+                  height = 40,
+                  border = "single",
+                }
+                local win = vim.api.nvim_open_win(buf, false, opts)
+                vim.g.notes = win
+                vim.api.nvim_set_current_win(win)
+              else
+                win = vim.g.notes
+                vim.api.nvim_set_current_win(win)
+              end
+            end
+          '';
+          key = "n";
+          mode = ["n"];
+        }
       ]
       ++ keysWithPrefix "g" [
         {

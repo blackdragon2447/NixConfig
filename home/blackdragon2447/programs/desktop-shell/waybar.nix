@@ -4,7 +4,7 @@
   config,
   ...
 }: let
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
 in {
   options = {
     desktop-shell = {
@@ -49,7 +49,7 @@ in {
             format = "{}";
             interval = 1;
             return-type = "json";
-            exec = "${niri_workspaces}/bin/niri_workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${colors.base09}\"";
+            exec = "${niri_workspaces}/bin/niri_workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${palette.base09}\"";
             signal = 8;
           };
 
@@ -59,7 +59,7 @@ in {
             format = "{}";
             interval = 1;
             return-type = "json";
-            exec = "${niri_window}/bin/niri_window \"$WAYBAR_OUTPUT_NAME\" \"#${colors.base09}\"";
+            exec = "${niri_window}/bin/niri_window \"$WAYBAR_OUTPUT_NAME\" \"#${palette.base09}\"";
             signal = 8;
           };
 
@@ -94,7 +94,7 @@ in {
             Font Awesome,
             Roboto;
           font-size: 16px;
-          color: #${colors.base07};
+          color: #${palette.base07};
         }
 
         window {
@@ -125,15 +125,15 @@ in {
         }
         #tags button:hover {
           box-shadow: inherit;
-          background-color: #${colors.base05};
+          background-color: #${palette.base05};
         }
 
         #tags button.occupied {
-          background-color: #${colors.base03};
+          background-color: #${palette.base03};
         }
 
         #tags button.focused {
-          background-color: #${colors.base04};
+          background-color: #${palette.base04};
         }
 
         #clock,
@@ -152,8 +152,8 @@ in {
         #custom-niri_window {
           padding: 0px 5px;
           margin: 0px 5px;
-          background-color: #${colors.base02};
-          border-top: 5px solid #${colors.base09};
+          background-color: #${palette.base02};
+          border-top: 5px solid #${palette.base09};
         }
       '';
     };

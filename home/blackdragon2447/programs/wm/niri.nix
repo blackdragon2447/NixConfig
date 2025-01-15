@@ -14,11 +14,11 @@
   };
 
   config = let
-    inherit (config.colorscheme) colors;
+    inherit (config.colorscheme) palette;
   in
     lib.mkIf config.wm.niri.enable {
       home.packages = with pkgs; (
-        []
+        [libsForQt5.qtwayland kdePackages.qtwayland]
         ++ (
           if config.wm.niri.audioControls
           then [pamixer]
@@ -34,6 +34,8 @@
       # Xwayland?
 
       desktop-shell.xwayland.enable = lib.mkDefault true;
+
+      desktop-shell.menu.screenShotCommand = lib.mkDefault "${pkgs.niri}/bin/niri msg action screenshot";
 
       xdg.desktopEntries.discord-wayland = {
         categories = ["Network" "InstantMessaging"];
@@ -87,6 +89,8 @@
 
               "Mod+Shift+Comma".action = consume-window-into-column;
               "Mod+Shift+Period".action = expel-window-from-column;
+
+              "Mod+Shift+S".action = screenshot;
 
               "Mod+Shift+Slash".action = show-hotkey-overlay;
             }
@@ -167,6 +171,7 @@
 
           environment = {
             DISPLAY = ":37";
+            QT_QPA_PLATFORM = "wayland";
           };
 
           workspaces = {
@@ -204,8 +209,8 @@
 
           layout.focus-ring = {
             enable = true;
-            active.color = "#" + colors.base08;
-            inactive.color = "#" + colors.base02;
+            active.color = "#" + palette.base08;
+            inactive.color = "#" + palette.base02;
             width = 2;
           };
 

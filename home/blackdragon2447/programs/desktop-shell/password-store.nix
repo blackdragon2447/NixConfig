@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -17,5 +18,7 @@
       enable = true;
       storePath = "${config.home.homeDirectory}/.password-store";
     };
+
+    # home.packages = with pkgs; [pass-secret-service];
   };
 }

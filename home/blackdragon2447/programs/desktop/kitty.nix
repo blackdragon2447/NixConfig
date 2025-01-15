@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  inherit (config.colorscheme) colors;
+  inherit (config.colorscheme) palette;
 in {
   options = {
     desktop.kitty = {
@@ -25,28 +25,28 @@ in {
       };
 
       settings = {
-        color0 = "#${colors.base00}";
-        color1 = "#${colors.base08}";
-        color2 = "#${colors.base0B}";
-        color3 = "#${colors.base0A}";
-        color4 = "#${colors.base0D}";
-        color5 = "#${colors.base0E}";
-        color6 = "#${colors.base0C}";
-        color7 = "#${colors.base05}";
-        color8 = "#${colors.base03}";
-        color9 = "#${colors.base08}";
-        color10 = "#${colors.base0B}";
-        color11 = "#${colors.base0A}";
-        color12 = "#${colors.base0D}";
-        color13 = "#${colors.base0E}";
-        color14 = "#${colors.base0C}";
-        color15 = "#${colors.base07}";
-        color16 = "#${colors.base09}";
-        color17 = "#${colors.base0F}";
-        color18 = "#${colors.base01}";
-        color19 = "#${colors.base02}";
-        color20 = "#${colors.base04}";
-        color21 = "#${colors.base06}";
+        color0 = "#${palette.base00}";
+        color1 = "#${palette.base08}";
+        color2 = "#${palette.base0B}";
+        color3 = "#${palette.base0A}";
+        color4 = "#${palette.base0D}";
+        color5 = "#${palette.base0E}";
+        color6 = "#${palette.base0C}";
+        color7 = "#${palette.base05}";
+        color8 = "#${palette.base03}";
+        color9 = "#${palette.base08}";
+        color10 = "#${palette.base0B}";
+        color11 = "#${palette.base0A}";
+        color12 = "#${palette.base0D}";
+        color13 = "#${palette.base0E}";
+        color14 = "#${palette.base0C}";
+        color15 = "#${palette.base07}";
+        color16 = "#${palette.base09}";
+        color17 = "#${palette.base0F}";
+        color18 = "#${palette.base01}";
+        color19 = "#${palette.base02}";
+        color20 = "#${palette.base04}";
+        color21 = "#${palette.base06}";
       };
     };
   };
