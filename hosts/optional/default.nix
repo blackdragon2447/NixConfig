@@ -5,5 +5,6 @@
     ./xorg.nix
     ./steam.nix
     ./docker.nix
+    ./printing.nix
   ];
 }

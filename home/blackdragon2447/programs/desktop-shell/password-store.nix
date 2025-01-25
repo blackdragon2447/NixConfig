@@ -15,7 +15,7 @@
     };
 
     services.pass-secret-service = {
-      enable = true;
+      enable = false;
       storePath = "${config.home.homeDirectory}/.password-store";
     };
 

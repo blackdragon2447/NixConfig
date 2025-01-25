@@ -20,6 +20,7 @@
     hasBrightness = true;
     enableSteam = true;
     enableDocker = true;
+    enablePrinting = true;
     xorgSupport = true;
   };
 

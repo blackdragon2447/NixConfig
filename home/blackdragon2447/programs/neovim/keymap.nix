@@ -190,6 +190,27 @@ in
           key = "m";
           options.desc = "Vertical Split New";
         }
+        {
+          action = "<cmd>tabnew<CR>";
+          key = "t";
+          options.desc = "Open a new tab";
+        }
+        {
+          action = "<cmd>tab split<CR>";
+          key = "T";
+          options.desc = "Open a new tab with the current buffer";
+        }
+        {
+          action = "<cmd>tabnext<CR>";
+          key = "m";
+          options.desc = "Focus next tab";
+        }
+        {
+          action = "<cmd>tabprev<CR>";
+          key = "m";
+          options.desc = "Focus previous tab";
+        }
+
         # {
         #   action = "require('nvim-window').pick";
         #   key = "w";

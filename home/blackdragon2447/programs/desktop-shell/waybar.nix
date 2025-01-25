@@ -32,6 +32,7 @@ in {
   };
 
   config = lib.mkIf config.desktop-shell.waybar.enable {
+    home.packages = [pkgs.nerd-fonts.symbols-only];
     programs.waybar = {
       enable = true;
 
@@ -91,6 +92,7 @@ in {
       style = ''
         * {
           font-family:
+            Symbols Nerd Font,
             Font Awesome,
             Roboto;
           font-size: 16px;

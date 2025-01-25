@@ -24,8 +24,8 @@
 
       permittedInsecurePackages = [
         "olm-3.2.16"
-        "cinny-4.2.2"
-        "cinny-unwrapped-4.2.2"
+        "cinny-4.2.3"
+        "cinny-unwrapped-4.2.3"
       ];
     };
   };
