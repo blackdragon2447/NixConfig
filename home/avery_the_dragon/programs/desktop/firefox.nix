@@ -117,7 +117,7 @@
             sponsorblock
             ghostery
             decentraleyes
-            clearurls
+            # clearurls
             privacy-badger
             rust-search-extension
             consent-o-matic

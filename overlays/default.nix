@@ -29,8 +29,11 @@
     xwayland-satellite = prev.xwayland-satellite.overrideAttrs (prev: {
       buildFeatures = prev.buildFeatures ++ ["systemd"];
     });
+
     rofi-calc = prev.rofi-calc.override {rofi-unwrapped = prev.rofi-wayland-unwrapped;};
     pinentry-rofi = prev.pinentry-rofi.override {rofi = prev.rofi-wayland;};
+
+    iamb_8 = inputs.iamb.packages."x86_64-linux".default;
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will
