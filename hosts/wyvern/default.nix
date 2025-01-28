@@ -21,6 +21,7 @@
     enableSteam = true;
     enableDocker = true;
     enablePrinting = true;
+    enableQemu = true;
     xorgSupport = true;
   };
 

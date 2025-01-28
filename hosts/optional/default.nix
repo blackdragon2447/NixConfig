@@ -6,5 +6,6 @@
     ./steam.nix
     ./docker.nix
     ./printing.nix
+    ./qemu.nix
   ];
 }
