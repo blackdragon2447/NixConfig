@@ -98,7 +98,7 @@
     };
 
     homeConfigurations = {
-      "blackdragon2447@wyvern" = lib.homeManagerConfiguration {
+      "avery_the_dragon@wyvern" = lib.homeManagerConfiguration {
         pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
@@ -112,10 +112,10 @@
         modules = [
           lix-module.nixosModules.default
           # > Our main home-manager configuration file <
-          ./home/blackdragon2447/wyvern.nix
+          ./home/avery_the_dragon/wyvern.nix
         ];
       };
-      "blackdragon2447@dragon" = lib.homeManagerConfiguration {
+      "avery_the_dragon@dragon" = lib.homeManagerConfiguration {
         pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs;
@@ -129,7 +129,7 @@
         modules = [
           lix-module.nixosModules.default
           # > Our main home-manager configuration file <
-          ./home/blackdragon2447/dragon.nix
+          ./home/avery_the_dragon/dragon.nix
         ];
       };
     };

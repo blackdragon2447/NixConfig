@@ -43,8 +43,8 @@
   };
 
   home = {
-    username = "blackdragon2447";
-    homeDirectory = "/home/blackdragon2447";
+    username = "avery_the_dragon";
+    homeDirectory = "/home/avery_the_dragon";
     stateVersion = "23.05";
   };
 }

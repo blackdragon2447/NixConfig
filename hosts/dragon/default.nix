@@ -42,12 +42,12 @@
 
   # tmp hack
 
-  users.users.blackdragon2447 = {
+  users.users.avery_the_dragon = {
     extraGroups = ["wheel" "users"];
-    group = "blackdragon2447";
+    group = "avery_the_dragon";
   };
 
-  users.groups.blackdragon2447 = {
+  users.groups.avery_the_dragon = {
     gid = 984;
   };
 

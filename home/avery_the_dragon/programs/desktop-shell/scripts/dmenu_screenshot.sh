@@ -1,4 +1,4 @@
-maim_dir=/home/blackdragon2447/Pictures/screenshots
+maim_dir=/home/avery_the_dragon/Pictures/screenshots
 
 get_timestamp() {
   date '+%Y%m%d-%H%M%S'

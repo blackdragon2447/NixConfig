@@ -1,4 +1,4 @@
-instances=($(eza -la /home/blackdragon2447/.local/share/PrismLauncher/instances | grep -v 'inst\|MMC_TEMP\|LAUNCHER_TEMP\|.tmp' | awk '{print $7}'))
+instances=($(eza -la /home/avery_the_dragon/.local/share/PrismLauncher/instances | grep -v 'inst\|MMC_TEMP\|LAUNCHER_TEMP\|.tmp' | awk '{print $7}'))
 names=()
 
 for i in "${instances[@]}"

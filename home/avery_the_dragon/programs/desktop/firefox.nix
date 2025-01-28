@@ -41,7 +41,7 @@
         OfferToSaveLogins = false;
       };
 
-      profiles.blackdragon2447 = {
+      profiles.avery_the_dragon = {
         isDefault = true;
 
         search = {

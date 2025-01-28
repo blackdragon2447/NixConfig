@@ -58,14 +58,14 @@
     resumeDevice = "/dev/disk/by-uuid/f37fb839-9c9c-4f26-9512-e35b83d0bbdb";
   };
 
-  users.users.blackdragon2447 = {
+  users.users.avery_the_dragon = {
     extraGroups = ["wheel" "users" "dailout"];
-    group = "blackdragon2447";
+    group = "avery_the_dragon";
   };
 
   users.groups = {
     dailout = {};
-    blackdragon2447 = {
+    avery_the_dragon = {
       gid = 1000;
     };
   };

@@ -12,7 +12,7 @@
     programs.thunderbird = {
       enable = true;
 
-      profiles.blackdragon2447 = {
+      profiles.avery_the_dragon = {
         isDefault = true;
       };
 

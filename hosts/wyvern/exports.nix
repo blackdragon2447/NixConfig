@@ -1,7 +1,7 @@
 {...}: {
   fileSystems = {
     "/export/SoftwareFoundations" = {
-      device = "/home/blackdragon2447/WorkSpaces/CoqWorkspace/SoftwareFoundations";
+      device = "/home/avery_the_dragon/WorkSpaces/CoqWorkspace/SoftwareFoundations";
       options = ["bind"];
     };
   };

@@ -8,7 +8,7 @@
     programs.nixvim.plugins = {
       nvim-jdtls = {
         enable = true;
-        # configuration = "/home/blackdragon2447/.cache/jdtls/config";
+        # configuration = "/home/avery_the_dragon/.cache/jdtls/config";
         # data.__raw = "'~/.cache/jdtls/data/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')";
         cmd = [
         ];
@@ -22,8 +22,8 @@
               "-Dlog.level=ALL",
               "-noverify",
               "-Xmx1G",
-              "-data", "/home/blackdragon2447/.cache/jdtls/data/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
-              "-configuration", "/home/blackdragon2447/.cache/jdtls/config/",
+              "-data", "/home/avery_the_dragon/.cache/jdtls/data/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
+              "-configuration", "/home/avery_the_dragon/.cache/jdtls/config/",
             }
           '';
         };
