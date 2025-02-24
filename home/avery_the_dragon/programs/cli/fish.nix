@@ -44,10 +44,8 @@ in {
       };
 
       interactiveShellInit = ''
-        starship init fish | source
-
         bind \e\[3\;5~ kill-word
-               bind \cH backward-kill-word
+        bind \cH backward-kill-word
       '';
     };
   };

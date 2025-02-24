@@ -37,9 +37,9 @@
     fsType = "vfat";
   };
 
-  fileSystems."/tmp" = {
-    fsType = "tmpfs";
-  };
+  # fileSystems."/tmp" = {
+  #   fsType = "tmpfs";
+  # };
 
   swapDevices = [
     {device = "/dev/disk/by-uuid/f37fb839-9c9c-4f26-9512-e35b83d0bbdb";}

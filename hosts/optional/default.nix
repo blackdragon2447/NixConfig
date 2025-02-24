@@ -7,5 +7,6 @@
     ./docker.nix
     ./printing.nix
     ./qemu.nix
+    ./wireshark.nix
   ];
 }

@@ -22,6 +22,7 @@
     enableDocker = true;
     enablePrinting = true;
     enableQemu = true;
+    enableWireshark = true;
     xorgSupport = true;
   };
 
@@ -59,7 +60,7 @@
   };
 
   users.users.avery_the_dragon = {
-    extraGroups = ["wheel" "users" "dailout"];
+    extraGroups = ["wheel" "users" "dailout" "wireshark"];
     group = "avery_the_dragon";
   };
 

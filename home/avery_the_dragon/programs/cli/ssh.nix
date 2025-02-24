@@ -31,6 +31,11 @@
           host = "gitlab.science.ru.nl";
           identityFile = "~/.ssh/gitlab-cs-ru";
         };
+
+        rattop = {
+          host = "192.168.5.74";
+          identityFile = "~/.ssh/rattop";
+        };
       };
       # extraConfig = ''
       #   CanonicalDomains science.ru.nl
