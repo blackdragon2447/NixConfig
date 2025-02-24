@@ -13,6 +13,7 @@
 
   hosts = {
     enableSteam = true;
+    enableQemu = true;
     xorgSupport = true;
   };
 
