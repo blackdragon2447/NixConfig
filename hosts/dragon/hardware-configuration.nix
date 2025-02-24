@@ -93,6 +93,8 @@
 
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="062a", ATTR{idProduct}=="4182", GROUP="input", MODE="0666"
+    # Google
+    SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
   '';
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
