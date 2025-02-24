@@ -47,6 +47,11 @@
       url = "github:wamserma/flake-programs-sqlite";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -57,6 +62,7 @@
     home-manager,
     nixvim,
     nixos-hardware,
+    impermanence,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -98,6 +104,32 @@
           lix-module.nixosModules.default
           ./hosts/dragon
           inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+        ];
+      };
+
+      hydra1 = lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          secrets = import ./secrets.nix;
+        };
+        modules = [
+          # Not using lix because building on small ram is ify
+          # lix-module.nixosModules.default
+          ./hosts/hydra/hydra1.nix
+          impermanence.nixosModules.impermanence
+        ];
+      };
+
+      hydra2 = lib.nixosSystem {
+        specialArgs = {
+          inherit inputs outputs;
+          secrets = import ./secrets.nix;
+        };
+        modules = [
+          # Not using lix because building on small ram is ify
+          # lix-module.nixosModules.default
+          ./hosts/hydra/hydra2.nix
+          impermanence.nixosModules.impermanence
         ];
       };
     };
