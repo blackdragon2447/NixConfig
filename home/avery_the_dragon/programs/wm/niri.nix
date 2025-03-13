@@ -204,6 +204,7 @@
           outputs = {
             eDP-1 = {
               scale = 1;
+              background-color = "#" + palette.base02;
             };
           };
 

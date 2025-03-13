@@ -27,6 +27,14 @@
           path = "~/.config/git/gh-ssh";
           condition = "hasconfig:remote.*.url:git@github.com:*/**";
         }
+        {
+          path = "~/.config/git/gitea-itycodes-ssh";
+          condition = "hasconfig:remote.*.url:gitea@gitea.itycodes.org:*/**";
+        }
+        {
+          path = "~/.config/git/gitea-itycodes-http";
+          condition = "hasconfig:remote.*.url:https://gitea.itycodes.org/**";
+        }
         /*
         {
           path = "~/.config/git/gl-cs-ru-http";
@@ -59,6 +67,26 @@
           name = "BlackDragon2447"
           signingkey = 4E53F4CB69B2CC8D
     '';
+
+    xdg.configFile."git/gitea-itycodes-ssh".text = ''
+      [user]
+          email = "avery@gitea.itycodes.org"
+          name = "Avery"
+          signingkey = 4E53F4CB69B2CC8D
+    '';
+
+    xdg.configFile."git/gitea-itycodes-http".text = ''
+      [credential]
+          helper = store --file ~/.config/git/gitea-itycodes-http-cred
+          helper = cache --timeout 30000
+
+      [user]
+          email = "avery@gitea.itycodes.org"
+          name = "Avery"
+          signingkey = 4E53F4CB69B2CC8D
+    '';
+
+    xdg.configFile."git/gitea-itycodes-http-cred".text = secrets.git.gitea-itycodesKey;
 
     xdg.configFile."git/gl-cs-ru-ssh".text = secrets.git.uniGitConfig;
   };
