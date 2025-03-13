@@ -31,10 +31,23 @@
           host = "gitlab.science.ru.nl";
           identityFile = "~/.ssh/gitlab-cs-ru";
         };
+        gitea-itycodes = {
+          host = "gitea.itycodes.org";
+          identityFile = "~/.ssh/gitea-itycodes";
+          user = "gitea";
+        };
 
         rattop = {
           host = "192.168.5.74";
           identityFile = "~/.ssh/rattop";
+        };
+
+        dragon = {
+          host = "dragon";
+          hostname = "192.168.0.102";
+          port = 55005;
+          user = "avery_the_dragon";
+          identityFile = "~/.ssh/dragon";
         };
       };
       # extraConfig = ''
