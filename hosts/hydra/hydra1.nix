@@ -2,6 +2,8 @@
   imports = [
     ./hydra1-hardware.nix
     ./hydra-common.nix
+
+    ./config/postfix.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
