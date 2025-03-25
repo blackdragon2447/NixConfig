@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [./config];
 
   options = {};
@@ -14,6 +18,11 @@
       vim
       git
     ];
+
+    settings = {
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      auto-optimise-store = lib.mkDefault true;
+    };
 
     environment.persistence."/persistence" = {
       enable = true; # NB: Defaults to true, not needed
