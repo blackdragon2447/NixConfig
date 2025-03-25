@@ -1,12 +1,13 @@
 {...}: {
   imports = [
+    ./docker.nix
     ./bluetooth.nix
     ./brightness.nix
-    ./xorg.nix
-    ./steam.nix
-    ./docker.nix
     ./printing.nix
     ./qemu.nix
+    ./ssh.nix
+    ./steam.nix
     ./wireshark.nix
+    ./xorg.nix
   ];
 }
