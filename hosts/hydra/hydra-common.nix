@@ -19,9 +19,11 @@
       git
     ];
 
-    settings = {
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
-      auto-optimise-store = lib.mkDefault true;
+    nix = {
+      settings = {
+        experimental-features = ["nix-command" "flakes"];
+        auto-optimise-store = lib.mkDefault true;
+      };
     };
 
     environment.persistence."/persistence" = {
@@ -32,6 +34,8 @@
         "/var/lib/nixos"
       ];
     };
+
+    services.logrotate.checkConfig = false;
 
     programs.fish.enable = true;
 
@@ -55,9 +59,9 @@
           ];
         };
 
-        vhosts = {
+        vmail = {
           uid = 5000;
-          group = "vhosts";
+          group = "vmail";
           isSystemUser = true;
           createHome = true;
         };
@@ -71,9 +75,9 @@
         };
       };
 
-      groups.vhosts = {
+      groups.vmail = {
         gid = 5000;
-        name = "vhosts";
+        name = "vmail";
       };
     };
   };
