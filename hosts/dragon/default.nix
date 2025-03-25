@@ -9,6 +9,7 @@
 
     ./audio.nix
     ./exports.nix
+    ./qemu-tap.nix
   ];
 
   hosts = {
