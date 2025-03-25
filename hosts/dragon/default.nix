@@ -15,6 +15,8 @@
     enableSteam = true;
     enableQemu = true;
     xorgSupport = true;
+    enableDocker = true;
+    enableSsh = true;
   };
 
   pipewire.enable = true;
@@ -37,6 +39,12 @@
 
   networking = {
     networkmanager.enable = true;
+
+    firewall = {
+      enable = true;
+      allowPing = true;
+      allowedTCPPorts = [8080 55005];
+    };
 
     hostName = "dragon";
   };
