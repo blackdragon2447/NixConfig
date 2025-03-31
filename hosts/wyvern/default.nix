@@ -23,6 +23,7 @@
     enablePrinting = true;
     enableQemu = true;
     enableWireshark = true;
+    enableWireguard = true;
     xorgSupport = true;
   };
 

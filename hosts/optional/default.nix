@@ -9,5 +9,6 @@
     ./steam.nix
     ./wireshark.nix
     ./xorg.nix
+    ./wireguard.nix
   ];
 }
