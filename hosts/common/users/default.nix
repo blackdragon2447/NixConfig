@@ -1,8 +1,4 @@
-{
-  pkgs,
-  input,
-  ...
-}: {
+{pkgs, ...}: {
   users.users.avery_the_dragon = {
     uid = 1000;
     isNormalUser = true;
