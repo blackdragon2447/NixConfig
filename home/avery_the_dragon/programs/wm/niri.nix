@@ -48,12 +48,12 @@
       };
 
       xdg.portal.config.niri = {
-        default = ["gnome" "gtk"];
+        default = ["wlr"];
         "org.freedesktop.impl.portal.Secret" = ["pass-secret-service"];
       };
 
       xdg.portal.config.niri-session = {
-        default = ["gnome" "gtk"];
+        default = ["wlr"];
         "org.freedesktop.impl.portal.Secret" = ["pass-secret-service"];
       };
 
@@ -175,16 +175,16 @@
           };
 
           workspaces = {
-            "00-home" = {
+            "03-home" = {
               name = " ";
             };
-            "01-browser" = {
+            "02-browser" = {
               name = "󰈹 ";
             };
-            "02-chat" = {
+            "01-chat" = {
               name = " ";
             };
-            "03-mail" = {
+            "00-mail" = {
               name = " ";
             };
           };
