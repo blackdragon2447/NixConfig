@@ -20,7 +20,7 @@
         privateKeyFile = "/etc/wireguard/privkey";
 
         peers = [
-          secrets.wireguard-peer1
+          secrets.misc.wireguard-peer1
         ];
       };
     };
