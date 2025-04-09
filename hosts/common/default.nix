@@ -3,6 +3,7 @@
     ./fish.nix
     ./locale.nix
     ./nix.nix
+    ./xdg-desktop-portal.nix
 
     ./pipewire.nix
   ];
