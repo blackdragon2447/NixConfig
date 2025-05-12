@@ -31,6 +31,11 @@
     networkmanager.enable = true;
 
     hostName = "wyvern";
+    hosts = {
+      "192.168.0.201" = ["hydra1.local"];
+      "192.168.0.202" = ["hydra2.local"];
+      "192.168.0.203" = ["hydra3.local"];
+    };
   };
 
   services.tlp = {
