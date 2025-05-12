@@ -31,6 +31,9 @@
       everypage
       textpos
       latexindent
+      moderncv
+      scalerel
+      stackengine
       ;
     listings-rust = {
       pkgs = [pkgs.listings-rust];

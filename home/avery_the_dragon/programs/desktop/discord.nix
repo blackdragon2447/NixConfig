@@ -77,19 +77,5 @@ in {
           --scrollbar-auto-track: transparent;
       }
     '';
-
-    systemd.user.services.discord-css = {
-      Install = {
-        WantedBy = ["graphical-session.target"];
-        PartOf = ["graphical-session.target"];
-      };
-      Service = {
-        ExecStart = "${pkgs.writeShellScript "serve-discord-css" ''
-          ${pkgs.python3}/bin/python3 -m http.server 55826 -d /home/blackdragon2447/.config/discord/css/
-        ''}";
-      };
-    };
   };
-
-  #TODO Beautiful Discord
 }
