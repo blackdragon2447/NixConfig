@@ -27,6 +27,7 @@
       textColor = "#${palette.base05}";
       defaultTimeout = 10000;
       borderSize = 4;
+      anchor = "bottom-right";
     };
   };
 }
