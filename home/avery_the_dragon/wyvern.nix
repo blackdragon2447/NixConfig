@@ -37,6 +37,7 @@ in {
     eduvpn.enable = true;
     libreoffice.enable = true;
     freecad.enable = true;
+    zotero.enable = true;
   };
 
   games = {

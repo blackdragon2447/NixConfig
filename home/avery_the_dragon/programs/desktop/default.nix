@@ -12,6 +12,7 @@
     ./libreoffice.nix
     ./freecad.nix
     ./iamb.nix
+    ./zotero.nix
   ];
 
   xdg.portal = {
