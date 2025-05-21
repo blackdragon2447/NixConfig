@@ -19,6 +19,7 @@
     hasBluetooth = true;
     hasBrightness = true;
     enableSteam = true;
+    enableHeroic = true;
     enableDocker = true;
     enablePrinting = true;
     enableQemu = true;

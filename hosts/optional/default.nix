@@ -6,7 +6,7 @@
     ./printing.nix
     ./qemu.nix
     ./ssh.nix
-    ./steam.nix
+    ./games.nix
     ./wireshark.nix
     ./xorg.nix
     ./wireguard.nix
