@@ -17,7 +17,7 @@
         "AD655059B73D6E91A9404B4BE659BE73608E2FDE"
       ];
       # pinentyFlavour = "curses";
-      pinentryPackage = pkgs.pinentry-rofi;
+      pinentry.package = pkgs.pinentry-rofi;
       # pinentryPackage = pkgs.pinentry-qt;
       # pinentryPackage = pkgs.pinentry-curses;
     };

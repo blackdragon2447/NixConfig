@@ -2,6 +2,7 @@
   pkgs,
   pkgs-stable,
   lib,
+  inputs,
   config,
   ...
 }: {
@@ -15,7 +16,7 @@
   };
 
   config = let
-    helpers = config.nixvim.helpers;
+    helpers = inputs.nixvim.lib.nixvim;
     keymap = import ./keymap.nix helpers;
   in
     lib.mkIf config.neovim.enable {
@@ -507,7 +508,7 @@
           };
         };
 
-        diagnostics = {
+        diagnostic.settings = {
           virtual_lines = {
             enable = true;
             only_current_line = true;

@@ -45,7 +45,7 @@
         isDefault = true;
 
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           engines = {
             "My Nixos" = {
               urls = [
@@ -107,7 +107,7 @@
           };
         };
 
-        extensions = with inputs.firefox-addons.packages.${pkgs.system};
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system};
           [
             ublock-origin
             # lib.mkIf config.firefox.browserpass browserpass
@@ -119,7 +119,6 @@
             decentraleyes
             # clearurls
             privacy-badger
-            rust-search-extension
             consent-o-matic
             canvasblocker
             facebook-container
