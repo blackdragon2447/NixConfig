@@ -34,6 +34,7 @@
         settings = {
           keyid-format = "LONG";
           with-keygrip = true;
+          keyserver = "pgp.surf.nl";
         };
         # TODO: Keys?
       };
