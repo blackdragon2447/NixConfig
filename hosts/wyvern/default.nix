@@ -25,6 +25,7 @@
     enableQemu = true;
     enableWireshark = true;
     enableWireguard = true;
+    enableAdb = true;
     xorgSupport = true;
   };
 

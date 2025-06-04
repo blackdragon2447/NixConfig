@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./adb.nix
     ./docker.nix
     ./bluetooth.nix
     ./brightness.nix
