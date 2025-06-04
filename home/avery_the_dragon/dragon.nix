@@ -3,13 +3,10 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (inputs.nix-colors) colorSchemes;
-in {
+}: {
   imports = [
     ./global
     ./programs
-    inputs.nix-colors.homeManagerModule
   ];
 
   cli = {
@@ -90,6 +87,4 @@ in {
   games = {
     prismlauncher.enable = true;
   };
-
-  colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

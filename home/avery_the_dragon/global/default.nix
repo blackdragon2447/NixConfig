@@ -6,10 +6,7 @@
   ...
 }: {
   imports =
-    [
-      inputs.nix-colors.homeManagerModule
-    ]
-    ++ (builtins.attrValues outputs.homeManagerModules);
+    builtins.attrValues outputs.homeManagerModules;
 
   nixpkgs = {
     overlays = with outputs.overlays; [

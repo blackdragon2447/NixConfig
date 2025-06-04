@@ -8,7 +8,7 @@
     ./bat.nix
     ./git.nix
     ./gpg.nix
-    ./shellcolor.nix
+    # ./shellcolor.nix
     ./starship.nix
     ./font.nix
     ./ssh.nix

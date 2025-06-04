@@ -4,7 +4,6 @@
   config,
   ...
 }: let
-  inherit (config.colorscheme) palette;
   keybind = {
     modifiers ? ["None"],
     key,
@@ -51,10 +50,6 @@ in {
       };
 
       settings = {
-        border-color-focused = "0x" + palette.base08;
-        border-color-unfocused = "0x" + palette.base02;
-        background-color = "0x" + palette.base00;
-
         focus-follows-cursor = "normal";
 
         set-repeat = "50 300";

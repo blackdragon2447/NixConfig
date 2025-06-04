@@ -15,17 +15,11 @@
     };
   };
 
-  config = let
-    inherit (config.colorscheme) palette;
-  in {
+  config = {
     services.mako = lib.mkIf (config.desktop-shell.notify.enable && config.desktop-shell.notify.variant == "Wayland") {
       enable = true;
       settings = {
         layer = "overlay";
-        background-color = "#${palette.base00}";
-        border-color = "#${palette.base05}";
-        progress-color = "over #${palette.base08}";
-        text-color = "#${palette.base05}";
         defaultTimeout = 10000;
         borderSize = 4;
         anchor = "bottom-right";

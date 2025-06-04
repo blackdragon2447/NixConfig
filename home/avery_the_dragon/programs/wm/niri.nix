@@ -159,6 +159,7 @@
           prefer-no-csd = true;
           spawn-at-startup =
             [
+              {command = ["wpaperd"];}
               {command = ["${pkgs.cage}/bin/cage" "Discord"];}
               {command = ["${pkgs.xwayland-satellite}/bin/xwayland-satellite" ":37"];}
               {command = ["cinny"];}
@@ -206,14 +207,14 @@
           outputs = {
             eDP-1 = {
               scale = 1;
-              background-color = "#" + palette.base02;
+              background-color = "#" + config.lib.stylix.colors.base01;
             };
           };
 
           layout.focus-ring = {
             enable = true;
-            active.color = "#" + palette.base08;
-            inactive.color = "#" + palette.base02;
+            active.color = "#" + config.lib.stylix.colors.base08;
+            inactive.color = "#" + config.lib.stylix.colors.base02;
             width = 2;
           };
 
@@ -235,6 +236,11 @@
             {
               matches = [{app-id = "thunderbird";}];
               open-on-workspace = " ";
+            }
+
+            {
+              matches = [{app-id = "kitty";}];
+              opacity = 0.9;
             }
           ];
 

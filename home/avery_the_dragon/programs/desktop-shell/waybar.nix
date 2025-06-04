@@ -3,9 +3,7 @@
   lib,
   config,
   ...
-}: let
-  inherit (config.colorscheme) palette;
-in {
+}: {
   options = {
     desktop-shell = {
       waybar.enable = lib.mkEnableOption "enable waybar";
@@ -50,7 +48,7 @@ in {
             format = "{}";
             interval = 1;
             return-type = "json";
-            exec = "${niri_workspaces}/bin/niri_workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${palette.base09}\"";
+            exec = "${niri_workspaces}/bin/niri_workspaces \"$WAYBAR_OUTPUT_NAME\" \"#${config.lib.stylix.colors.base09}\"";
             signal = 8;
           };
 
@@ -60,7 +58,7 @@ in {
             format = "{}";
             interval = 1;
             return-type = "json";
-            exec = "${niri_window}/bin/niri_window \"$WAYBAR_OUTPUT_NAME\" \"#${palette.base09}\"";
+            exec = "${niri_window}/bin/niri_window \"$WAYBAR_OUTPUT_NAME\" \"#${config.lib.stylix.colors.base09}\"";
             signal = 8;
           };
 
@@ -96,28 +94,22 @@ in {
             Font Awesome,
             Roboto;
           font-size: 16px;
-          color: #${palette.base07};
+          /* color: #${config.lib.stylix.colors.base07}; */
         }
 
-        window {
-          /*font-weight: bold;*/
-        }
         window#waybar {
-          background: rgba(0, 0, 0, 0);
           margin-top: 6px;
+          margin-bottom: 6px;
         }
         /*-----module groups----*/
         .modules-right {
-          background-color: rgba(0, 0, 0, 0);
-          margin: 2px 10px 0 0;
+          margin: 2px 10px 2px 0;
         }
         .modules-center {
-          background-color: rgba(0, 0, 0, 0);
-          margin: 2px 0 0 0;
+          margin: 2px 0 2px 0;
         }
         .modules-left {
-          background-color: rgba(0, 0, 0, 0);
-          margin: 2px 0 0 10px;
+          margin: 2px 0 2px 10px;
         }
         /*-----modules indv----*/
         #tags button {
@@ -127,15 +119,6 @@ in {
         }
         #tags button:hover {
           box-shadow: inherit;
-          background-color: #${palette.base05};
-        }
-
-        #tags button.occupied {
-          background-color: #${palette.base03};
-        }
-
-        #tags button.focused {
-          background-color: #${palette.base04};
         }
 
         #clock,
@@ -154,8 +137,6 @@ in {
         #custom-niri_window {
           padding: 0px 5px;
           margin: 0px 5px;
-          background-color: #${palette.base02};
-          border-top: 5px solid #${palette.base09};
         }
       '';
     };

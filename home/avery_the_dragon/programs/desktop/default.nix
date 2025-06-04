@@ -5,7 +5,7 @@
     ./kdeconnect.nix
     ./thunderbird.nix
     ./nheko.nix
-    ./theme.nix
+    # ./theme.nix
     ./kitty.nix
     ./cinny.nix
     ./eduvpn.nix

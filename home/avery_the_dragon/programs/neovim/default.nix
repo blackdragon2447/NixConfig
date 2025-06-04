@@ -144,11 +144,11 @@
 
         clipboard.register = "unnamedplus";
 
-        colorschemes.base16 = {
-          enable = true;
-          # colorscheme = "darkviolet";
-          colorscheme = "equilibrium-dark";
-        };
+        # colorschemes.base16 = {
+        #   enable = true;
+        #   # colorscheme = "darkviolet";
+        #   colorscheme = "equilibrium-dark";
+        # };
 
         plugins = {
           lualine = {

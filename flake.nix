@@ -19,7 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -57,6 +60,7 @@
     home-manager,
     nixvim,
     nixos-hardware,
+    stylix,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -115,7 +119,6 @@
           secrets = import ./secrets.nix;
         };
         modules = [
-          lix-module.nixosModules.default
           # > Our main home-manager configuration file <
           ./home/avery_the_dragon/wyvern.nix
         ];
@@ -132,7 +135,6 @@
         };
         # not actually super secret, just dont want it in a public repo
         modules = [
-          lix-module.nixosModules.default
           # > Our main home-manager configuration file <
           ./home/avery_the_dragon/dragon.nix
         ];

@@ -3,13 +3,10 @@
   lib,
   pkgs,
   ...
-}: let
-  inherit (inputs.nix-colors) colorSchemes;
-in {
+}: {
   imports = [
     ./global
     ./programs
-    inputs.nix-colors.homeManagerModule
   ];
 
   cli = {
@@ -29,10 +26,7 @@ in {
     cinny.enable = true;
     iamb.enable = true;
     kdeconnect.enable = true;
-    kitty = {
-      enable = true;
-      font-size = 11;
-    };
+    kitty.enable = true;
     thunderbird.enable = true;
     eduvpn.enable = true;
     libreoffice.enable = true;
@@ -104,7 +98,4 @@ in {
     c.enable = true;
     haskell.enable = true;
   };
-
-  # colorscheme = lib.mkDefault colorSchemes.darkviolet;
-  colorscheme = lib.mkDefault colorSchemes.equilibrium-dark;
 }

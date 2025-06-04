@@ -9,6 +9,7 @@
     ./macro-pad.nix
     ./notify.nix
     ./xwayland.nix
+    ./stylix.nix
   ];
 
   services.gnome-keyring.enable = lib.mkForce false;
