@@ -155,12 +155,14 @@
               }
             );
           # TODO Screenshots.
+          screenshot-path = "~/Pictures/Screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
           prefer-no-csd = true;
           spawn-at-startup =
             [
               {command = ["${pkgs.cage}/bin/cage" "Discord"];}
+              {command = ["${pkgs.xwayland-satellite}/bin/xwayland-satellite" ":37"];}
               {command = ["cinny"];}
-              {command = ["firefox"];}
+              {command = ["librewolf"];}
               {command = ["thunderbird"];}
             ]
             ++ (
@@ -218,7 +220,7 @@
           window-rules = [
             {
               matches = [{app-id = "firefox";}];
-              open-on-workspace = "01-browser";
+              open-on-workspace = "󰈹 ";
             }
 
             {
@@ -227,12 +229,12 @@
                 {app-id = "cinny";}
                 {app-id = ".*nheko.*";}
               ];
-              open-on-workspace = "chat";
+              open-on-workspace = " ";
             }
 
             {
               matches = [{app-id = "thunderbird";}];
-              open-on-workspace = "03-mail";
+              open-on-workspace = " ";
             }
           ];
 

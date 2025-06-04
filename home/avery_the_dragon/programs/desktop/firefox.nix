@@ -14,7 +14,7 @@
 
   config = lib.mkIf config.desktop.firefox.enable {
     programs.browserpass.enable = config.desktop.firefox.browserpass;
-    programs.firefox = {
+    programs.librewolf = {
       enable = true;
 
       policies = {
@@ -89,31 +89,31 @@
                   ];
                 }
               ];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
             "Rust Docs" = {
               definedAliases = ["@rs"];
+              description = "A search engine for Rust";
+              name = "Query.rs";
               urls = [
                 {
-                  template = "https://doc.rust-lang.org/stable/std/";
-                  params = [
-                    {
-                      name = "search";
-                      value = "{searchTerms}";
-                    }
-                  ];
+                  template = "https://query.rs/redirect/{searchTerms}";
+                }
+                {
+                  type = "application/x-suggestions+json";
+                  template = "https://query.rs/suggest/{searchTerms}";
                 }
               ];
             };
           };
         };
 
+        extensions.force = true;
         extensions.packages = with inputs.firefox-addons.packages.${pkgs.system};
           [
             ublock-origin
             # lib.mkIf config.firefox.browserpass browserpass
             simple-tab-groups
-            user-agent-string-switcher
-            undoclosetabbutton
             sponsorblock
             ghostery
             decentraleyes
@@ -141,10 +141,10 @@
     };
 
     xdg.mimeApps.defaultApplications = {
-      "text/html" = ["firefox.desktop"];
-      "text/xml" = ["firefox.desktop"];
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
+      "text/html" = ["librewolf.desktop"];
+      "text/xml" = ["librewolf.desktop"];
+      "x-scheme-handler/http" = ["librewolf.desktop"];
+      "x-scheme-handler/https" = ["librewolf.desktop"];
     };
   };
 }
