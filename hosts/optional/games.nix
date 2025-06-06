@@ -6,32 +6,34 @@
 }: {
   options = {
     hosts.enableSteam = lib.mkEnableOption "Enable the steam games launcher";
-    hosts.enableHeroic = lib.mkEnableOption "Enable the herioc games launcher";
+    hosts.enableHeroic = lib.mkEnableOption "Enable the heroic games launcher";
   };
 
-  config =
-    lib.mkIf config.hosts.enableSteam {
-      programs.steam = {
-        enable = true;
-        gamescopeSession.enable = true;
-      };
-
-      environment.systemPackages = with pkgs; [mangohud protonup];
-
-      programs.gamemode.enable = true;
-      programs.gamescope.enable = true;
-    }
-    // lib.mkIf config.hosts.enableHeroic {
-      environment.systemPackages = with pkgs; [
-        (heroic.override {
-          extraPkgs = pkgs: [
-            pkgs.gamescope
-          ];
-        })
-        mangohud
-        protonup
+  config = let
+    heroic = pkgs.heroic.override {
+      extraPkgs = pkgs: [
+        pkgs.gamescope
       ];
-
-      programs.gamescope.enable = true;
     };
+  in {
+    programs.steam = {
+      enable = config.hosts.enableSteam;
+      gamescopeSession.enable = true;
+    };
+
+    environment.systemPackages =
+      (
+        if config.hosts.enableSteam || config.hosts.enableHeroic
+        then with pkgs; [mangohud protonup]
+        else []
+      )
+      ++ (
+        if config.hosts.enableHeroic
+        then [heroic]
+        else []
+      );
+
+    programs.gamemode.enable = config.hosts.enableSteam;
+    programs.gamescope.enable = config.hosts.enableSteam || config.hosts.enableHeroic;
+  };
 }
