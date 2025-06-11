@@ -31,6 +31,7 @@
     eduvpn.enable = true;
     libreoffice.enable = true;
     freecad.enable = true;
+    vlc.enable = true;
     zotero.enable = true;
   };
 
