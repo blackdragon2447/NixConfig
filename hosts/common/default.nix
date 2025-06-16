@@ -5,6 +5,7 @@
     ./nix.nix
 
     ./pipewire.nix
+    ./network.nix
   ];
 
   pipewire.enable = lib.mkDefault true;
@@ -31,22 +32,6 @@
   '';
 
   security.pam.services.swaylock = {};
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
-    allowedUDPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      } # KDE Connect
-    ];
-  };
 
   environment.sessionVariables = rec {
     XDG_CACHE_HOME = "$HOME/.cache";
