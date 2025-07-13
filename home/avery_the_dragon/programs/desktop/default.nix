@@ -13,6 +13,7 @@
     ./freecad.nix
     ./iamb.nix
     ./zotero.nix
+    ./vlc.nix
   ];
 
   xdg.portal = {

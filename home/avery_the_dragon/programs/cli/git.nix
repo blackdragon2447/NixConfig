@@ -56,7 +56,7 @@
       [user]
           email = "blackdragon2447@e.email"
           name = "BlackDragon2447"
-          signingkey = 4E53F4CB69B2CC8D
+          signingkey = 9D001FB4DADDA597
     '';
 
     xdg.configFile."git/gh-http-cred".text = secrets.git.githubKey;
@@ -65,14 +65,14 @@
       [user]
           email = "blackdragon2447@e.email"
           name = "BlackDragon2447"
-          signingkey = 4E53F4CB69B2CC8D
+          signingkey = 9D001FB4DADDA597
     '';
 
     xdg.configFile."git/gitea-itycodes-ssh".text = ''
       [user]
           email = "avery@gitea.itycodes.org"
           name = "Avery"
-          signingkey = 4E53F4CB69B2CC8D
+          signingkey = 9D001FB4DADDA597
     '';
 
     xdg.configFile."git/gitea-itycodes-http".text = ''
@@ -83,7 +83,7 @@
       [user]
           email = "avery@gitea.itycodes.org"
           name = "Avery"
-          signingkey = 4E53F4CB69B2CC8D
+          signingkey = 9D001FB4DADDA597
     '';
 
     xdg.configFile."git/gitea-itycodes-http-cred".text = secrets.git.gitea-itycodesKey;
