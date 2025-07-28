@@ -51,7 +51,7 @@
     '';
   in ''
     SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="${pkgs.systemd}/bin/systemctl hibernate"
-    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[5-9]", ENV{DBUS_SESSION_BUS_ADDRESS}="unix:path=/run/user/$$UID/bus", RUN+="${pkgs.sudo}/bin/sudo -Eu $$USER -c ${battery-notify}/bin/battery-notify"
+    SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[5-15]", ENV{DBUS_SESSION_BUS_ADDRESS}="unix:path=/run/user/$$UID/bus", RUN+="${pkgs.sudo}/bin/sudo -Eu $$USER -c ${battery-notify}/bin/battery-notify"
     SUBSYSTEM=="tty", KERNEL=="ttyACM0", GROUP="dialout", MODE="0666"
   '';
 

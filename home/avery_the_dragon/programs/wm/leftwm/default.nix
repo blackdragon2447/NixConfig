@@ -21,6 +21,7 @@
     xdg.configFile."leftwm/config.ron".text = ''
       #![enable(implicit_some)]
       (
+          log_level: "off",
           modkey: "Mod4",
           mousekey: "Mod4",
           tags: [

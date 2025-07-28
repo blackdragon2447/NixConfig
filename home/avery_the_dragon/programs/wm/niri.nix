@@ -65,7 +65,7 @@
               "Mod+Shift+Return".action = spawn "${pkgs.kitty}/bin/kitty";
               # "Mod+Shift+Return".action = spawn "${pkgs.foot}/bin/foot";
               "Mod+X".action = close-window;
-              "Mod+Shift+Q".action = quit {skip-confirmation = true;};
+              "Mod+Shift+Q".action = quit {skip-confirmation = false;};
               "Mod+E".action = fullscreen-window;
 
               "Mod+Return".action = move-column-to-first;
@@ -154,7 +154,6 @@
                 "Mod+Control+L".action = spawn "swaylock";
               }
             );
-          # TODO Screenshots.
           screenshot-path = "~/Pictures/Screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png";
           prefer-no-csd = true;
           spawn-at-startup =

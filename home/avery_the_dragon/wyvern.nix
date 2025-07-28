@@ -46,7 +46,7 @@
 
   wm = {
     riverwm = {
-      enable = true;
+      enable = false;
       audioControls = true;
       playerControls = true;
       brightnessControls = true;
@@ -57,7 +57,7 @@
       playerControls = true;
       brightnessControls = true;
     };
-    leftwm.enable = false;
+    leftwm.enable = true;
   };
 
   desktop-shell = {

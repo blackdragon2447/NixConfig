@@ -20,8 +20,9 @@
       enable = true;
       settings = {
         layer = "overlay";
-        defaultTimeout = 10000;
-        borderSize = 4;
+        default-timeout = 10000;
+        border-size = 4;
+        outer-margin = "14,4";
         anchor = "bottom-right";
       };
     };

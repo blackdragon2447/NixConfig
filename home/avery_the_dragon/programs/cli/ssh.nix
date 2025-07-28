@@ -6,7 +6,7 @@
   ...
 }: {
   options = {
-    cli.ssh.enable = lib.mkEnableOption "Enable git options";
+    cli.ssh.enable = lib.mkEnableOption "Enable ssh options";
   };
 
   config = lib.mkIf config.cli.ssh.enable {

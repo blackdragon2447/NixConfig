@@ -14,7 +14,7 @@
       enableSshSupport = true;
       sshKeys = [
         "11997C49A888A4F0885C8827D384D3615A9A56E9"
-        "AD655059B73D6E91A9404B4BE659BE73608E2FDE"
+        "B75E4731A82B0B7C21B6D55DB552A93F47BB6B3C"
       ];
       # pinentyFlavour = "curses";
       pinentry.package = pkgs.pinentry-rofi;
