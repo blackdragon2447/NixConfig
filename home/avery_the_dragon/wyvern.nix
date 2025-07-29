@@ -21,10 +21,12 @@
   desktop = {
     firefox.enable = true;
     firefox.browserpass = false;
-    discord.enable = true;
-    nheko.enable = true;
-    cinny.enable = true;
-    iamb.enable = true;
+    chat = {
+      iamb = true;
+      discord = true;
+      cinny = true;
+      dino = true;
+    };
     kdeconnect.enable = true;
     kitty.enable = true;
     thunderbird.enable = true;
