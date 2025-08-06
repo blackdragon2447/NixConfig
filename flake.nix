@@ -9,9 +9,15 @@
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.lix.follows = "lix";
     };
 
     home-manager = {
@@ -83,7 +89,7 @@
         modules = [
           lix-module.nixosModules.default
           ./hosts/wyvern
-          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+          # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
           nixos-hardware.nixosModules.framework-11th-gen-intel
         ];
       };
@@ -96,7 +102,7 @@
         modules = [
           lix-module.nixosModules.default
           ./hosts/dragon
-          inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+          # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
         ];
       };
     };
