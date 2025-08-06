@@ -11,7 +11,7 @@
     lib.mkIf config.devenvs.coq.enable {
       programs.nixvim = {
         files."ftplugin/coq.lua".keymaps = keymap.coq;
-        extraPlugins = with pkgs.vimPlugins; [
+        extraPlugins = with pkgs.neovimPlugins; [
           Coqtail
         ];
       };

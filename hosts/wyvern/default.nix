@@ -68,7 +68,12 @@
   };
 
   users.users.avery_the_dragon = {
-    extraGroups = ["wheel" "users" "dailout" "wireshark"];
+    extraGroups = [
+      "wheel"
+      "users"
+      "dailout"
+      "wireshark"
+    ];
     group = "avery_the_dragon";
   };
 

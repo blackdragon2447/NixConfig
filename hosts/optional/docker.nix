@@ -5,7 +5,7 @@
   ...
 }: {
   options = {
-    hosts.enableDocker = lib.mkEnableOption "Enable the steam games launcher";
+    hosts.enableDocker = lib.mkEnableOption "Enable docker";
   };
 
   config = lib.mkIf config.hosts.enableDocker {
@@ -14,6 +14,10 @@
     };
     virtualisation.docker = {
       enable = true;
+    };
+
+    users.users.avery_the_dragon = {
+      extraGroups = ["docker"];
     };
   };
 }

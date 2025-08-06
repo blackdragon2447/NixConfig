@@ -24,7 +24,7 @@
     chat = {
       iamb = true;
       discord = true;
-      cinny = true;
+      cinny = false;
       dino = true;
     };
     kdeconnect.enable = true;

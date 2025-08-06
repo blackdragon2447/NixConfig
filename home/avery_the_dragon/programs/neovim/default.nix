@@ -29,7 +29,7 @@
         viAlias = true;
         vimAlias = true;
 
-        package = pkgs-stable.neovim-unwrapped;
+        package = pkgs.neovim-unwrapped;
 
         globals.mapleader = " ";
         globals.maplocalleader = " ";

@@ -6,5 +6,5 @@
   # shellcolord = pkgs.callPackage ./shellcolord {};
   macro-script = pkgs.callPackage ./macro-script {};
   leftwm-patched = pkgs.callPackage ./leftwm {};
-  neovimPlugins = import ./neovimPlugins {inherit (pkgs) fetchFromGitHub neovimUtils;};
+  neovimPlugins = import ./neovimPlugins {inherit (pkgs) fetchFromGitHub neovimUtils vimUtils;};
 }
