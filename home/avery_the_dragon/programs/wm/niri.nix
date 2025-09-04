@@ -195,7 +195,11 @@
 
         input = {
           focus-follows-mouse.enable = true;
-          keyboard.xkb.options = "caps:menu";
+          keyboard.xkb = {
+            layout = "nl";
+            variant = "us";
+            options = "caps:menu,lv3:ralt_switch_multikey";
+          };
           touchpad = {
             click-method = "clickfinger";
             dwt = false;

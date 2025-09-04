@@ -8,5 +8,7 @@
     ./coq.nix
     ./c.nix
     ./haskell.nix
+    ./ocaml.nix
+    ./koka.nix
   ];
 }

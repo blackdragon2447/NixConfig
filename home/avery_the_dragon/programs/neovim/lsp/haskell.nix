@@ -10,6 +10,7 @@
         lsp.servers.hls = {
           enable = true;
           installGhc = false;
+          packages = pkgs.haskell-language-server;
         };
       };
       extraPlugins = with pkgs.vimPlugins; [vim-ormolu];

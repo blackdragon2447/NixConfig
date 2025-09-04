@@ -11,6 +11,9 @@
     ./coq.nix
     ./c.nix
     ./haskell.nix
+    ./idris2.nix
+    ./ocaml.nix
+    ./koka.nix
   ];
 
   options = {
@@ -26,6 +29,9 @@
       lua.enable = lib.mkEnableOption "Enable lua dev tools";
       c.enable = lib.mkEnableOption "Enable c dev tools";
       haskell.enable = lib.mkEnableOption "Enable haskell dev tools";
+      idris2.enable = lib.mkEnableOption "Enable idris2 dev tools";
+      ocaml.enable = lib.mkEnableOption "Enable ocaml dev tools";
+      koka.enable = lib.mkEnableOption "Enable koka dev tools";
     };
   };
 
