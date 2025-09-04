@@ -71,14 +71,14 @@
     extraGroups = [
       "wheel"
       "users"
-      "dailout"
+      "dialout"
       "wireshark"
     ];
     group = "avery_the_dragon";
   };
 
   users.groups = {
-    dailout = {};
+    dialout = {};
     avery_the_dragon = {
       gid = 1000;
     };

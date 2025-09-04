@@ -26,6 +26,7 @@
       discord = true;
       cinny = false;
       dino = true;
+      signal = true;
     };
     kdeconnect.enable = true;
     kitty.enable = true;
