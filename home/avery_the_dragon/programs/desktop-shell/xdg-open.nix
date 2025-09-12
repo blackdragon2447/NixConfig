@@ -8,7 +8,7 @@
   };
 
   config = let
-    firefox = "${pkgs.librewolf}/share/applications/firefox.desktop";
+    firefox = "${pkgs.librewolf}/share/applications/librewolf.desktop";
     vlc = "${pkgs.vlc}/share/applications/vlc.desktop";
     feh = "${pkgs.feh}/share/applications/feh.desktop";
   in {
