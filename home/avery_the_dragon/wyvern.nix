@@ -102,7 +102,7 @@
     nix.enable = true;
     tex.enable = true;
     java = {
-      enable = false;
+      enable = true;
       enableGradle = true;
     };
     rust.enable = true;

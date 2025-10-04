@@ -19,7 +19,9 @@
 
     ${builtins.readFile ./scripts/dmenu_menu.sh}
   '';
-  screenshotMenu = writeMenuScript "menu_screenshot" (builtins.readFile ./scripts/dmenu_screenshot.sh);
+  screenshotMenu = writeMenuScript "menu_screenshot" (
+    builtins.readFile ./scripts/dmenu_screenshot.sh
+  );
   logoutMenu = writeMenuScript "menu_logout" (builtins.readFile ./scripts/dmenu_logout.sh);
   minecraftMenu = writeMenuScript "menu_minecraft" (builtins.readFile ./scripts/dmenu_minecraft.sh);
 in {
@@ -29,12 +31,12 @@ in {
       dmenuCommand = lib.mkOption {
         type = lib.types.str;
         description = "Command to use for a dmenu prompt";
-        default = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
+        default = "${pkgs.rofi}/bin/rofi -dmenu";
       };
       runMenuCommand = lib.mkOption {
         type = lib.types.str;
         description = "Command to use for program runner";
-        default = "${pkgs.rofi-wayland}/bin/rofi -modi drun -show drun";
+        default = "${pkgs.rofi}/bin/rofi -modi drun -show drun";
       };
       lockCommand = lib.mkOption {
         type = lib.types.str;
@@ -52,9 +54,23 @@ in {
         default = "${screenshotMenu}/bin/menu_screenshot";
       };
       enabledMenus = lib.mkOption {
-        type = with lib.types; listOf (enum ["Programs" "Calc" "Minecraft" "Screenshot" "Pass" "Logout"]);
+        type = with lib.types;
+          listOf (enum [
+            "Programs"
+            "Calc"
+            "Minecraft"
+            "Screenshot"
+            "Pass"
+            "Logout"
+          ]);
         description = "Menus to be enabled. (Minecraft needs prismlauncher installed)";
-        default = ["Programs" "Calc" "Screenshot" "Pass" "Logout"];
+        default = [
+          "Programs"
+          "Calc"
+          "Screenshot"
+          "Pass"
+          "Logout"
+        ];
       };
     };
   };
@@ -62,7 +78,7 @@ in {
   config = lib.mkIf config.desktop-shell.menu.enable {
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      package = pkgs.rofi;
       plugins = [pkgs.rofi-calc];
     };
 

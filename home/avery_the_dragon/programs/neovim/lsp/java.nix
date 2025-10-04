@@ -6,13 +6,13 @@
 }: {
   config = lib.mkIf config.devenvs.java.enable {
     programs.nixvim.plugins = {
-      nvim-jdtls = {
+      jdtls = {
         enable = true;
         # configuration = "/home/avery_the_dragon/.cache/jdtls/config";
         # data.__raw = "'~/.cache/jdtls/data/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')";
         cmd = [
         ];
-        extraOptions = {
+        settings = {
           cmd.__raw = ''
             {
               "${lib.getExe pkgs.jdt-language-server}",

@@ -5,7 +5,10 @@
   libX11,
   libXinerama,
 }: let
-  rpathLibs = [libXinerama libX11];
+  rpathLibs = [
+    libXinerama
+    libX11
+  ];
 in
   rustPlatform.buildRustPackage rec {
     pname = "leftwm";
@@ -15,10 +18,10 @@ in
       owner = "leftwm";
       repo = "leftwm";
       rev = "9a1a2f8d835969236d0ece472e02450c533d6c22";
-      hash = "sha256-ZoSZaNXxBLf8263GW7Cfbn7h1uW+GDSASbGCxl4u7mM=";
+      hash = "sha256-eH7HuGZnWlXigTaUAc4S00+uOIEVftnBOD8x03KJLaE=";
     };
 
-    cargoHash = "sha256-0tGIRcmVLMRKonlTxhGT1YpshMi+p4SIL2UnDxLxzZU=";
+    cargoHash = "sha256-nFyhpCp8xsYjRl+2bqPfWzq31pM/yYcDuxkWEjjcqwA=";
 
     buildInputs = rpathLibs;
 

@@ -5,7 +5,7 @@
   # my-module = import ./my-module.nix;
   shellcolor = import ./shellcolor.nix;
   fonts = import ./fonts.nix;
-  nixvim = inputs.nixvim.homeManagerModules.nixvim;
+  nixvim = inputs.nixvim.homeModules.nixvim;
   niri = inputs.niri.homeModules.niri;
   stylix = inputs.stylix.homeModules.stylix;
 }

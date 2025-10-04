@@ -24,9 +24,7 @@ in {
 
         which = "command -v";
 
-        /*
-        TODO: Hibernate etc
-        */
+        # TODO: Hibernate etc
       };
       shellAliases = {
         ls = "eza -la --icons";
@@ -37,6 +35,8 @@ in {
 
         clear = "printf '\\033[2J\\033[3J\\033[1;1H'";
         q = "exit";
+
+        woman = "man";
       };
 
       functions = {

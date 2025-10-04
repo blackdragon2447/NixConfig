@@ -25,11 +25,24 @@
         };
       };
 
-      targets.firefox.enable = false;
-      targets.librewolf = {
-        enable = true;
-        colorTheme.enable = true;
-        profileNames = ["avery_the_dragon"];
+      targets = {
+        firefox.enable = false;
+
+        librewolf = {
+          enable = true;
+          colorTheme.enable = true;
+          profileNames = ["avery_the_dragon"];
+        };
+
+        gtk.enable = true;
+      };
+    };
+
+    gtk = {
+      enable = true;
+      iconTheme = {
+        name = "Papirus";
+        package = pkgs.dracula-icon-theme;
       };
     };
 

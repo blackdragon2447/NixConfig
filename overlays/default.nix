@@ -30,8 +30,8 @@
       buildFeatures = prev.buildFeatures ++ ["systemd"];
     });
 
-    rofi-calc = prev.rofi-calc.override {rofi-unwrapped = prev.rofi-wayland-unwrapped;};
-    pinentry-rofi = prev.pinentry-rofi.override {rofi = prev.rofi-wayland;};
+    # rofi-calc = prev.rofi-calc.override {rofi-unwrapped = prev.rofi-wayland-unwrapped;};
+    # pinentry-rofi = prev.pinentry-rofi.override {rofi = prev.rofi-wayland;};
   };
 
   # When applied, the unstable nixpkgs set (declared in the flake inputs) will

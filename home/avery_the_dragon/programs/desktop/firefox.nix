@@ -3,6 +3,7 @@
   lib,
   config,
   inputs,
+  pkgs-stable,
   ...
 }: {
   options = {
@@ -16,6 +17,8 @@
     programs.browserpass.enable = config.desktop.firefox.browserpass;
     programs.librewolf = {
       enable = true;
+
+      package = pkgs-stable.librewolf;
 
       policies = {
         DisableTelemetry = true;
@@ -109,7 +112,7 @@
         };
 
         extensions.force = true;
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system};
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs-stable.system};
           [
             ublock-origin
             # lib.mkIf config.firefox.browserpass browserpass
