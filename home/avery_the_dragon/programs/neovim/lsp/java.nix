@@ -10,22 +10,22 @@
         enable = true;
         # configuration = "/home/avery_the_dragon/.cache/jdtls/config";
         # data.__raw = "'~/.cache/jdtls/data/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')";
-        cmd = [
-        ];
         settings = {
-          cmd.__raw = ''
+          cmd = [
+            "${lib.getExe pkgs.jdt-language-server}"
+            "-Declipse.application=org.eclipse.jdt.ls.core.id1"
+            "-Dosgi.bundles.defaultStartLevel=4"
+            "-Declipse.product=org.eclipse.jdt.ls.core.product"
+            "-Dlog.level=ALL"
+            "-noverify"
+            "-Xmx1G"
+            "-data"
             {
-              "${lib.getExe pkgs.jdt-language-server}",
-              "-Declipse.application=org.eclipse.jdt.ls.core.id1",
-              "-Dosgi.bundles.defaultStartLevel=4",
-              "-Declipse.product=org.eclipse.jdt.ls.core.product",
-              "-Dlog.level=ALL",
-              "-noverify",
-              "-Xmx1G",
-              "-data", "/home/avery_the_dragon/.cache/jdtls/data/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
-              "-configuration", "/home/avery_the_dragon/.cache/jdtls/config/",
+              __raw = ''"/home/avery_the_dragon/.cache/jdtls/data/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t") '';
             }
-          '';
+            "-configuration"
+            "/home/avery_the_dragon/.cache/jdtls/config/"
+          ];
         };
       };
     };

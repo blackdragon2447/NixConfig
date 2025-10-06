@@ -13,6 +13,15 @@
   options = {
     neovim.enable = lib.mkEnableOption "Enable Neovim";
     neovim.pdfview.wayland = lib.mkEnableOption "Enable wayland for nvim pdf viewer";
+    neovim.sessions = lib.mkOption {
+      default = {};
+      defaultText = "{}";
+      description = "Packages containing one or more session files for neovim";
+      type = with lib.types; attrs;
+    };
+    #   {
+    #   neorg-session = pkgs.writeText "neorg-session.vim" (builtins.readFile ./neorg-session.vim);
+    # };
   };
 
   config = let
@@ -21,7 +30,16 @@
   in
     lib.mkIf config.neovim.enable {
       # Allow copying to the system clipboard
-      home.packages = with pkgs; [wl-clipboard xclip mupdf zathura];
+      home.packages = with pkgs; [
+        wl-clipboard
+        xclip
+        mupdf
+        zathura
+      ];
+
+      neovim.sessions = {
+        neorg-session = pkgs.writeText "neorg-session.vim" (builtins.readFile ./neorg-session.vim);
+      };
 
       programs.nixvim = {
         enable = true;
@@ -151,6 +169,29 @@
         # };
 
         plugins = {
+          neorg = {
+            enable = true;
+
+            settings = {
+              load = {
+                "core.defaults" = {
+                  __empty = null;
+                };
+                "core.concealer" = {
+                  config.icon_preset = "basic";
+                };
+                "core.dirman" = {
+                  config = {
+                    workspaces = {
+                      notes = "~/Notes";
+                    };
+                    default_workspace = "notes";
+                  };
+                };
+              };
+            };
+          };
+
           lualine = {
             settings = {
               component_separators = {
@@ -180,20 +221,38 @@
 
               sections = {
                 lualine_a = ["mode"];
-                lualine_b = ["branch" "diff"];
-                lualine_c = ["diagnostics" "filename"];
+                lualine_b = [
+                  "branch"
+                  "diff"
+                ];
+                lualine_c = [
+                  "diagnostics"
+                  "filename"
+                ];
 
-                lualine_x = ["encoding" "fileformat"];
+                lualine_x = [
+                  "encoding"
+                  "fileformat"
+                ];
                 lualine_y = ["filetype"];
                 lualine_z = ["location"];
               };
 
               inactive_sections = {
                 lualine_a = [];
-                lualine_b = ["branch" "diff"];
-                lualine_c = ["diagnostics" "filename"];
+                lualine_b = [
+                  "branch"
+                  "diff"
+                ];
+                lualine_c = [
+                  "diagnostics"
+                  "filename"
+                ];
 
-                lualine_x = ["encoding" "fileformat"];
+                lualine_x = [
+                  "encoding"
+                  "fileformat"
+                ];
                 lualine_y = ["filetype"];
                 lualine_z = [];
               };
@@ -241,7 +300,10 @@
 
               win = {
                 border = "single";
-                padding = [2 2];
+                padding = [
+                  2
+                  2
+                ];
               };
               layout.align = "center";
 
@@ -375,7 +437,10 @@
             enable = true;
             settings = {
               check_ts = true;
-              disabled_filetype = ["TelescopePrompt" "NeoTree"];
+              disabled_filetype = [
+                "TelescopePrompt"
+                "NeoTree"
+              ];
             };
           };
 
@@ -455,7 +520,11 @@
               '';
 
               formatting = {
-                fields = ["kind" "abbr" "menu"];
+                fields = [
+                  "kind"
+                  "abbr"
+                  "menu"
+                ];
                 format = ''
                     function(entry, vim_item)
                   vim_item.kind = string.format("%s", kind_icons[vim_item.kind])

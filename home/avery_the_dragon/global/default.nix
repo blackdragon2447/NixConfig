@@ -5,8 +5,7 @@
   outputs,
   ...
 }: {
-  imports =
-    builtins.attrValues outputs.homeManagerModules;
+  imports = builtins.attrValues outputs.homeManagerModules;
 
   nixpkgs = {
     overlays = with outputs.overlays; [
@@ -20,9 +19,6 @@
       allowUnfreePredicate = _: true;
 
       permittedInsecurePackages = [
-        "olm-3.2.16"
-        "cinny-4.2.3"
-        "cinny-unwrapped-4.2.3"
       ];
     };
   };
@@ -30,7 +26,10 @@
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
 

@@ -163,9 +163,18 @@
                 ":37"
               ];
             }
-            {command = ["cinny"];}
+            {command = ["dino"];}
             {command = ["librewolf"];}
             {command = ["thunderbird"];}
+            {
+              command = [
+                "kitty"
+                "--"
+                "nvim"
+                "-S"
+                "${config.neovim.sessions.neorg-session}"
+              ];
+            }
           ]
           ++ (
             if config.desktop-shell.waybar.enable
