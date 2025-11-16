@@ -45,6 +45,10 @@
           path = "~/.config/git/gl-cs-ru-ssh";
           condition = "hasconfig:remote.*.url:git@gitlab.science.ru.nl:*/**";
         }
+        {
+          path = "~/.config/git/git-gusted-ssh";
+          condition = "hasconfig:remote.*.url:forgejo@git.gusted.xyz:*/**";
+        }
       ];
     };
 
@@ -65,6 +69,13 @@
       [user]
           email = "blackdragon2447@e.email"
           name = "BlackDragon2447"
+          signingkey = 9D001FB4DADDA597
+    '';
+
+    xdg.configFile."git/git-gusted-ssh".text = ''
+      [user]
+          email = "blackdragon2447@e.email"
+          name = "avery"
           signingkey = 9D001FB4DADDA597
     '';
 

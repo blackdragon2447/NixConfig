@@ -14,5 +14,6 @@
   home.packages = with pkgs; [
     font-awesome
     roboto
+    monocraft
   ];
 }

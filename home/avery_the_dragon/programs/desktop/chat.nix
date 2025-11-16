@@ -13,18 +13,15 @@
     desktop.chat.signal = lib.mkEnableOption "Enable Signal";
   };
 
-  config = let
-    discord = pkgs.discord.override {
-      withOpenASAR = false;
-    };
-  in {
+  config = {
     home.packages =
       []
       ++ (lib.optional config.desktop.chat.cinny pkgs.cinny-desktop)
-      ++ (lib.optional config.desktop.chat.discord discord)
       ++ (lib.optional config.desktop.chat.iamb pkgs.iamb)
       ++ (lib.optional config.desktop.chat.dino pkgs.dino)
       ++ (lib.optional config.desktop.chat.signal pkgs.signal-desktop);
+
+    programs.vesktop.enable = config.desktop.chat.discord;
 
     xdg.configFile."iamb/config.toml".text = lib.mkIf config.desktop.chat.iamb ''
       [profiles.itycodes]

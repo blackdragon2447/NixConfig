@@ -34,6 +34,19 @@
       moderncv
       scalerel
       stackengine
+      svg
+      csquotes
+      epigraph
+      nag
+      todonotes
+      rutitlepage
+      nextpage
+      newtx
+      ebgaramond-maths
+      ebgaramond
+      svn-prov
+      fontaxes
+      biblatex-apa
       ;
     listings-rust = {
       pkgs = [pkgs.listings-rust];
@@ -41,6 +54,11 @@
   };
 in {
   config = lib.mkIf config.devenvs.tex.enable {
-    home.packages = with pkgs; [tex mupdf rubber biber];
+    home.packages = with pkgs; [
+      tex
+      mupdf
+      rubber
+      biber
+    ];
   };
 }

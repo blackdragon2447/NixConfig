@@ -52,6 +52,11 @@
           identityFile = "~/.ssh/gitea-itycodes";
           user = "gitea";
         };
+        git-gusted = {
+          host = "git.gusted.xyz";
+          identityFile = "~/.ssh/git-gusted";
+          user = "forgejo";
+        };
 
         rattop = {
           host = "192.168.5.74";

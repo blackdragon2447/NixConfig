@@ -84,8 +84,8 @@
 
             "Mod+Left".action = focus-column-left;
             "Mod+Right".action = focus-column-right;
-            "Mod+Up".action = focus-workspace-up;
-            "Mod+Down".action = focus-workspace-down;
+            "Mod+Up".action = focus-window-or-workspace-up;
+            "Mod+Down".action = focus-window-or-workspace-down;
 
             "Mod+Tab".action = switch-preset-column-width;
             "Mod+Grave".action = maximize-column;

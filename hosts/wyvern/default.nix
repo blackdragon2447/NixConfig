@@ -60,10 +60,14 @@
   };
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot.enable = true;
+      systemd-boot.memtest86.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
     resumeDevice = "/dev/disk/by-uuid/f37fb839-9c9c-4f26-9512-e35b83d0bbdb";
-    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+    kernelPackages = pkgs.linuxPackages;
+    kernel.sysctl."kernel.sysrq" = 502;
     tmp.cleanOnBoot = true;
   };
 
