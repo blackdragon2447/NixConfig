@@ -1,10 +1,13 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example'
-{pkgs ? import <nixpkgs> {}}: rec {
+{
+  pkgs ? import <nixpkgs> { },
+}:
+rec {
   # example = pkgs.callPackage ./example { };
-  listings-rust = pkgs.callPackage ./listings-rust {};
+  listings-rust = pkgs.callPackage ./listings-rust { };
   # shellcolord = pkgs.callPackage ./shellcolord {};
-  macro-script = pkgs.callPackage ./macro-script {};
-  leftwm-patched = pkgs.callPackage ./leftwm {};
-  neovimPlugins = import ./neovimPlugins {inherit (pkgs) fetchFromGitHub neovimUtils vimUtils;};
+  macro-script = pkgs.callPackage ./macro-script { };
+  leftwm-patched = pkgs.callPackage ./leftwm { };
+  neovimPlugins = import ./neovimPlugins { inherit (pkgs) fetchFromGitHub neovimUtils vimUtils; };
 }

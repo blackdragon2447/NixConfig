@@ -24,7 +24,10 @@
     environment.systemPackages =
       (
         if config.hosts.enableSteam || config.hosts.enableHeroic
-        then with pkgs; [mangohud protonup]
+        then with pkgs; [
+          mangohud
+          protonup-ng
+        ]
         else []
       )
       ++ (

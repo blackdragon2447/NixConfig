@@ -4,16 +4,17 @@
   config,
   secrets,
   ...
-}: {
+}:
+{
   options = {
     cli.git.enable = lib.mkEnableOption "Enable git options";
   };
 
   config = lib.mkIf config.cli.git.enable {
-    home.packages = with pkgs; [git-crypt];
+    home.packages = with pkgs; [ git-crypt ];
     programs.git = {
       enable = true;
-      extraConfig = {
+      settings = {
         commit.gpgsign = true;
         gpg.program = "${config.programs.gpg.package}/bin/gpg2";
         init.defaultBranch = "main";
@@ -36,10 +37,10 @@
           condition = "hasconfig:remote.*.url:https://gitea.itycodes.org/**";
         }
         /*
-        {
-          path = "~/.config/git/gl-cs-ru-http";
-          condition = "hasconfig:remote.*.url:https://github.com/**";
-        }
+          {
+            path = "~/.config/git/gl-cs-ru-http";
+            condition = "hasconfig:remote.*.url:https://github.com/**";
+          }
         */
         {
           path = "~/.config/git/gl-cs-ru-ssh";
@@ -47,7 +48,7 @@
         }
         {
           path = "~/.config/git/git-gusted-ssh";
-          condition = "hasconfig:remote.*.url:forgejo@git.gusted.xyz:*/**";
+          condition = "hasconfig:remote.*.url:ssh://forgejo@git.gusted.xyz/*/**";
         }
       ];
     };

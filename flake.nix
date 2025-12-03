@@ -53,93 +53,96 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-stable,
-    lix-module,
-    home-manager,
-    nixvim,
-    nixos-hardware,
-    stylix,
-    ...
-  } @ inputs: let
-    inherit (self) outputs;
-    lib = nixpkgs.lib // home-manager.lib;
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
-    packages = import ./pkgs {inherit pkgs;};
-  in {
-    inherit packages;
-    formatter.${system} = pkgs.alejandra;
-
-    overlays = import ./overlays {inherit inputs outputs;};
-    nixosModules = import ./modules/nixos;
-    homeManagerModules = import ./modules/home-manager {inherit inputs;};
-
-    nixosConfigurations = {
-      wyvern = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          # not actually super secret, just dont want it in a public repo
-          secrets = import ./secrets.nix;
-        };
-        modules = [
-          lix-module.nixosModules.default
-          ./hosts/wyvern
-          # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-          nixos-hardware.nixosModules.framework-11th-gen-intel
-        ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      lix-module,
+      home-manager,
+      nixvim,
+      nixos-hardware,
+      stylix,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
       };
-      dragon = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          # not actually super secret, just dont want it in a public repo
-          secrets = import ./secrets.nix;
-        };
-        modules = [
-          lix-module.nixosModules.default
-          ./hosts/dragon
-          # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
-        ];
-      };
-    };
+      packages = import ./pkgs { inherit pkgs; };
+    in
+    {
+      inherit packages;
+      formatter.${system} = pkgs.alejandra;
 
-    homeConfigurations = {
-      "avery_the_dragon@wyvern" = lib.homeManagerConfiguration {
-        pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
+      overlays = import ./overlays { inherit inputs outputs; };
+      nixosModules = import ./modules/nixos;
+      homeManagerModules = import ./modules/home-manager { inherit inputs; };
+
+      nixosConfigurations = {
+        wyvern = lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            # not actually super secret, just dont want it in a public repo
+            secrets = import ./secrets.nix;
+          };
+          modules = [
+            lix-module.nixosModules.default
+            ./hosts/wyvern
+            # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+            nixos-hardware.nixosModules.framework-11th-gen-intel
+          ];
+        };
+        dragon = lib.nixosSystem {
+          specialArgs = {
+            inherit inputs outputs;
+            # not actually super secret, just dont want it in a public repo
+            secrets = import ./secrets.nix;
+          };
+          modules = [
+            lix-module.nixosModules.default
+            ./hosts/dragon
+            # inputs.flake-programs-sqlite.nixosModules.programs-sqlite
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        "avery_the_dragon@wyvern" = lib.homeManagerConfiguration {
+          pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            pkgs-stable = import nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            # not actually super secret, just dont want it in a public repo
+            secrets = import ./secrets.nix;
+          };
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home/avery_the_dragon/wyvern.nix
+          ];
+        };
+        "avery_the_dragon@dragon" = lib.homeManagerConfiguration {
+          pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = {
+            inherit inputs outputs;
+            pkgs-stable = import nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            secrets = import ./secrets.nix;
           };
           # not actually super secret, just dont want it in a public repo
-          secrets = import ./secrets.nix;
+          modules = [
+            # > Our main home-manager configuration file <
+            ./home/avery_the_dragon/dragon.nix
+          ];
         };
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/avery_the_dragon/wyvern.nix
-        ];
-      };
-      "avery_the_dragon@dragon" = lib.homeManagerConfiguration {
-        pkgs = packages // pkgs; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {
-          inherit inputs outputs;
-          pkgs-stable = import nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-          secrets = import ./secrets.nix;
-        };
-        # not actually super secret, just dont want it in a public repo
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/avery_the_dragon/dragon.nix
-        ];
       };
     };
-  };
 }

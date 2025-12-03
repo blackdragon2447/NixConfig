@@ -1,7 +1,8 @@
 # This file defines overlays
-{inputs, ...}: {
+{ inputs, ... }:
+{
   # This one brings our custom packages from the 'pkgs' directory
-  additions = final: _prev: import ../pkgs {pkgs = final;};
+  additions = final: _prev: import ../pkgs { pkgs = final; };
 
   # This one contains whatever you want to overlay
   # You can change versions, add patches, set compilation flags, anything really.
@@ -13,22 +14,29 @@
     # python312Packages.dbus-next = prev.python312Packages.dbus-next.overrideAttrs (prev: {
     #   doCheck = false;
     # });
-    python312Packages =
-      prev.python312Packages
-      // {
-        dbus-next = prev.python312Packages.dbus-next.overrideAttrs (prev: {
-          doCheck = false;
-          doInstallCheck = false;
-          dontCheck = true;
-          disabledTests = ["test_sending_file_descriptor_low_level"] ++ prev.disabledTests;
-        });
-      };
+    python312Packages = prev.python312Packages // {
+      dbus-next = prev.python312Packages.dbus-next.overrideAttrs (prev: {
+        doCheck = false;
+        doInstallCheck = false;
+        dontCheck = true;
+        disabledTests = [ "test_sending_file_descriptor_low_level" ] ++ prev.disabledTests;
+      });
+    };
     pass-secret-service = prev.pass-secret-service.overrideAttrs (prev: {
       doCheck = false;
     });
     xwayland-satellite = prev.xwayland-satellite.overrideAttrs (prev: {
-      buildFeatures = prev.buildFeatures ++ ["systemd"];
+      buildFeatures = prev.buildFeatures ++ [ "systemd" ];
     });
+    # fish = prev.fish.overrideAttrs (_: rec {
+    #   version = "4.2.0";
+    #   src = prev.fetchFromGitHub {
+    #     owner = "fish-shell";
+    #     repo = "fish-shell";
+    #     tag = version;
+    #     hash = "sha256-bve82WLP/mZrGZNW9JZFCnFiEy1QNB9M8+r3OVh9E3w=";
+    #   };
+    # });
 
     # rofi-calc = prev.rofi-calc.override {rofi-unwrapped = prev.rofi-wayland-unwrapped;};
     # pinentry-rofi = prev.pinentry-rofi.override {rofi = prev.rofi-wayland;};

@@ -357,13 +357,14 @@
 
           neo-tree = {
             enable = true;
-            filesystem.followCurrentFile = {
-              enabled = true;
-              leaveDirsOpen = true;
-            };
-            buffers.followCurrentFile = {
-              enabled = true;
-              leaveDirsOpen = true;
+            settings = let
+              fcf = {
+                enabled = true;
+                leave_dirs_open = true;
+              };
+            in {
+              filesystem.follow_current_file = fcf;
+              buffers.follow_current_file = fcf;
             };
           };
 

@@ -3,10 +3,10 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   tex = pkgs.texlive.combine {
-    inherit
-      (pkgs.texlive)
+    inherit (pkgs.texlive)
       scheme-medium
       paper
       setspace
@@ -46,13 +46,16 @@
       ebgaramond
       svn-prov
       fontaxes
+      tkz-orm
+      rsfso
       biblatex-apa
       ;
     listings-rust = {
-      pkgs = [pkgs.listings-rust];
+      pkgs = [ pkgs.listings-rust ];
     };
   };
-in {
+in
+{
   config = lib.mkIf config.devenvs.tex.enable {
     home.packages = with pkgs; [
       tex

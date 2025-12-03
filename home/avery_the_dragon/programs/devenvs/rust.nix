@@ -4,9 +4,17 @@
   pkgs,
   secrets,
   ...
-}: {
+}:
+{
   config = lib.mkIf config.devenvs.rust.enable {
-    home.packages = with pkgs; [rustup clang mold cargo-expand cargo-mommy evcxr];
+    home.packages = with pkgs; [
+      rustup
+      clang
+      mold
+      cargo-expand
+      cargo-mommy
+      evcxr
+    ];
 
     programs.fish.interactiveShellInit = ''
       ${secrets.misc.cargo_mommy_cfg}

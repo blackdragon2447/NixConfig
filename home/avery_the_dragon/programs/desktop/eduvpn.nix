@@ -9,6 +9,6 @@
   };
 
   config = lib.mkIf config.desktop.eduvpn.enable {
-    home.packages = with pkgs; [eduvpn-client];
+    # home.packages = with pkgs; [eduvpn-client];
   };
 }

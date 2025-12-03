@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   imports = [
     ./fish.nix
     ./locale.nix
@@ -31,7 +32,8 @@
     SUBSYSTEM=="usb", ATTR{idVendor}=="1050", ATTR{idProduct}=="0407", ENV{ID_SECURITY_TOKEN}="1", GROUP="users"
   '';
 
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
+  services.fprintd.enable = false;
 
   services.pcscd.enable = true;
 
@@ -55,12 +57,4 @@
       "${XDG_BIN_HOME}"
     ];
   };
-
-  /*
-     security.pam.services.systemd-user.text = ''
-    auth optional pam_group.so
-
-    ${builtins.readFile "${pkgs.systemd}/etc/pam.d/systemd-user"}
-  '';
-  */
 }

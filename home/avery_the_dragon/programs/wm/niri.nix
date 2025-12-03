@@ -93,7 +93,7 @@
             "Mod+Shift+Comma".action = consume-window-into-column;
             "Mod+Shift+Period".action = expel-window-from-column;
 
-            "Mod+Shift+S".action = screenshot;
+            "Mod+Shift+S".action.screenshot = [];
 
             "Mod+Shift+Slash".action = show-hotkey-overlay;
             "Mod+O".action = toggle-overview;
