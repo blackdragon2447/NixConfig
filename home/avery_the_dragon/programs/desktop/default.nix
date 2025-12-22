@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./chat.nix
     ./firefox.nix
@@ -9,13 +10,14 @@
     ./eduvpn.nix
     ./libreoffice.nix
     ./freecad.nix
+    ./okular.nix
     ./zotero.nix
     ./vlc.nix
   ];
 
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-wlr];
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
     config = {
       common = {
         default = [

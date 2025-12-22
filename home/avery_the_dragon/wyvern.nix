@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./global
     ./programs
@@ -34,6 +35,7 @@
     eduvpn.enable = true;
     libreoffice.enable = true;
     freecad.enable = true;
+    okular.enable = true;
     vlc.enable = true;
     zotero.enable = true;
   };
@@ -73,7 +75,7 @@
           "custom/niri_workspaces"
           "custom/niri_window"
         ];
-        center = ["clock"];
+        center = [ "clock" ];
         right = [
           "memory"
           "cpu"

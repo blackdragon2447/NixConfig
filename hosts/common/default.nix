@@ -50,6 +50,7 @@
     GOPATH = "$XDG_DATA_HOME/go";
     GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
     GTK2_RC_FILES = "$XDG_CONFIG_HOME/gtk-2.0/gtkrc";
+    QT_SCALE_FACTOR = "1.4";
 
     # Not officially in the specification
     XDG_BIN_HOME = "$HOME/.local/bin";
