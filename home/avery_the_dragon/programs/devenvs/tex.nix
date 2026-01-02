@@ -48,6 +48,7 @@ let
       fontaxes
       tkz-orm
       rsfso
+      tcolorbox
       biblatex-apa
       ;
     listings-rust = {
