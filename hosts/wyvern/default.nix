@@ -2,7 +2,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
     ./hardware-configuration.nix
@@ -34,9 +35,9 @@
 
     hostName = "wyvern";
     hosts = {
-      "192.168.0.201" = ["hydra1.local"];
-      "192.168.0.202" = ["hydra2.local"];
-      "192.168.0.203" = ["hydra3.local"];
+      "192.168.0.201" = [ "hydra1.local" ];
+      "192.168.0.202" = [ "hydra2.local" ];
+      "192.168.0.203" = [ "hydra3.local" ];
     };
   };
 
@@ -57,6 +58,10 @@
 
       RUNTIME_PM_ON_AC = "auto";
     };
+  };
+
+  services.logind = {
+    powerKey = "suspend";
   };
 
   boot = {
@@ -82,7 +87,7 @@
   };
 
   users.groups = {
-    dialout = {};
+    dialout = { };
     avery_the_dragon = {
       gid = 1000;
     };

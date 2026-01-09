@@ -50,6 +50,10 @@
           path = "~/.config/git/git-gusted-ssh";
           condition = "hasconfig:remote.*.url:ssh://forgejo@git.gusted.xyz/*/**";
         }
+        {
+          path = "~/.config/git/codeberg-ssh";
+          condition = "hasconfig:remote.*.url:ssh://git@codeberg.org/*/**";
+        }
       ];
     };
 
@@ -77,6 +81,13 @@
       [user]
           email = "blackdragon2447@e.email"
           name = "avery"
+          signingkey = 9D001FB4DADDA597
+    '';
+
+    xdg.configFile."git/codeberg-ssh".text = ''
+      [user]
+          email = "blackdragon2447@e.email"
+          name = "avery_the_dragon"
           signingkey = 9D001FB4DADDA597
     '';
 

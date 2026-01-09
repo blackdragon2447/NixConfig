@@ -4,7 +4,8 @@
   config,
   secrets,
   ...
-}: {
+}:
+{
   options = {
     cli.ssh.enable = lib.mkEnableOption "Enable ssh options";
   };
@@ -56,6 +57,11 @@
           host = "git.gusted.xyz";
           identityFile = "~/.ssh/git-gusted";
           user = "forgejo";
+        };
+        tildegit = {
+          host = "codeberg.org";
+          identityFile = "~/.ssh/codeberg";
+          user = "git";
         };
 
         rattop = {
