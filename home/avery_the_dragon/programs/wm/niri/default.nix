@@ -46,12 +46,12 @@
     };
 
     xdg.portal.config.niri = {
-      default = [ "wlr" ];
+      default = [ "gtk" ];
       "org.freedesktop.impl.portal.Secret" = [ "pass-secret-service" ];
     };
 
     xdg.portal.config.niri-session = {
-      default = [ "wlr" ];
+      default = [ "gtk" ];
       "org.freedesktop.impl.portal.Secret" = [ "pass-secret-service" ];
     };
 

@@ -3,11 +3,13 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkIf;
   packageNames = map (p: p.pname or p.name or null) config.home.packages;
   hasPackage = name: lib.any (x: x == name) packageNames;
-in {
+in
+{
   options = {
     cli.fish.enable = lib.mkEnableOption "Enable fish options";
   };
@@ -47,6 +49,18 @@ in {
         bind \e\[3\;5~ kill-word
         bind \cH backward-kill-word
       '';
+
+      plugins = [
+        {
+          name = "done.fish";
+          src = pkgs.fetchFromGitHub {
+            owner = "franciscolourenco";
+            repo = "done";
+            rev = "998ad4f5fc9cee36c09840a7e635b56428e554f9";
+            hash = "sha256-GZ1ZpcaEfbcex6XvxOFJDJqoD9C5out0W4bkkn768r0=";
+          };
+        }
+      ];
     };
   };
 }
