@@ -5,7 +5,8 @@
   inputs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     ./lsp
   ];
@@ -14,7 +15,7 @@
     neovim.enable = lib.mkEnableOption "Enable Neovim";
     neovim.pdfview.wayland = lib.mkEnableOption "Enable wayland for nvim pdf viewer";
     neovim.sessions = lib.mkOption {
-      default = {};
+      default = { };
       defaultText = "{}";
       description = "Packages containing one or more session files for neovim";
       type = with lib.types; attrs;
@@ -24,10 +25,11 @@
     # };
   };
 
-  config = let
-    helpers = inputs.nixvim.lib.nixvim;
-    keymap = import ./keymap.nix helpers;
-  in
+  config =
+    let
+      helpers = inputs.nixvim.lib.nixvim;
+      keymap = import ./keymap.nix helpers;
+    in
     lib.mkIf config.neovim.enable {
       # Allow copying to the system clipboard
       home.packages = with pkgs; [
@@ -132,7 +134,7 @@
 
         autoCmd = [
           {
-            event = ["BufWritePre"];
+            event = [ "BufWritePre" ];
             command = "lua vim.lsp.buf.format()";
           }
         ];
@@ -159,6 +161,12 @@
           winwidth = 10;
           winminwidth = 10;
         };
+
+        filetype.extension = {
+          a16 = "aris16";
+        };
+
+        extraFiles."syntax/aris16.vim".source = ./syntax/aris16.vim;
 
         clipboard.register = "unnamedplus";
 
@@ -220,7 +228,7 @@
               globalstatus = false;
 
               sections = {
-                lualine_a = ["mode"];
+                lualine_a = [ "mode" ];
                 lualine_b = [
                   "branch"
                   "diff"
@@ -234,12 +242,12 @@
                   "encoding"
                   "fileformat"
                 ];
-                lualine_y = ["filetype"];
-                lualine_z = ["location"];
+                lualine_y = [ "filetype" ];
+                lualine_z = [ "location" ];
               };
 
               inactive_sections = {
-                lualine_a = [];
+                lualine_a = [ ];
                 lualine_b = [
                   "branch"
                   "diff"
@@ -253,8 +261,8 @@
                   "encoding"
                   "fileformat"
                 ];
-                lualine_y = ["filetype"];
-                lualine_z = [];
+                lualine_y = [ "filetype" ];
+                lualine_z = [ ];
               };
 
               icons_enabled = true;
@@ -307,17 +315,17 @@
               };
               layout.align = "center";
 
-              disable.ft = ["TelescopePrompt"];
+              disable.ft = [ "TelescopePrompt" ];
             };
           };
 
           /*
-             dap = {
-            enable = true;
-            extensions.dap-ui = {
+               dap = {
               enable = true;
+              extensions.dap-ui = {
+                enable = true;
+              };
             };
-          };
           */
 
           toggleterm = {
@@ -357,15 +365,17 @@
 
           neo-tree = {
             enable = true;
-            settings = let
-              fcf = {
-                enabled = true;
-                leave_dirs_open = true;
+            settings =
+              let
+                fcf = {
+                  enabled = true;
+                  leave_dirs_open = true;
+                };
+              in
+              {
+                filesystem.follow_current_file = fcf;
+                buffers.follow_current_file = fcf;
               };
-            in {
-              filesystem.follow_current_file = fcf;
-              buffers.follow_current_file = fcf;
-            };
           };
 
           gitsigns = {
@@ -455,7 +465,7 @@
 
           luasnip = {
             enable = true;
-            fromVscode = [{}];
+            fromVscode = [ { } ];
           };
           friendly-snippets.enable = true;
 
@@ -542,11 +552,11 @@
               };
 
               sources = [
-                {name = "nvim_lsp";}
-                {name = "nvim_lua";}
-                {name = "luasnip";}
-                {name = "buffer";}
-                {name = "path";}
+                { name = "nvim_lsp"; }
+                { name = "nvim_lua"; }
+                { name = "luasnip"; }
+                { name = "buffer"; }
+                { name = "path"; }
               ];
 
               window.documentation.border = "rounded";
@@ -592,22 +602,23 @@
           {
             plugin = knap;
             config =
-              if config.neovim.pdfview.wayland
-              then ''
-                 let g:knap_settings = {
-                    \ "texoutputext": "pdf",
-                    \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
-                    \ "textopdfviewerlaunch": "zathura %outputfile%",
-                \ }
-              ''
-              else ''
-                 let g:knap_settings = {
-                    \ "texoutputext": "pdf",
-                    \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
-                    \ "textopdfviewerlaunch": "mupdf %outputfile%",
-                    \ "textopdfviewerrefresh": "pkill -HUP mupdf"
-                \ }
-              '';
+              if config.neovim.pdfview.wayland then
+                ''
+                   let g:knap_settings = {
+                      \ "texoutputext": "pdf",
+                      \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+                      \ "textopdfviewerlaunch": "zathura %outputfile%",
+                  \ }
+                ''
+              else
+                ''
+                   let g:knap_settings = {
+                      \ "texoutputext": "pdf",
+                      \ "textopdf": "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+                      \ "textopdfviewerlaunch": "mupdf %outputfile%",
+                      \ "textopdfviewerrefresh": "pkill -HUP mupdf"
+                  \ }
+                '';
           }
         ];
       };

@@ -29,7 +29,7 @@ in
         # TODO: Hibernate etc
       };
       shellAliases = {
-        ls = "eza -la --icons";
+        ls = "eza -la";
         cat = "bat";
         grep = "rg";
         find = "fd";

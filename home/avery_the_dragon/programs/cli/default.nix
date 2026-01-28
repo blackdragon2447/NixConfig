@@ -2,7 +2,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     ./fish.nix
     ./bat.nix
@@ -20,13 +21,36 @@
   home.packages = with pkgs; [
     ripgrep
     fd
-    eza
     bat
     pfetch-rs
     jq
     man-pages
     man-pages-posix
   ];
+
+  programs.eza = {
+    enable = true;
+    enableFishIntegration = true;
+    icons = true;
+    theme = {
+      extensions = {
+        arf = {
+          filename = {
+            foreground = "Yellow";
+          };
+          icon = {
+            foreground = "Yellow";
+            glyph = "󰩃";
+          };
+        };
+        a16 = {
+          icon = {
+            glyph = "";
+          };
+        };
+      };
+    };
+  };
 
   cli = {
     fish.enable = lib.mkDefault true;
