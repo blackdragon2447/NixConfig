@@ -61,7 +61,7 @@
   };
 
   services.logind = {
-    powerKey = "suspend";
+    settings.Login.HandlePowerKey = "suspend";
   };
 
   boot = {

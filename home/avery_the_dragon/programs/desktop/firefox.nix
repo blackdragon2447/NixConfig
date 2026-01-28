@@ -5,7 +5,8 @@
   inputs,
   pkgs-stable,
   ...
-}: {
+}:
+{
   options = {
     desktop = {
       firefox.enable = lib.mkEnableOption "Enable Firefox";
@@ -18,7 +19,7 @@
     programs.librewolf = {
       enable = true;
 
-      package = pkgs-stable.librewolf;
+      # package = pkgs-stable.librewolf;
 
       policies = {
         DisableTelemetry = true;
@@ -62,7 +63,7 @@
                   ];
                 }
               ];
-              definedAliases = ["@mno"];
+              definedAliases = [ "@mno" ];
             };
             "Nix Packages" = {
               urls = [
@@ -77,10 +78,10 @@
                 }
               ];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@np"];
+              definedAliases = [ "@np" ];
             };
             "Nix Options" = {
-              definedAliases = ["@no"];
+              definedAliases = [ "@no" ];
               urls = [
                 {
                   template = "https://search.nixos.org/options";
@@ -95,7 +96,7 @@
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             };
             "Rust Docs" = {
-              definedAliases = ["@rs"];
+              definedAliases = [ "@rs" ];
               description = "A search engine for Rust";
               name = "Query.rs";
               urls = [
@@ -112,7 +113,8 @@
         };
 
         extensions.force = true;
-        extensions.packages = with inputs.firefox-addons.packages.${pkgs-stable.system};
+        extensions.packages =
+          with inputs.firefox-addons.packages.${pkgs-stable.system};
           [
             ublock-origin
             # lib.mkIf config.firefox.browserpass browserpass
@@ -130,9 +132,7 @@
             terms-of-service-didnt-read
           ]
           ++ (
-            if config.desktop.firefox.browserpass
-            then [inputs.packages.${pkgs.system}.browserpass]
-            else []
+            if config.desktop.firefox.browserpass then [ inputs.packages.${pkgs.system}.browserpass ] else [ ]
           );
 
         settings = {
@@ -144,10 +144,10 @@
     };
 
     xdg.mimeApps.defaultApplications = {
-      "text/html" = ["librewolf.desktop"];
-      "text/xml" = ["librewolf.desktop"];
-      "x-scheme-handler/http" = ["librewolf.desktop"];
-      "x-scheme-handler/https" = ["librewolf.desktop"];
+      "text/html" = [ "librewolf.desktop" ];
+      "text/xml" = [ "librewolf.desktop" ];
+      "x-scheme-handler/http" = [ "librewolf.desktop" ];
+      "x-scheme-handler/https" = [ "librewolf.desktop" ];
     };
   };
 }

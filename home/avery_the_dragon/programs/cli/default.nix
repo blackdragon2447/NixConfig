@@ -31,7 +31,7 @@
   programs.eza = {
     enable = true;
     enableFishIntegration = true;
-    icons = true;
+    icons = "auto";
     theme = {
       extensions = {
         arf = {

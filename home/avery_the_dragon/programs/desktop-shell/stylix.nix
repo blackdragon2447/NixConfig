@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   config = {
     stylix = {
       enable = true;
@@ -31,10 +32,12 @@
         librewolf = {
           enable = true;
           colorTheme.enable = true;
-          profileNames = ["avery_the_dragon"];
+          profileNames = [ "avery_the_dragon" ];
         };
 
         gtk.enable = true;
+
+        gnome.enable = false;
       };
     };
 
@@ -46,7 +49,7 @@
       };
     };
 
-    home.packages = with pkgs; [wpaperd];
+    home.packages = with pkgs; [ wpaperd ];
     xdg.configFile."wpaperd/config.toml".text = ''
       [default]
       mode = "center"
