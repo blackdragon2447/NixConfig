@@ -203,7 +203,10 @@
           };
 
           input = {
-            focus-follows-mouse.enable = true;
+            focus-follows-mouse = {
+              enable = true;
+              max-scroll-amount = "10%";
+            };
             keyboard.xkb = {
               layout = "nl";
               variant = "us";
