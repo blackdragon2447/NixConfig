@@ -26,24 +26,9 @@
         ++ (if config.wm.niri.playerControls then [ playerctl ] else [ ])
       );
 
-    # Xwayland?
-
     desktop-shell.xwayland.enable = lib.mkDefault true;
 
     desktop-shell.menu.screenShotCommand = lib.mkDefault "${pkgs.niri}/bin/niri msg action screenshot";
-
-    xdg.desktopEntries.discord-wayland = {
-      categories = [
-        "Network"
-        "InstantMessaging"
-      ];
-      exec = "${pkgs.cage}/bin/cage Discord";
-      genericName = "All-in-one cross-platform voice and text chat for gamers";
-      icon = "discord";
-      mimeType = [ "x-scheme-handler/discord" ];
-      name = "Discord (Wayland)";
-      type = "Application";
-    };
 
     xdg.portal.config.niri = {
       default = [ "gtk" ];
@@ -153,19 +138,15 @@
           prefer-no-csd = true;
           spawn-at-startup = [
             { command = [ "wpaperd" ]; }
-            {
-              command = [
-                "${pkgs.cage}/bin/cage"
-                "Discord"
-              ];
-            }
-            {
+            (lib.mkIf config.desktop-shell.xwayland.enable {
               command = [
                 "${pkgs.xwayland-satellite}/bin/xwayland-satellite"
                 ":37"
               ];
-            }
+            })
+            { command = [ "vesktop" ]; }
             { command = [ "dino" ]; }
+            { command = [ "signal-desktop" ]; }
             { command = [ "librewolf" ]; }
             { command = [ "thunderbird" ]; }
             {
@@ -237,15 +218,15 @@
 
           window-rules = [
             {
-              matches = [ { app-id = "firefox"; } ];
+              matches = [ { app-id = "librewolf"; } ];
               open-on-workspace = "󰈹 ";
             }
 
             {
               matches = [
-                { title = ".*Discord"; }
-                { app-id = "cinny"; }
-                { app-id = ".*nheko.*"; }
+                { title = "im.dino.Dino"; }
+                { title = "vesktop"; }
+                { title = "signal"; }
               ];
               open-on-workspace = " ";
             }
