@@ -1,8 +1,10 @@
 {
   lib,
   config,
+  pkgs-stable,
   ...
-}: {
+}:
+{
   options = {
     pipewire.enable = lib.mkEnableOption "enables pipewire";
   };
@@ -18,7 +20,10 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
-      wireplumber.enable = true;
+      wireplumber = {
+        enable = true;
+        package = pkgs-stable.wireplumber;
+      };
     };
   };
 }

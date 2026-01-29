@@ -86,6 +86,10 @@
         wyvern = lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
+            pkgs-stable = import nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
             # not actually super secret, just dont want it in a public repo
             secrets = import ./secrets.nix;
           };
@@ -99,6 +103,10 @@
         dragon = lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
+            pkgs-stable = import nixpkgs-stable {
+              inherit system;
+              config.allowUnfree = true;
+            };
             # not actually super secret, just dont want it in a public repo
             secrets = import ./secrets.nix;
           };
