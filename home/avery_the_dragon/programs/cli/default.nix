@@ -16,6 +16,7 @@
     ./zip.nix
     ./aspell.nix
     ./tealdeer.nix
+    ./nh.nix
   ];
 
   home.packages = with pkgs; [

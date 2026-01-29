@@ -17,6 +17,11 @@
     zip.enable = true;
     aspell.enable = true;
     tealdeer.enable = true;
+    nh = {
+      enable = true;
+      homeConfig = "avery_the_dragon@wyvern";
+      osConfig = "wyvern";
+    };
   };
 
   desktop = {
