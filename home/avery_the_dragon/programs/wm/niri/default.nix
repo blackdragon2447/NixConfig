@@ -229,6 +229,9 @@
                 { title = "signal"; }
               ];
               open-on-workspace = " ";
+              default-column-width = {
+                proportion = 0.50;
+              };
             }
 
             {
