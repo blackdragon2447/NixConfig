@@ -189,8 +189,7 @@
               max-scroll-amount = "10%";
             };
             keyboard.xkb = {
-              layout = "nl";
-              variant = "us";
+              layout = "pl";
               options = "caps:menu,lv3:ralt_switch_multikey";
             };
             touchpad = {
