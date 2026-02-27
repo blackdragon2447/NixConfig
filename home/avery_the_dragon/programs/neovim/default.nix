@@ -413,6 +413,7 @@
               toml
               vim
               vimdoc
+              pkgs.tree-sitter-grammars.tree-sitter-sml
             ];
 
             settings = {

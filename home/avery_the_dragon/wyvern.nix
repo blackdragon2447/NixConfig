@@ -19,8 +19,8 @@
     tealdeer.enable = true;
     nh = {
       enable = true;
-      homeConfig = "avery_the_dragon@wyvern";
-      osConfig = "wyvern";
+      # homeConfig = "avery_the_dragon@wyvern";
+      # osConfig = "wyvern";
     };
   };
 
